@@ -20,6 +20,7 @@ from datetime import datetime
 from typing import Dict, Tuple, Any
 import json
 import ssl
+import html
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -43,9 +44,9 @@ class Config:
     """Application configuration"""
     SMTP_SERVER = os.getenv('SMTP_SERVER', 'smtp.gmail.com')
     SMTP_PORT = int(os.getenv('SMTP_PORT', 587))
-    SMTP_USERNAME = os.getenv('SMTP_USERNAME', 'jayjarmacz@gmail.com')
-    SMTP_PASSWORD = os.getenv('SMTP_PASSWORD', '')  # Set via environment variable
-    RECIPIENT_EMAIL = os.getenv('RECIPIENT_EMAIL', 'jayjarmacz@gmail.com')
+    SMTP_USERNAME = os.getenv('SMTP_USERNAME')
+    SMTP_PASSWORD = os.getenv('SMTP_PASSWORD')
+    RECIPIENT_EMAIL = os.getenv('RECIPIENT_EMAIL')
     SECRET_KEY = os.getenv('SECRET_KEY', 'dev-secret-key-change-in-production')
     ALLOWED_ORIGINS = os.getenv(
         'ALLOWED_ORIGINS',
@@ -53,6 +54,15 @@ class Config:
     ).split(',')
 
 app.config.from_object(Config)
+
+# Validate critical configuration in production
+if not os.getenv('DEBUG', 'False').lower() == 'true':
+    if not app.config['SMTP_USERNAME']:
+        logger.warning("SMTP_USERNAME not configured - email functionality disabled")
+    if not app.config['SMTP_PASSWORD']:
+        logger.warning("SMTP_PASSWORD not configured - email functionality disabled")
+    if not app.config['RECIPIENT_EMAIL']:
+        logger.warning("RECIPIENT_EMAIL not configured - email functionality disabled")
 
 # Enable CORS with explicit origins
 CORS(
@@ -84,23 +94,27 @@ def validate_email(email: str) -> bool:
 def sanitize_input(text: str, max_length: int = 1000) -> str:
     """
     Sanitize user input to prevent XSS and injection attacks
-    
+
     Args:
         text: Input text to sanitize
         max_length: Maximum allowed length
-        
-    Returns:
-        str: Sanitized text
-    """
-    # Remove any HTML tags
-    if len(str) > 1000:
-    raise ValueError("Input too long")
 
-    match = re.search(r'^(\+|-)?(\d+|(\d*\.\d*))?(E|e)?([-+])?(\d+)?$', str) 
+    Returns:
+        str: Sanitized text with HTML entities escaped
+    """
+    # Check length before processing
+    if len(text) > max_length:
+        raise ValueError(f"Input exceeds maximum length of {max_length}")
+
     # Limit length
     text = text[:max_length]
+
     # Strip leading/trailing whitespace
     text = text.strip()
+
+    # Escape HTML entities to prevent XSS
+    text = html.escape(text)
+
     return text
 
 def validate_contact_form(data: Dict[str, Any]) -> Tuple[bool, str]:
@@ -216,7 +230,14 @@ def format_contact_email(data: Dict[str, Any]) -> Tuple[str, str]:
     }
     
     engagement_label = engagement_labels.get(data['engagement'], data['engagement'])
-    
+
+    # Sanitize all user inputs (HTML entities are escaped)
+    safe_name = sanitize_input(data['name'])
+    safe_email = sanitize_input(data['email'])
+    safe_organization = sanitize_input(data.get('organization', 'Not provided'))
+    # For message: sanitize first (escapes HTML), then convert newlines to <br> tags
+    safe_message = sanitize_input(data['message'], 5000).replace('\n', '<br>')
+
     html_body = f"""
     <!DOCTYPE html>
     <html>
@@ -268,15 +289,15 @@ def format_contact_email(data: Dict[str, Any]) -> Tuple[str, str]:
             <div class="content">
                 <div class="field">
                     <div class="field-label">Name</div>
-                    <div class="field-value">{sanitize_input(data['name'])}</div>
+                    <div class="field-value">{safe_name}</div>
                 </div>
                 <div class="field">
                     <div class="field-label">Email</div>
-                    <div class="field-value">{sanitize_input(data['email'])}</div>
+                    <div class="field-value">{safe_email}</div>
                 </div>
                 <div class="field">
                     <div class="field-label">Organization</div>
-                    <div class="field-value">{sanitize_input(data.get('organization', 'Not provided'))}</div>
+                    <div class="field-value">{safe_organization}</div>
                 </div>
                 <div class="field">
                     <div class="field-label">Engagement Type</div>
@@ -284,7 +305,7 @@ def format_contact_email(data: Dict[str, Any]) -> Tuple[str, str]:
                 </div>
                 <div class="field">
                     <div class="field-label">Message</div>
-                    <div class="field-value">{sanitize_input(data['message'], 5000).replace(chr(10), '<br>')}</div>
+                    <div class="field-value">{safe_message}</div>
                 </div>
                 <p style="color: #6c757d; font-size: 14px; margin-top: 30px;">
                     Submitted on {datetime.now().strftime('%B %d, %Y at %I:%M %p')}
@@ -297,15 +318,15 @@ def format_contact_email(data: Dict[str, Any]) -> Tuple[str, str]:
     
     text_body = f"""
     New Contact Form Submission - jarmacz.com
-    
-    Name: {sanitize_input(data['name'])}
-    Email: {sanitize_input(data['email'])}
-    Organization: {sanitize_input(data.get('organization', 'Not provided'))}
+
+    Name: {safe_name}
+    Email: {safe_email}
+    Organization: {safe_organization}
     Engagement Type: {engagement_label}
-    
+
     Message:
     {sanitize_input(data['message'], 5000)}
-    
+
     Submitted on {datetime.now().strftime('%B %d, %Y at %I:%M %p')}
     """
     
