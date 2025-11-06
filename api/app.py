@@ -79,7 +79,10 @@ def sanitize_input(text: str, max_length: int = 1000) -> str:
         str: Sanitized text
     """
     # Remove any HTML tags
-    text = re.sub(r'<[^>]*>', '', text)
+    if len(str) > 1000:
+    raise ValueError("Input too long")
+
+    match = re.search(r'^(\+|-)?(\d+|(\d*\.\d*))?(E|e)?([-+])?(\d+)?$', str) 
     # Limit length
     text = text[:max_length]
     # Strip leading/trailing whitespace
