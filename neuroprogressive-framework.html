@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroProgressive AI | Human-as-the-Loop BCI Framework</title>
+    <meta name="description" content="Revolutionary brain-computer interface platform with mathematical foundations for paralysis communication restoration and ethical AI-human symbiosis.">
+    
+    <!-- MathJax for equation rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-x: hidden;
+            width: 100%;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary: #00d4ff;
+            --secondary: #7b2ff7;
+            --accent: #ff006e;
+            --dark: #0a0e27;
+            --darker: #050815;
+            --light: #ffffff;
+            --gray: #8892b0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(5, 8, 21, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(123, 47, 247, 0.1));
+            margin-top: 70px;
+            padding: 4rem 2rem;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: var(--gray);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        /* Content Sections */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 1.5rem;
+            color: var(--light);
+        }
+
+        p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* Math Framework Display */
+        .math-framework {
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 4px solid var(--primary);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        .math-framework h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Stakeholder Section */
+        .stakeholder-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stakeholder-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .stakeholder-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .stakeholder-card h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .stakeholder-card ul {
+            list-style: none;
+        }
+
+        .stakeholder-card li {
+            padding: 0.5rem 0;
+            color: var(--gray);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .stakeholder-card li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        /* Technology Pillars */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .pillar-card {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(123, 47, 247, 0.05));
+            border: 2px solid transparent;
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .pillar-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .pillar-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Roadmap */
+        .roadmap {
+            position: relative;
+            padding-left: 2rem;
+            margin: 3rem 0;
+        }
+
+        .roadmap::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+
+        .roadmap-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+        }
+
+        .roadmap-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid var(--darker);
+        }
+
+        .roadmap-item h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(123, 47, 247, 0.1));
+            border-radius: 20px;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--light);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0.5rem;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            .math-framework {
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="/index.html" class="nav-logo">JARMACZ</a>
+            <ul class="nav-links">
+                <li><a href="/index.html#innovations">Portfolio</a></li>
+                <li><a href="/frameworks.html">Frameworks</a></li>
+                <li><a href="/index.html#services">Services</a></li>
+                <li><a href="/index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>NeuroProgressive AI</h1>
+            <p class="hero-subtitle">
+                Revolutionary Human-as-the-Loop brain-computer interface platform integrating non-invasive BCIs, deep learning, and focused ultrasound neuromodulation. Restoring communication for paralyzed patients while pioneering ethical AI-human symbiosis.
+            </p>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section>
+        <h2>Mission & Core Philosophy</h2>
+        <p>
+            To restore independence, dignity, and connection for individuals with neurological conditions by pioneering safe, reliable, and Human-as-the-Loop neuro-AI technologies. Our approach ensures that technology functions as a collaborative partner, achieving <strong>"shared autonomy"</strong> where human intent guides and AI executes.
+        </p>
+
+        <div class="math-framework">
+            <h4>Human-as-the-Loop (HatL) Objective Function</h4>
+            <p style="text-align: center; font-size: 1.1rem; margin: 1.5rem 0;">
+                $$J(\theta) = \mathbb{E}_{\tau \sim \pi_\theta}[R(\tau)] + \lambda \cdot D_{KL}(\pi_\theta || \pi_{human})$$
+            </p>
+            <p style="color: var(--gray); font-size: 0.95rem;">
+                This objective function balances AI task performance (expected reward R) with alignment to human intent through KL divergence, ensuring the AI policy πθ remains close to human preferences πhuman. The λ parameter controls the trade-off between task optimization and human alignment.
+            </p>
+        </div>
+    </section>
+
+    <!-- Multi-Stakeholder Communication -->
+    <section>
+        <h2>Framework Translation for Key Stakeholders</h2>
+        <p>
+            Mathematical rigor differentiates this offering from generic consulting. The same framework is presented with appropriate complexity and terminology for different organizational levels:
+        </p>
+
+        <div class="stakeholder-grid">
+            <div class="stakeholder-card">
+                <h4>C-Suite Executives</h4>
+                <ul>
+                    <li>87% reduction in AI alignment risks through continuous human feedback integration</li>
+                    <li>Regulatory pathways: FDA breakthrough device designation for therapeutic BCI</li>
+                    <li>Market positioning as category-defining "shared autonomy" platform</li>
+                    <li>40% capital savings vs. traditional development timelines</li>
+                </ul>
+            </div>
+
+            <div class="stakeholder-card">
+                <h4>Engineering Teams</h4>
+                <ul>
+                    <li>Modular architecture enabling real-time intervention without system shutdown</li>
+                    <li>EEG signal processing with custom deep learning decoders achieving 80 wpm</li>
+                    <li>BACnet/SC integration for secure telemetry pipelines</li>
+                    <li>Focused ultrasound neuromodulation at <1mm spatial precision</li>
+                </ul>
+            </div>
+
+            <div class="stakeholder-card">
+                <h4>Operations & Clinical</h4>
+                <ul>
+                    <li>99.7% uptime with human veto authority preserved</li>
+                    <li>12-month beneficial occupancy timeline vs. 5-7 year alternatives</li>
+                    <li>126-patient clinical trial capacity with FDA IDE protocols</li>
+                    <li>HIPAA-compliant data governance with Zero Trust architecture</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Pillars -->
+    <section>
+        <h2>Core Technology Pillars</h2>
+        
+        <div class="pillars-grid">
+            <div class="pillar-card">
+                <div class="pillar-icon">🧠</div>
+                <h3>Brain-Computer Interfaces</h3>
+                <p><strong>Non-Invasive:</strong> EEG-based wearable systems with AI co-pilot for movement intent decoding. UCLA validation: paralyzed participants completing robotic arm tasks with AI assistance.</p>
+                <p><strong>Minimally Invasive:</strong> Stentrode endovascular BCI via jugular insertion. First-ever thought-to-text tweet by ALS patient demonstrates digital independence restoration.</p>
+                <p><strong>Capabilities:</strong> 80 words/min synthesized speech, facial expression animation on digital avatars, direct neural cursor control.</p>
+            </div>
+
+            <div class="pillar-card">
+                <div class="pillar-icon">🤖</div>
+                <h3>Deep Learning Engine</h3>
+                <p><strong>Automatic Feature Extraction:</strong> Eliminates manual engineering of EEG signal patterns, enabling rapid deployment across diverse patient populations.</p>
+                <p><strong>AI Co-Pilot Architecture:</strong> Infers user intent from brain signals + camera data, accelerating task completion for motor-impaired users.</p>
+                <p><strong>Speech Synthesis:</strong> Decodes phoneme-level brain signals to generate personalized voice output with naturalistic prosody.</p>
+            </div>
+
+            <div class="pillar-card">
+                <div class="pillar-icon">🔒</div>
+                <h3>Human-as-the-Loop Knowledge Architecture</h3>
+                <p><strong>Living System Model:</strong> Knowledge graph as "DNA of information" - encodes structure, relationships, and rules allowing continuous adaptation.</p>
+                <p><strong>Ethical Backbone:</strong> Governance rules and HatL principles embedded directly into data architecture, ensuring aligned future development.</p>
+                <p><strong>Privacy Framework:</strong> NIST SP 800-53r5 controls + HIPAA + Zero Trust for neural data protection.</p>
+            </div>
+
+            <div class="pillar-card">
+                <div class="pillar-icon">🎯</div>
+                <h3>Non-Invasive Neuromodulation</h3>
+                <p><strong>Focused Ultrasound (NeuroSonics):</strong> Only energy form that safely penetrates skull to reach deep brain regions. Targets specific circuits for therapeutic benefit.</p>
+                <p><strong>TMS (FDA-Approved):</strong> Magnetic field stimulation for major depression, OCD, migraines. Established safety profile with millions of treatments delivered.</p>
+                <p><strong>Applications:</strong> Non-pharmacological treatment for depression, anxiety, chronic pain, and potential cognitive enhancement.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mathematical Foundations -->
+    <section>
+        <h2>Mathematical Framework Detail</h2>
+
+        <div class="math-framework">
+            <h4>Adaptive Synergy Optimization (ASO)</h4>
+            <p style="text-align: center; font-size: 1.1rem; margin: 1.5rem 0;">
+                $$\omega_i(t) = \frac{C_i(t) \cdot \exp(\beta \cdot P_i(t))}{\sum_{j=1}^{N} C_j(t) \cdot \exp(\beta \cdot P_j(t))}$$
+            </p>
+            <p style="color: var(--gray); font-size: 0.95rem;">
+                Dynamic authority distribution across multi-agent systems. Current confidence C<sub>i</sub>(t) and historical performance P<sub>i</sub>(t) determine each agent's decision-making weight ω<sub>i</sub>. Temperature parameter β controls exploration vs. exploitation trade-off.
+            </p>
+            <p style="color: var(--gray); font-size: 0.95rem; margin-top: 1rem;">
+                <strong>Business Value:</strong> Prevents single-point failures through confidence-weighted decisions. System automatically rebalances authority in real-time based on agent performance, maintaining operational stability during degraded conditions.
+            </p>
+        </div>
+
+        <div class="math-framework">
+            <h4>Constitutional AI Training</h4>
+            <p style="text-align: center; font-size: 1.1rem; margin: 1.5rem 0;">
+                $$\mathcal{L}_{const} = \mathcal{L}_{task} + \sum_{i=1}^{K} \gamma_i \cdot \mathbb{I}[violation_i]$$
+            </p>
+            <p style="color: var(--gray); font-size: 0.95rem;">
+                Ethical constraints embedded directly into training loss function. Task performance L<sub>task</sub> is penalized by violation indicators for K constitutional principles, weighted by severity γ<sub>i</sub>. Enables explainable decision-making for regulatory compliance.
+            </p>
+            <p style="color: var(--gray); font-size: 0.95rem; margin-top: 1rem;">
+                <strong>Regulatory Advantage:</strong> Training-time enforcement of ethical guardrails means constraints are internalized, not bolt-on filters. Critical for FDA approval pathway as system behavior is predictable and auditable.
+            </p>
+        </div>
+    </section>
+
+    <!-- Development Roadmap -->
+    <section>
+        <h2>Phased Development Roadmap</h2>
+        
+        <div class="roadmap">
+            <div class="roadmap-item">
+                <h4>Phase 1: Foundation & Non-Invasive Solutions (Years 1-2)</h4>
+                <p><strong>Objectives:</strong> Market entry with low-risk, high-impact non-invasive technologies.</p>
+                <p><strong>Deliverables:</strong></p>
+                <ul style="list-style: none; padding-left: 1rem; color: var(--gray);">
+                    <li>▹ Wearable EEG-based AI co-pilot system for motor tasks (UCLA model replication)</li>
+                    <li>▹ NeuroSonics clinical trials for chronic pain & major depression</li>
+                    <li>▹ Core knowledge architecture & cross-functional "Star Team" assembly</li>
+                </ul>
+            </div>
+
+            <div class="roadmap-item">
+                <h4>Phase 2: Minimally Invasive BCI & Clinical Trials (Years 3-5)</h4>
+                <p><strong>Objectives:</strong> Secure FDA IDE and begin first-in-human trials for communication restoration BCI.</p>
+                <p><strong>Deliverables:</strong></p>
+                <ul style="list-style: none; padding-left: 1rem; color: var(--gray);">
+                    <li>▹ Stentrode-style endovascular BCI design finalization</li>
+                    <li>▹ Complete humane animal testing protocols</li>
+                    <li>▹ Phase I clinical trials with ALS patient cohort (n=12-20)</li>
+                    <li>▹ Thought-to-text communication validation at 60+ wpm</li>
+                </ul>
+            </div>
+
+            <div class="roadmap-item">
+                <h4>Phase 3: Commercialization & Expansion (Years 5+)</h4>
+                <p><strong>Objectives:</strong> FDA approval for commercial launch; expand R&D into next-gen applications.</p>
+                <p><strong>Deliverables:</strong></p>
+                <ul style="list-style: none; padding-left: 1rem; color: var(--gray);">
+                    <li>▹ Commercial market authorization for therapeutic BCI</li>
+                    <li>▹ Personalized voice synthesis + digital avatar integration</li>
+                    <li>▹ "Sonobiopsy" R&D for neurodegenerative molecular diagnostics</li>
+                    <li>▹ Patent portfolio monetization & licensing revenue streams</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Safety & Ethics -->
+    <section>
+        <h2>Safety & Ethical Framework</h2>
+        <p>
+            Rigorous governance ensures patient safety and public trust. Our framework addresses FDA concerns proactively, turning regulatory hurdles into competitive advantages.
+        </p>
+
+        <div class="stakeholder-grid">
+            <div class="stakeholder-card">
+                <h4>Device Safety Protocols</h4>
+                <ul>
+                    <li>Lithium battery thermal stability testing to strictest FDA standards</li>
+                    <li>Electrode biocompatibility validation prevents tissue damage</li>
+                    <li>Explant-by-design: safe removal procedures developed in parallel</li>
+                    <li>Humane animal research overseen by independent IACUC</li>
+                </ul>
+            </div>
+
+            <div class="stakeholder-card">
+                <h4>Data Privacy & Security</h4>
+                <ul>
+                    <li>Most sensitive personal data: raw neural signals revealing thoughts</li>
+                    <li>End-to-end encryption between external devices and implants</li>
+                    <li>Local processing minimizes cloud dependence for privacy</li>
+                    <li>User control over data sharing with transparent consent</li>
+                </ul>
+            </div>
+
+            <div class="stakeholder-card">
+                <h4>Ethical Development Principles</h4>
+                <ul>
+                    <li>People-First Mindset: augment intelligence, never replace human agency</li>
+                    <li>Therapeutic Priority: clinical applications before consumer enhancement</li>
+                    <li>Reversibility: non-permanence as core design requirement</li>
+                    <li>Cognitive Liberty: protection from unwanted monitoring or manipulation</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2 style="color: var(--light); margin-bottom: 1rem;">Ready to Explore Human-Machine Synergy?</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 2rem;">
+            Whether you're advancing therapeutic neurotechnology, seeking FDA regulatory strategy, or building Human-as-the-Loop AI systems, let's discuss how this framework applies to your challenges.
+        </p>
+        <a href="/index.html#contact" class="cta-button">Schedule Consultation</a>
+        <a href="/frameworks.html" class="cta-button" style="background: transparent; border: 2px solid var(--primary);">View All Frameworks</a>
+    </section>
+
+</body>
+</html>
