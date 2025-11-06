@@ -9,339 +9,19 @@
     <!-- MathJax for equation rendering -->
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #00d4ff;
-            --secondary: #7b2ff7;
-            --accent: #ff006e;
-            --dark: #0a0e27;
-            --darker: #050815;
-            --light: #ffffff;
-            --gray: #8892b0;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: var(--darker);
-            color: var(--light);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(5, 8, 21, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-brand {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--gray);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        /* Hero Section */
-        .hero {
-            margin-top: 80px;
-            padding: 6rem 2rem 4rem;
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(123, 47, 247, 0.05));
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.1rem, 2vw, 1.5rem);
-            color: var(--gray);
-            max-width: 900px;
-            margin: 0 auto 2rem;
-        }
-
-        .tag-group {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .tag {
-            background: rgba(0, 212, 255, 0.1);
-            border: 1px solid var(--primary);
-            padding: 0.5rem 1.5rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: var(--primary);
-        }
-
-        /* Content Sections */
-        section {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 2rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        h3 {
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            color: var(--primary);
-            margin: 2rem 0 1rem;
-        }
-
-        h4 {
-            font-size: 1.3rem;
-            color: var(--light);
-            margin: 1.5rem 0 1rem;
-        }
-
-        p {
-            color: var(--gray);
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        /* Framework Cards */
-        .framework-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .framework-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .framework-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
-        }
-
-        /* Mathematical Framework Display */
-        .math-framework {
-            background: rgba(255, 255, 255, 0.02);
-            border-left: 4px solid var(--primary);
-            padding: 2rem;
-            margin: 2rem 0;
-            border-radius: 8px;
-        }
-
-        .math-framework h4 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        /* Technical Specs */
-        .tech-specs {
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(123, 47, 247, 0.05));
-            border-radius: 16px;
-            padding: 3rem;
-            margin: 3rem 0;
-        }
-
-        .spec-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .spec-item {
-            text-align: center;
-        }
-
-        .spec-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            display: block;
-        }
-
-        .spec-label {
-            font-size: 0.9rem;
-            color: var(--gray);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Timeline */
-        .timeline {
-            position: relative;
-            padding-left: 3rem;
-            margin: 3rem 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 2px;
-            background: linear-gradient(180deg, var(--primary), var(--secondary));
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 3rem;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -3.5rem;
-            top: 0;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--primary);
-            border: 3px solid var(--darker);
-        }
-
-        .timeline-phase {
-            font-size: 1.2rem;
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        /* CTA Button */
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--light);
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            margin-top: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
-        }
-
-        /* Highlight Boxes */
-        .highlight-box {
-            background: rgba(0, 212, 255, 0.05);
-            border-left: 4px solid var(--primary);
-            padding: 1.5rem;
-            margin: 2rem 0;
-            border-radius: 8px;
-        }
-
-        .highlight-box.warning {
-            border-left-color: var(--accent);
-            background: rgba(255, 0, 110, 0.05);
-        }
-
-        .highlight-box.success {
-            border-left-color: #00ff88;
-            background: rgba(0, 255, 136, 0.05);
-        }
-
-        /* List Styling */
-        ul, ol {
-            margin-left: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        li {
-            color: var(--gray);
-            margin-bottom: 0.5rem;
-            line-height: 1.8;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            section {
-                padding: 3rem 1rem;
-            }
-
-            .hero {
-                padding: 4rem 1rem 2rem;
-            }
-
-            .timeline {
-                padding-left: 2rem;
-            }
-
-            .timeline-item::before {
-                left: -2.5rem;
-            }
-        }
-    </style>
+    
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/utilities.css">
+    <link rel="stylesheet" href="styles/neuroprogressive.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="nav-brand">JARMACZ</a>
+            <a href="index.html" class="nav-brand" aria-label="Jason Jarmacz home">
+                <img src="images/1000002043.jpg" alt="Jason Jarmacz logo" class="site-logo">
+                <span class="logo-text">JARMACZ</span>
+            </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#innovations">Projects</a></li>
@@ -362,6 +42,9 @@
             <span class="tag">Non-Invasive BCI</span>
             <span class="tag">Focused Ultrasound</span>
             <span class="tag">Human-as-the-Loop</span>
+        </div>
+        <div class="cta-group">
+            <a class="btn btn-primary" href="docs/NeuroProgressive_AI.pdf" download>Download Full NeuroProgressive Dossier</a>
         </div>
     </section>
 
@@ -389,7 +72,7 @@
         <div class="math-framework">
             <h4>Human-as-the-Loop (HatL) Objective Function</h4>
             <p>The objective function balances AI task performance with alignment to human intent:</p>
-            <p style="text-align: center; font-size: 1.2rem; margin: 2rem 0;">
+            <p class="u-tex-center-fon-1-2rem-mar-2rem-0">
                 $$J(\theta) = \mathbb{E}_{\tau \sim \pi_\theta}[R(\tau)] + \lambda \cdot D_{KL}(\pi_\theta || \pi_{human})$$
             </p>
             <p><strong>Where:</strong></p>
@@ -398,7 +81,7 @@
                 <li>\( D_{KL}(\pi_\theta || \pi_{human}) \) = KL divergence between AI policy and human behavioral policy</li>
                 <li>\( \lambda \) = Hyperparameter controlling alignment strength</li>
             </ul>
-            <p style="margin-top: 1.5rem;"><strong>Industry Translation:</strong></p>
+            <p class="u-mar-1-5rem"><strong>Industry Translation:</strong></p>
             <ul>
                 <li><strong>C-Suite:</strong> Reduces AI alignment risks by 87% through continuous human feedback integration, protecting against catastrophic failures and reputational damage</li>
                 <li><strong>Engineering:</strong> Modular architecture enabling real-time human intervention without system shutdown; supports A/B testing of human feedback mechanisms</li>
@@ -409,7 +92,7 @@
         <div class="math-framework">
             <h4>Adaptive Synergy Optimization (ASO)</h4>
             <p>Dynamic authority distribution across multi-agent systems based on confidence and historical performance:</p>
-            <p style="text-align: center; font-size: 1.2rem; margin: 2rem 0;">
+            <p class="u-tex-center-fon-1-2rem-mar-2rem-0">
                 $$\omega_i(t) = \frac{C_i(t) \cdot \exp(\beta \cdot P_i(t))}{\sum_{j=1}^{N} C_j(t) \cdot \exp(\beta \cdot P_j(t))}$$
             </p>
             <p><strong>Where:</strong></p>
@@ -420,7 +103,7 @@
                 <li>\( \beta \) = Temperature parameter for performance sensitivity</li>
                 <li>\( N \) = Total number of agents in the system</li>
             </ul>
-            <p style="margin-top: 1.5rem;"><strong>Business Value:</strong></p>
+            <p class="u-mar-1-5rem"><strong>Business Value:</strong></p>
             <ul>
                 <li>Confidence-weighted decision making prevents single-point failures</li>
                 <li>Historical performance integration improves long-term optimization</li>
@@ -432,7 +115,7 @@
         <div class="math-framework">
             <h4>Constitutional AI Loss Function</h4>
             <p>Embedding ethical constraints directly into training objectives:</p>
-            <p style="text-align: center; font-size: 1.2rem; margin: 2rem 0;">
+            <p class="u-tex-center-fon-1-2rem-mar-2rem-0">
                 $$\mathcal{L}_{const} = \mathcal{L}_{task} + \sum_{i=1}^{K} \gamma_i \cdot \mathbb{I}[violation_i]$$
             </p>
             <p><strong>Where:</strong></p>
@@ -442,7 +125,7 @@
                 <li>\( \gamma_i \) = Penalty weight for violating principle \( i \)</li>
                 <li>\( K \) = Total number of constitutional principles</li>
             </ul>
-            <p style="margin-top: 1.5rem;"><strong>Regulatory & Ethical Guardrails:</strong></p>
+            <p class="u-mar-1-5rem"><strong>Regulatory & Ethical Guardrails:</strong></p>
             <ul>
                 <li>Principle violations incur immediate training penalties during gradient descent</li>
                 <li>Scales from simple content policies to complex multi-stakeholder value alignment</li>
@@ -725,22 +408,22 @@
     </section>
 
     <!-- Call to Action -->
-    <section style="text-align: center; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(123, 47, 247, 0.1)); padding: 4rem 2rem; border-radius: 20px;">
+    <section class="u-tex-center-bac-linear-g-pad-4rem-2-bor">
         <h2>Join the NeuroProgressive Revolution</h2>
-        <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem;">Whether you're pioneering clinical implementations, seeking strategic partnerships, or exploring investment opportunities in ethical AI-human symbiosis—let's make history together.</p>
+        <p class="u-fon-1-2rem-max-mar-0-auto">Whether you're pioneering clinical implementations, seeking strategic partnerships, or exploring investment opportunities in ethical AI-human symbiosis—let's make history together.</p>
         
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <div class="u-dis-flex-gap-jus-fle-2">
             <a href="mailto:jayjarmacz@gmail.com?subject=NeuroProgressive%20AI%20Partnership%20Inquiry" class="cta-button">Partner With Us</a>
-            <a href="index.html#contact" class="cta-button" style="background: rgba(255, 255, 255, 0.1);">Schedule Consultation</a>
+            <a class="u-bac-rgba-255-2 cta-button" href="index.html#contact" >Schedule Consultation</a>
         </div>
     </section>
 
-    <footer style="text-align: center; padding: 2rem; color: var(--gray); border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 4rem;">
+    <footer class="u-tex-center-pad-2rem-col-gray-bor-mar-4rem">
         <p>&copy; 2025 Jason Jarmacz | NeuroProgressive AI Evolution Strategist</p>
-        <p style="font-size: 0.9rem; margin-top: 0.5rem;">
-            <a href="mailto:jayjarmacz@gmail.com" style="color: var(--primary); text-decoration: none;">jayjarmacz@gmail.com</a> | 
+        <p class="u-fon-0-9rem-mar-0-5rem">
+            <a class="u-col-primary-tex" href="mailto:jayjarmacz@gmail.com">jayjarmacz@gmail.com</a> | 
             (917) 566-8112 | 
-            <a href="https://linkedin.com/in/omniunum" target="_blank" style="color: var(--primary); text-decoration: none;">LinkedIn</a>
+            <a class="u-col-primary-tex" href="https://linkedin.com/in/omniunum" target="_blank">LinkedIn</a>
         </p>
     </footer>
 </body>

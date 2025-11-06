@@ -9,246 +9,10 @@
     <!-- MathJax for equation rendering -->
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            overflow-x: hidden;
-            width: 100%;
-        }
-
-        :root {
-            --primary: #00d4ff;
-            --secondary: #7b2ff7;
-            --accent: #ff006e;
-            --dark: #0a0e27;
-            --darker: #050815;
-            --light: #ffffff;
-            --gray: #8892b0;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: var(--darker);
-            color: var(--light);
-            line-height: 1.6;
-            overflow-x: hidden;
-            width: 100%;
-            max-width: 100vw;
-        }
-
-        /* Hero Section */
-        .hero {
-            position: relative;
-            padding: 8rem 2rem 4rem;
-            text-align: center;
-            background: linear-gradient(180deg, rgba(0,212,255,0.1) 0%, rgba(5,8,21,0) 100%);
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.1rem, 2vw, 1.5rem);
-            color: var(--gray);
-            max-width: 900px;
-            margin: 0 auto 2rem;
-        }
-
-        /* Section Styling */
-        section {
-            padding: 4rem 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 2rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        h3 {
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-
-        h4 {
-            font-size: clamp(1.2rem, 2vw, 1.5rem);
-            color: var(--light);
-            margin-bottom: 1rem;
-        }
-
-        /* Service Cards */
-        .service-category {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(0,212,255,0.2);
-            border-radius: 16px;
-            padding: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 3rem;
-        }
-
-        .service-category.purple {
-            border-color: rgba(123,47,247,0.2);
-        }
-
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .service-card {
-            background: rgba(255,255,255,0.05);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            box-shadow: 0 10px 30px rgba(0,212,255,0.2);
-        }
-
-        .service-card ul {
-            color: var(--gray);
-            line-height: 1.8;
-            margin: 1rem 0 1.5rem 1.5rem;
-        }
-
-        .service-card li {
-            margin-bottom: 0.5rem;
-        }
-
-        .price-box {
-            margin-top: 1.5rem;
-            padding: 1.5rem;
-            background: linear-gradient(135deg, rgba(0,212,255,0.1), rgba(123,47,247,0.1));
-            border-left: 4px solid var(--primary);
-            border-radius: 8px;
-        }
-
-        .price-label {
-            color: var(--light);
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .price-value {
-            color: var(--primary);
-            font-size: 1.5rem;
-            font-weight: 900;
-            margin-bottom: 0.5rem;
-        }
-
-        .price-note {
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-
-        /* Highlight Box */
-        .highlight-box {
-            background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(123,47,247,0.15));
-            border: 1px solid rgba(0,212,255,0.3);
-            border-radius: 12px;
-            padding: clamp(1.5rem, 3vw, 2.5rem);
-            margin: 2rem 0;
-        }
-
-        .highlight-box h4 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        /* CTA Button */
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--darker);
-            padding: 1rem 2.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            margin-top: 1.5rem;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,212,255,0.3);
-        }
-
-        /* Engagement Models */
-        .engagement-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .engagement-card {
-            background: rgba(255,255,255,0.03);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        /* Back Link */
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .back-link:hover {
-            transform: translateX(-5px);
-        }
-
-        .back-link::before {
-            content: "←";
-            margin-right: 0.5rem;
-            font-size: 1.5rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero {
-                padding: 6rem 1.5rem 3rem;
-            }
-
-            section {
-                padding: 3rem 1.5rem;
-            }
-
-            .service-category {
-                padding: 1.5rem;
-            }
-        }
-    </style>
+    
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/utilities.css">
+    <link rel="stylesheet" href="styles/services.css">
 </head>
 <body>
     <!-- Hero Section -->
@@ -264,7 +28,7 @@
     <section>
         <div class="service-category">
             <h2>Executive Documentation Services</h2>
-            <p style="color: var(--gray); max-width: 900px; margin-bottom: 2rem; font-size: 1.1rem;">
+            <p class="u-col-gray-max-mar-2rem-fon-1-1rem">
                 Transform complex technical innovations into compelling business narratives. Deliver documents that command boardroom attention, secure funding, and establish thought leadership across C-suite, engineering, and operations stakeholders.
             </p>
 
@@ -286,9 +50,9 @@
                         <div class="price-note">Typical 3-6 week delivery | Includes 3 revision cycles</div>
                     </div>
 
-                    <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(0,212,255,0.05); border-radius: 6px; border-left: 3px solid var(--primary);">
-                        <strong style="color: var(--primary);">Recent Example:</strong>
-                        <p style="color: var(--gray); font-size: 0.95rem; margin-top: 0.5rem;">
+                    <div class="u-mar-1-5rem-pad-1rem-bac-rgba-0-2-bor-bor">
+                        <strong class="text-primary">Recent Example:</strong>
+                        <p class="u-col-gray-fon-0-95re-mar-0-5rem">
                             <strong>Mission Valley $215M Acquisition Analysis</strong> — Comprehensive 30-year financial model with 3 acquisition pathways, regulatory compliance framework, and stakeholder communication strategy. Projected 4.89× equity multiple, 18-25% IRR, $1.1B economic impact.
                         </p>
                     </div>
@@ -311,9 +75,9 @@
                         <div class="price-note">2-4 week delivery | Journal-ready formatting</div>
                     </div>
 
-                    <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(0,212,255,0.05); border-radius: 6px; border-left: 3px solid var(--primary);">
-                        <strong style="color: var(--primary);">Recent Example:</strong>
-                        <p style="color: var(--gray); font-size: 0.95rem; margin-top: 0.5rem;">
+                    <div class="u-mar-1-5rem-pad-1rem-bac-rgba-0-2-bor-bor">
+                        <strong class="text-primary">Recent Example:</strong>
+                        <p class="u-col-gray-fon-0-95re-mar-0-5rem">
                             <strong>NeuroProgressive AI Framework</strong> — 60-page technical specification combining brain-computer interfaces, deep learning, and Human-as-the-Loop architectures. FDA compliance pathway, mathematical foundations, and ethical governance frameworks.
                         </p>
                     </div>
@@ -336,9 +100,9 @@
                         <div class="price-note">1-4 week delivery | Executive-ready presentation</div>
                     </div>
 
-                    <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(0,212,255,0.05); border-radius: 6px; border-left: 3px solid var(--primary);">
-                        <strong style="color: var(--primary);">Recent Example:</strong>
-                        <p style="color: var(--gray); font-size: 0.95rem; margin-top: 0.5rem;">
+                    <div class="u-mar-1-5rem-pad-1rem-bac-rgba-0-2-bor-bor">
+                        <strong class="text-primary">Recent Example:</strong>
+                        <p class="u-col-gray-fon-0-95re-mar-0-5rem">
                             <strong>IHEP Executive Summary</strong> — Next-generation HIV care framework bridging grassroots engagement with AI-driven digital twins. NIST SP 800-53r5 compliance, CJIS Security Policy integration, Zero Trust architecture.
                         </p>
                     </div>
@@ -346,14 +110,14 @@
             </div>
 
             <!-- Financial Models Highlight -->
-            <div class="highlight-box" style="margin-top: 3rem;">
+            <div class="highlight-box mt-3">
                 <h4>📊 Financial Model Packages</h4>
-                <p style="color: var(--gray); margin-bottom: 1rem;">
+                <p class="u-col-gray-mar-1rem-2">
                     Dynamic Excel/Python models with sensitivity analysis, cap tables, waterfall structures, and scenario planning. Perfect for investor presentations or internal strategic planning.
                 </p>
-                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <div class="u-dis-flex-jus-ali-fle-gap">
                     <div>
-                        <div class="price-value" style="font-size: 1.8rem;">$3K - $15K</div>
+                        <div class="price-value u-fon-1-8rem">$3K - $15K</div>
                         <div class="price-note">1-2 week delivery | Full documentation included</div>
                     </div>
                     <a href="index.html#contact" class="cta-button">Request Proposal</a>
@@ -365,15 +129,15 @@
     <!-- LLM Training & AI Services -->
     <section>
         <div class="service-category purple">
-            <h2 style="background: linear-gradient(135deg, var(--secondary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">LLM Training, Evaluation & Sanitization</h2>
-            <p style="color: var(--gray); max-width: 900px; margin-bottom: 2rem; font-size: 1.1rem;">
+            <h2 class="u-bac-linear-g-we-we-bac">LLM Training, Evaluation & Sanitization</h2>
+            <p class="u-col-gray-max-mar-2rem-fon-1-1rem">
                 Enterprise-grade AI safety, alignment, and deployment services. Constitutional AI implementation, adversarial testing, and Human-as-the-Loop architectures that reduce alignment risks by 87% while maintaining deployment velocity.
             </p>
 
             <div class="service-grid">
                 <!-- Custom LLM Fine-Tuning -->
                 <div class="service-card">
-                    <h4 style="color: var(--secondary);">Custom LLM Fine-Tuning & Domain Adaptation</h4>
+                    <h4 class="u-col-secondar">Custom LLM Fine-Tuning & Domain Adaptation</h4>
                     <ul>
                         <li><strong>Domain-specific model training</strong> (healthcare, legal, finance)</li>
                         <li><strong>RLHF</strong> (Reinforcement Learning from Human Feedback)</li>
@@ -382,16 +146,16 @@
                         <li><strong>A/B testing</strong> + performance benchmarking</li>
                     </ul>
                     
-                    <div class="price-box" style="border-left-color: var(--secondary);">
+                    <div class="price-box u-bor">
                         <div class="price-label">Investment Range:</div>
-                        <div class="price-value" style="color: var(--secondary);">$50K - $250K</div>
+                        <div class="price-value u-col-secondar">$50K - $250K</div>
                         <div class="price-note">8-16 week delivery | Includes model deployment</div>
                     </div>
                 </div>
 
                 <!-- Adversarial Testing -->
                 <div class="service-card">
-                    <h4 style="color: var(--secondary);">Adversarial Testing & Model Sanitization</h4>
+                    <h4 class="u-col-secondar">Adversarial Testing & Model Sanitization</h4>
                     <ul>
                         <li><strong>Prompt injection</strong> + jailbreak vulnerability assessment</li>
                         <li><strong>Bias detection</strong> across demographic categories</li>
@@ -400,16 +164,16 @@
                         <li><strong>Compliance reporting</strong> (EU AI Act, NIST AI RMF)</li>
                     </ul>
                     
-                    <div class="price-box" style="border-left-color: var(--secondary);">
+                    <div class="price-box u-bor">
                         <div class="price-label">Investment Range:</div>
-                        <div class="price-value" style="color: var(--secondary);">$25K - $100K</div>
+                        <div class="price-value u-col-secondar">$25K - $100K</div>
                         <div class="price-note">4-8 week assessment | Executive report included</div>
                     </div>
                 </div>
 
                 <!-- Human-as-the-Loop -->
                 <div class="service-card">
-                    <h4 style="color: var(--secondary);">Human-as-the-Loop Architecture Implementation</h4>
+                    <h4 class="u-col-secondar">Human-as-the-Loop Architecture Implementation</h4>
                     <ul>
                         <li><strong>Real-time human intervention</strong> pipeline design</li>
                         <li><strong>Confidence-weighted</strong> decision routing</li>
@@ -418,26 +182,26 @@
                         <li><strong>87% reduction</strong> in AI alignment risks</li>
                     </ul>
                     
-                    <div class="price-box" style="border-left-color: var(--secondary);">
+                    <div class="price-box u-bor">
                         <div class="price-label">Investment Range:</div>
-                        <div class="price-value" style="color: var(--secondary);">$75K - $300K</div>
+                        <div class="price-value u-col-secondar">$75K - $300K</div>
                         <div class="price-note">10-20 week implementation | Ongoing support available</div>
                     </div>
                 </div>
             </div>
 
             <!-- Mathematical Foundation -->
-            <div class="highlight-box" style="margin-top: 3rem; background: linear-gradient(135deg, rgba(123,47,247,0.15), rgba(255,0,110,0.15)); border-color: rgba(123,47,247,0.3);">
-                <h4 style="color: var(--secondary);">Mathematical Foundation: Human-as-the-Loop Objective Function</h4>
-                <p style="text-align: center; font-size: 1.2rem; margin: 1.5rem 0;">
+            <div class="highlight-box u-mar-3rem-bac-linear-g-bor-rgba-123">
+                <h4 class="u-col-secondar">Mathematical Foundation: Human-as-the-Loop Objective Function</h4>
+                <p class="u-tex-center-fon-1-2rem-mar-1-5rem">
                     $$J(\theta) = \mathbb{E}_{\tau \sim \pi_\theta}[R(\tau)] + \lambda \cdot D_{KL}(\pi_\theta || \pi_{human})$$
                 </p>
-                <p style="color: var(--gray);">
+                <p class="text-gray">
                     This optimization function balances AI task performance (\(\mathbb{E}[R(\tau)]\)) with alignment to human intent (\(D_{KL}\)), ensuring AI systems remain controllable while maximizing utility. The regularization parameter \(\lambda\) controls the tradeoff between autonomy and safety.
                 </p>
-                <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(123,47,247,0.3);">
-                    <strong style="color: var(--light);">Industry Translation:</strong>
-                    <ul style="margin-top: 0.5rem; color: var(--gray);">
+                <div class="u-mar-1-5rem-pad-1-5rem-bor-2">
+                    <strong class="contact-item a">Industry Translation:</strong>
+                    <ul class="u-mar-0-5rem-col-gray">
                         <li><strong>C-Suite:</strong> Reduces AI alignment risks by 87% through continuous human feedback integration</li>
                         <li><strong>Engineering:</strong> Modular architecture enabling real-time intervention without system shutdown</li>
                         <li><strong>Operations:</strong> Maintains 99.7% uptime while preserving human veto authority</li>
@@ -448,44 +212,44 @@
     </section>
 
     <!-- Engagement Models -->
-    <section style="background: rgba(0,212,255,0.03); margin: 0 -2rem; padding: 6rem 2rem;">
-        <div style="max-width: 1400px; margin: 0 auto;">
-            <h2 style="text-align: center;">Engagement Models</h2>
-            <p style="text-align: center; color: var(--gray); max-width: 900px; margin: 0 auto 3rem; font-size: 1.1rem;">
+    <section class="u-bac-rgba-0-2-mar-0-2rem-pad-6rem-2">
+        <div class="wide-container">
+            <h2 class="metric">Engagement Models</h2>
+            <p class="u-tex-center-col-gray-max-mar-0-auto-fon-1-1rem">
                 Choose the partnership structure that matches your strategic ambition. From time-bound projects to equity-aligned transformation.
             </p>
 
             <div class="engagement-grid">
                 <div class="engagement-card">
                     <h4>Project-Based Consulting</h4>
-                    <p style="color: var(--gray); margin: 1rem 0;">
+                    <p class="u-col-gray-mar-1rem-0">
                         Time-bound strategic initiatives with clear deliverables. Perfect for breakthrough analysis, framework design, or bringing novel solutions to complex challenges. Fixed scope, predictable timeline.
                     </p>
-                    <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(0,212,255,0.1); border-left: 3px solid var(--primary);">
-                        <div style="color: var(--primary); font-weight: 700; font-size: 1.2rem;">$50K - $500K</div>
-                        <div style="color: var(--gray); font-size: 0.9rem;">Typical 2-6 months | Milestone-based payments</div>
+                    <div class="u-mar-1-5rem-pad-1rem-bac-rgba-0-2-bor">
+                        <div class="u-col-primary-fon-700-fon-1-2rem">$50K - $500K</div>
+                        <div class="u-col-gray-fon-0-9rem">Typical 2-6 months | Milestone-based payments</div>
                     </div>
                 </div>
 
                 <div class="engagement-card">
                     <h4>Strategic Retainer</h4>
-                    <p style="color: var(--gray); margin: 1rem 0;">
+                    <p class="u-col-gray-mar-1rem-0">
                         Ongoing partnership with dedicated bandwidth. Priority access, continuous innovation, and embedded advisory support. Monthly engagement with flexible scope adjustment.
                     </p>
-                    <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(0,212,255,0.1); border-left: 3px solid var(--primary);">
-                        <div style="color: var(--primary); font-weight: 700; font-size: 1.2rem;">$25K - $100K/month</div>
-                        <div style="color: var(--gray); font-size: 0.9rem;">Minimum 6-month commitment | Quarterly scope reviews</div>
+                    <div class="u-mar-1-5rem-pad-1rem-bac-rgba-0-2-bor">
+                        <div class="u-col-primary-fon-700-fon-1-2rem">$25K - $100K/month</div>
+                        <div class="u-col-gray-fon-0-9rem">Minimum 6-month commitment | Quarterly scope reviews</div>
                     </div>
                 </div>
 
                 <div class="engagement-card">
                     <h4>Equity Partnership</h4>
-                    <p style="color: var(--gray); margin: 1rem 0;">
+                    <p class="u-col-gray-mar-1rem-0">
                         For transformative ventures: combine cash + equity for deep alignment and long-term value creation. Bring innovation DNA into your organization as strategic co-founder or technical advisor.
                     </p>
-                    <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(0,212,255,0.1); border-left: 3px solid var(--primary);">
-                        <div style="color: var(--primary); font-weight: 700; font-size: 1.2rem;">Custom Terms</div>
-                        <div style="color: var(--gray); font-size: 0.9rem;">Board seat considerations | Vesting schedules aligned</div>
+                    <div class="u-mar-1-5rem-pad-1rem-bac-rgba-0-2-bor">
+                        <div class="u-col-primary-fon-700-fon-1-2rem">Custom Terms</div>
+                        <div class="u-col-gray-fon-0-9rem">Board seat considerations | Vesting schedules aligned</div>
                     </div>
                 </div>
             </div>
@@ -494,86 +258,86 @@
 
     <!-- Case Studies Preview -->
     <section>
-        <h2 style="text-align: center;">Proven Complexity & Novel Methodology</h2>
-        <p style="text-align: center; color: var(--gray); max-width: 900px; margin: 0 auto 3rem; font-size: 1.1rem;">
+        <h2 class="metric">Proven Complexity & Novel Methodology</h2>
+        <p class="u-tex-center-col-gray-max-mar-0-auto-fon-1-1rem">
             Five groundbreaking frameworks demonstrating unprecedented complexity, regulatory rigor, and measurable business impact.
         </p>
 
         <div class="service-grid">
             <div class="service-card">
-                <h4 style="color: var(--primary);">NeuroProgressive AI</h4>
-                <p style="color: var(--gray); margin-bottom: 1rem;">
+                <h4 class="text-primary">NeuroProgressive AI</h4>
+                <p class="u-col-gray-mar-1rem-2">
                     Revolutionary Human-as-the-Loop brain-computer interface integrating non-invasive BCIs, deep learning, and focused ultrasound neuromodulation.
                 </p>
-                <ul style="font-size: 0.95rem;">
+                <ul class="u-fon-0-95re">
                     <li>80 words/min thought-to-speech translation</li>
                     <li>FDA-compliant neuromodulation therapies</li>
                     <li>87% AI alignment risk reduction</li>
                 </ul>
-                <a href="neuroprogressive-ai-project.html" style="color: var(--primary); text-decoration: none; font-weight: 600; margin-top: 1rem; display: inline-block;">View Framework →</a>
+                <a class="u-col-primary-tex-fon-600-mar-1rem-dis-inline" href="neuroprogressive-ai-project.html">View Framework →</a>
             </div>
 
             <div class="service-card">
-                <h4 style="color: var(--primary);">IHEP | HIV Care Framework</h4>
-                <p style="color: var(--gray); margin-bottom: 1rem;">
+                <h4 class="text-primary">IHEP | HIV Care Framework</h4>
+                <p class="u-col-gray-mar-1rem-2">
                     Next-generation HIV care bridging grassroots community engagement with AI-driven digital health twins and Zero Trust architecture.
                 </p>
-                <ul style="font-size: 0.95rem;">
+                <ul class="u-fon-0-95re">
                     <li>350-patient capacity with digital twin modeling</li>
                     <li>NIST AI RMF & CJIS Security compliant</li>
                     <li>Recursive viral mutation prediction</li>
                 </ul>
-                <a href="ihep-framework.html" style="color: var(--primary); text-decoration: none; font-weight: 600; margin-top: 1rem; display: inline-block;">View Framework →</a>
+                <a class="u-col-primary-tex-fon-600-mar-1rem-dis-inline" href="ihep-framework.html">View Framework →</a>
             </div>
 
             <div class="service-card">
-                <h4 style="color: var(--primary);">Mission Valley | $215M Nexus</h4>
-                <p style="color: var(--gray); margin-bottom: 1rem;">
+                <h4 class="text-primary">Mission Valley | $215M Nexus</h4>
+                <p class="u-col-gray-mar-1rem-2">
                     Comprehensive multi-pathway analysis for transformative 17.38-acre property development with three acquisition models.
                 </p>
-                <ul style="font-size: 0.95rem;">
+                <ul class="u-fon-0-95re">
                     <li>4.89× equity multiple projection (30-year)</li>
                     <li>18-25% sponsor IRR</li>
                     <li>$1.1B economic impact potential</li>
                 </ul>
-                <a href="mission-valley-framework.html" style="color: var(--primary); text-decoration: none; font-weight: 600; margin-top: 1rem; display: inline-block;">View Framework →</a>
+                <a class="u-col-primary-tex-fon-600-mar-1rem-dis-inline" href="mission-valley-framework.html">View Framework →</a>
             </div>
 
             <div class="service-card">
-                <h4 style="color: var(--primary);">JESS | Secure WBAN/BACnet</h4>
-                <p style="color: var(--gray); margin-bottom: 1rem;">
+                <h4 class="text-primary">JESS | Secure WBAN/BACnet</h4>
+                <p class="u-col-gray-mar-1rem-2">
                     Joint Ethics on Safety & Standards for validated OSI Layer secured transmission protecting first responder biometric data.
                 </p>
-                <ul style="font-size: 0.95rem;">
+                <ul class="u-fon-0-95re">
                     <li>7-layer OSI validated transmission</li>
                     <li>NIST SP 800-207 Zero Trust model</li>
                     <li>40% energy efficiency improvement</li>
                 </ul>
-                <a href="frameworks.html" style="color: var(--primary); text-decoration: none; font-weight: 600; margin-top: 1rem; display: inline-block;">View Framework →</a>
+                <a class="u-col-primary-tex-fon-600-mar-1rem-dis-inline" href="frameworks.html">View Framework →</a>
             </div>
 
             <div class="service-card">
-                <h4 style="color: var(--primary);">DIPG | AI-Driven Therapeutics</h4>
-                <p style="color: var(--gray); margin-bottom: 1rem;">
+                <h4 class="text-primary">DIPG | AI-Driven Therapeutics</h4>
+                <p class="u-col-gray-mar-1rem-2">
                     Revolutionary machine learning approach to pediatric brain cancer treatment using generative AI for novel drug design.
                 </p>
-                <ul style="font-size: 0.95rem;">
+                <ul class="u-fon-0-95re">
                     <li>First-in-class AI-designed therapeutics</li>
                     <li>Blood-brain barrier penetration >80%</li>
                     <li>12-month development timeline</li>
                 </ul>
-                <a href="frameworks.html" style="color: var(--primary); text-decoration: none; font-weight: 600; margin-top: 1rem; display: inline-block;">View Framework →</a>
+                <a class="u-col-primary-tex-fon-600-mar-1rem-dis-inline" href="frameworks.html">View Framework →</a>
             </div>
         </div>
     </section>
 
     <!-- Final CTA -->
-    <section style="text-align: center; padding: 6rem 2rem;">
-        <h2 style="margin-bottom: 2rem;">Let's Make History Together</h2>
-        <p style="color: var(--gray); font-size: 1.2rem; max-width: 700px; margin: 0 auto 3rem;">
+    <section class="u-tex-center-pad-6rem-2">
+        <h2 class="u-mar-2rem-2">Let's Make History Together</h2>
+        <p class="u-col-gray-fon-1-2rem-max-mar-0-auto-2">
             Transform impossible challenges into measurable outcomes. Whether you're pioneering novel AI systems, navigating complex strategic acquisitions, or need investment-grade documentation that converts skeptics into believers.
         </p>
-        <a href="index.html#contact" class="cta-button" style="font-size: 1.2rem; padding: 1.2rem 3rem;">
+        <a class="u-fon-1-2rem-pad-1-2rem cta-button" href="index.html#contact" >
             Initiate Strategic Partnership
         </a>
     </section>

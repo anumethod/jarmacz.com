@@ -8,367 +8,10 @@
     
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            overflow-x: hidden;
-            width: 100%;
-        }
-
-        :root {
-            --primary: #00d4ff;
-            --secondary: #7b2ff7;
-            --accent: #ff006e;
-            --dark: #0a0e27;
-            --darker: #050815;
-            --light: #ffffff;
-            --gray: #8892b0;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: var(--darker);
-            color: var(--light);
-            line-height: 1.6;
-            overflow-x: hidden;
-            width: 100%;
-            max-width: 100vw;
-        }
-
-        /* Hero Section */
-        .hero {
-            position: relative;
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            padding: 4rem 2rem;
-        }
-
-        #neural-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            max-width: 1200px;
-        }
-
-        .project-tag {
-            display: inline-block;
-            background: var(--secondary);
-            color: var(--light);
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .subtitle {
-            font-size: clamp(1rem, 2.5vw, 1.3rem);
-            color: var(--gray);
-            margin-bottom: 2rem;
-            line-height: 1.8;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .nav-back {
-            display: inline-block;
-            color: var(--primary);
-            text-decoration: none;
-            font-size: 1rem;
-            margin-bottom: 2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .nav-back:hover {
-            transform: translateX(-5px);
-        }
-
-        /* Stats Grid */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .stat-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
-        }
-
-        .stat-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--gray);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Content Section */
-        section {
-            padding: 4rem 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 2rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        h3 {
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            color: var(--primary);
-            margin: 2rem 0 1rem;
-        }
-
-        p {
-            color: var(--gray);
-            margin-bottom: 1.5rem;
-            font-size: clamp(1rem, 2vw, 1.1rem);
-            line-height: 1.8;
-        }
-
-        /* Framework Cards */
-        .framework-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .framework-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .framework-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
-        }
-
-        .framework-card h4 {
-            color: var(--primary);
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-        }
-
-        .framework-card ul {
-            list-style: none;
-            margin: 1rem 0;
-        }
-
-        .framework-card li {
-            padding: 0.5rem 0;
-            color: var(--gray);
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .framework-card li::before {
-            content: "▹";
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-        }
-
-        /* Math Framework Display */
-        .math-framework {
-            background: rgba(255, 255, 255, 0.02);
-            border-left: 4px solid var(--primary);
-            padding: 2rem;
-            margin: 2rem 0;
-            border-radius: 8px;
-            overflow-x: auto;
-        }
-
-        .math-framework h4 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        /* Architecture Diagram */
-        .architecture-visual {
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(123, 47, 247, 0.1));
-            border: 2px solid var(--primary);
-            border-radius: 16px;
-            padding: 3rem;
-            margin: 3rem 0;
-            text-align: center;
-        }
-
-        .layer-stack {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            max-width: 600px;
-            margin: 2rem auto;
-        }
-
-        .layer {
-            background: rgba(0, 212, 255, 0.1);
-            border: 1px solid var(--primary);
-            padding: 1rem;
-            border-radius: 8px;
-            font-weight: 600;
-            color: var(--light);
-            transition: all 0.3s ease;
-        }
-
-        .layer:hover {
-            background: rgba(0, 212, 255, 0.2);
-            transform: translateX(10px);
-        }
-
-        /* Impact Section */
-        .impact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .impact-card {
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(123, 47, 247, 0.05));
-            border: 2px solid transparent;
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .impact-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-5px);
-        }
-
-        .impact-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .impact-card h4 {
-            color: var(--light);
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(123, 47, 247, 0.1));
-            border-radius: 20px;
-            padding: 4rem 2rem;
-            text-align: center;
-            margin: 4rem 0;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--light);
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            margin-top: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero {
-                min-height: 60vh;
-                padding: 2rem 1rem;
-            }
-
-            section {
-                padding: 3rem 1rem;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .framework-grid,
-            .impact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .architecture-visual {
-                padding: 2rem 1rem;
-            }
-
-            .math-framework {
-                padding: 1rem;
-                font-size: 0.9rem;
-            }
-        }
-    </style>
+    
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/utilities.css">
+    <link rel="stylesheet" href="styles/jess.css">
 </head>
 <body>
     <!-- Hero Section -->
@@ -398,6 +41,9 @@
                     <span class="stat-label">RMF Compliant</span>
                 </div>
             </div>
+            <div class="cta-group">
+                <a class="btn btn-primary" href="docs/JESS__Executive_Summary.pdf" download>Download JESS Executive Summary</a>
+            </div>
         </div>
     </section>
 
@@ -423,8 +69,8 @@
     </section>
 
     <!-- Technical Architecture -->
-    <section style="background: rgba(0,212,255,0.03); margin: 0 -2rem; padding: 4rem 2rem;">
-        <div style="max-width: 1400px; margin: 0 auto;">
+    <section class="u-bac-rgba-0-2-mar-0-2rem-pad-4rem-2-2">
+        <div class="wide-container">
             <h2>Technical Architecture & Innovation</h2>
             
             <h3>The JESS Pipeline: From Sensor to Secure Action</h3>
@@ -467,16 +113,16 @@
 
             <div class="math-framework">
                 <h4>Energy-Aware Transmission Optimization:</h4>
-                <p style="text-align: center; margin: 1.5rem 0;">
+                <p class="u-tex-center-mar-1-5rem">
                     $$E_{total} = E_{sense} + E_{process} + \alpha \cdot E_{transmit}$$
                 </p>
-                <p style="color: var(--gray); font-size: 0.95rem;">
+                <p class="text-muted">
                     Where event-driven architecture minimizes α (transmission events), achieving 40% energy savings compared to continuous polling architectures. Smart thresholding transmits only when:
                 </p>
-                <p style="text-align: center; margin: 1rem 0;">
+                <p class="u-tex-center-mar-1rem-0">
                     $$|x(t) - \hat{x}(t)| > \theta_{critical}$$
                 </p>
-                <p style="color: var(--gray); font-size: 0.95rem;">
+                <p class="text-muted">
                     Critical threshold θ is ML-validated to distinguish physiological anomalies from sensor noise, reducing false positives by 87% while maintaining 99.3% sensitivity for life-threatening events.
                 </p>
             </div>
@@ -547,45 +193,45 @@
     </section>
 
     <!-- Impact & Applications -->
-    <section style="background: rgba(123,47,247,0.03); margin: 0 -2rem; padding: 4rem 2rem;">
-        <div style="max-width: 1400px; margin: 0 auto;">
+    <section class="u-bac-rgba-123-mar-0-2rem-pad-4rem-2-2">
+        <div class="wide-container">
             <h2>Mission-Critical Applications</h2>
             
             <div class="impact-grid">
                 <div class="impact-card">
                     <div class="impact-icon">🚒</div>
                     <h4>First Responder Safety</h4>
-                    <p style="color: var(--gray);">Real-time physiological monitoring for firefighters, paramedics, and law enforcement in hazardous environments. Secure transmission of vital signs, location data, and environmental sensors through encrypted WBAN→BACnet pipeline.</p>
+                    <p class="text-gray">Real-time physiological monitoring for firefighters, paramedics, and law enforcement in hazardous environments. Secure transmission of vital signs, location data, and environmental sensors through encrypted WBAN→BACnet pipeline.</p>
                 </div>
 
                 <div class="impact-card">
                     <div class="impact-icon">🏥</div>
                     <h4>Healthcare IoT Security</h4>
-                    <p style="color: var(--gray);">HIPAA-compliant patient monitoring with Zero Trust architecture. Continuous authentication of medical devices, encrypted PHI transmission, and tamper-evident audit trails for regulatory compliance.</p>
+                    <p class="text-gray">HIPAA-compliant patient monitoring with Zero Trust architecture. Continuous authentication of medical devices, encrypted PHI transmission, and tamper-evident audit trails for regulatory compliance.</p>
                 </div>
 
                 <div class="impact-card">
                     <div class="impact-icon">🛡️</div>
                     <h4>Defense & Tactical Operations</h4>
-                    <p style="color: var(--gray);">Secure soldier monitoring systems with energy-efficient wearables. Battlefield biometric data protected by military-grade encryption, enabling command decisions without compromising OPSEC.</p>
+                    <p class="text-gray">Secure soldier monitoring systems with energy-efficient wearables. Battlefield biometric data protected by military-grade encryption, enabling command decisions without compromising OPSEC.</p>
                 </div>
 
                 <div class="impact-card">
                     <div class="impact-icon">🏢</div>
                     <h4>Smart Building Integration</h4>
-                    <p style="color: var(--gray);">BACnet/SC integration enables secure occupancy monitoring, environmental control, and emergency response coordination. Building automation responds to authenticated WBAN alerts without cloud dependency.</p>
+                    <p class="text-gray">BACnet/SC integration enables secure occupancy monitoring, environmental control, and emergency response coordination. Building automation responds to authenticated WBAN alerts without cloud dependency.</p>
                 </div>
 
                 <div class="impact-card">
                     <div class="impact-icon">⚡</div>
                     <h4>Distributed Energy Optimization</h4>
-                    <p style="color: var(--gray);">Event-driven architecture achieves 40% energy savings across sensor networks. Battery-light and energy-harvesting devices extend deployment lifetime while maintaining cryptographic security.</p>
+                    <p class="text-gray">Event-driven architecture achieves 40% energy savings across sensor networks. Battery-light and energy-harvesting devices extend deployment lifetime while maintaining cryptographic security.</p>
                 </div>
 
                 <div class="impact-card">
                     <div class="impact-icon">🔐</div>
                     <h4>Cyber-Physical Resilience</h4>
-                    <p style="color: var(--gray);">Edge analytics and offline operation capabilities ensure mission continuity during network disruption. Zero Trust segmentation contains breaches, preventing lateral movement across infrastructure.</p>
+                    <p class="text-gray">Edge analytics and offline operation capabilities ensure mission continuity during network disruption. Zero Trust segmentation contains breaches, preventing lateral movement across infrastructure.</p>
                 </div>
             </div>
         </div>
@@ -597,38 +243,38 @@
         
         <div class="math-framework">
             <h4>IEEE 802.15.6 Security Enhancement:</h4>
-            <p style="color: var(--gray); margin: 1rem 0;">
+            <p class="u-col-gray-mar-1rem-0">
                 Peer-reviewed cryptanalysis revealed vulnerabilities in standard IEEE 802.15.6 key establishment protocols. JESS implements hardened key exchange using:
             </p>
-            <p style="text-align: center; margin: 1.5rem 0;">
+            <p class="u-tex-center-mar-1-5rem">
                 $$K_{session} = \text{HKDF}(K_{master}, \text{nonce}_A || \text{nonce}_B, \text{context})$$
             </p>
-            <p style="color: var(--gray); font-size: 0.95rem;">
+            <p class="text-muted">
                 Where HKDF (HMAC-based Key Derivation Function) with SHA-256 generates session keys from master key material, incorporating device nonces and context binding to prevent replay attacks and unauthorized key recovery. Each session key has bounded lifetime τ &lt; 60 seconds, forcing periodic re-authentication.
             </p>
         </div>
 
         <div class="math-framework">
             <h4>Zero Trust Verification Model:</h4>
-            <p style="color: var(--gray); margin: 1rem 0;">
+            <p class="u-col-gray-mar-1rem-0">
                 Every transaction undergoes continuous authentication using trust score τ(device, t):
             </p>
-            <p style="text-align: center; margin: 1.5rem 0;">
+            <p class="u-tex-center-mar-1-5rem">
                 $$\tau(d, t) = w_1 \cdot \text{Auth}(d, t) + w_2 \cdot \text{Behavior}(d, t) + w_3 \cdot \text{Location}(d, t)$$
             </p>
-            <p style="color: var(--gray); font-size: 0.95rem;">
+            <p class="text-muted">
                 Transaction permitted only when τ(d, t) &gt; θ_critical. Behavioral anomaly detection uses LSTM networks trained on device-specific normal operation, flagging deviations for re-authentication. Location binding prevents credential theft: device must be within expected geofence.
             </p>
         </div>
 
         <h3>DHS S&T First Responder Capabilities Alignment</h3>
         <p>Department of Homeland Security Science & Technology Directorate's First Responder Capabilities program actively funds interoperable, responder-centric technology. JESS directly addresses mission requirements:</p>
-        <ul style="color: var(--gray); margin: 2rem 0;">
-            <li style="padding: 0.5rem 0;">✓ Real-time situational awareness through secure biometric monitoring</li>
-            <li style="padding: 0.5rem 0;">✓ Interoperability across agencies and legacy systems (BACnet compatibility)</li>
-            <li style="padding: 0.5rem 0;">✓ Energy efficiency for extended field deployment</li>
-            <li style="padding: 0.5rem 0;">✓ Cybersecurity by design, not retrofit</li>
-            <li style="padding: 0.5rem 0;">✓ SAFETY Act de-risking pathway for commercial deployment</li>
+        <ul class="u-col-gray-mar-2rem-0">
+            <li class="u-pad-0-5rem">✓ Real-time situational awareness through secure biometric monitoring</li>
+            <li class="u-pad-0-5rem">✓ Interoperability across agencies and legacy systems (BACnet compatibility)</li>
+            <li class="u-pad-0-5rem">✓ Energy efficiency for extended field deployment</li>
+            <li class="u-pad-0-5rem">✓ Cybersecurity by design, not retrofit</li>
+            <li class="u-pad-0-5rem">✓ SAFETY Act de-risking pathway for commercial deployment</li>
         </ul>
 
         <h3>NSF Cyber-Physical Systems (CPS) Foundation</h3>
@@ -638,13 +284,13 @@
     <!-- CTA Section -->
     <section>
         <div class="cta-section">
-            <h2 style="color: var(--light);">Deploy Secure, Energy-Efficient IoT Architecture</h2>
-            <p style="max-width: 800px; margin: 0 auto 2rem; color: var(--gray); font-size: 1.1rem;">
+            <h2 class="contact-item a">Deploy Secure, Energy-Efficient IoT Architecture</h2>
+            <p class="u-max-mar-0-auto-col-gray-fon-1-1rem">
                 Whether you're securing first responder networks, hardening healthcare IoT, or architecting Zero Trust for cyber-physical systems, JESS provides the validated, standards-based foundation. Let's build infrastructure that's secure by design and sustainable by architecture.
             </p>
             <a href="mailto:jayjarmacz@gmail.com?subject=JESS%20Architecture%20Consultation" class="cta-button">Discuss JESS Implementation</a>
             <br><br>
-            <a href="index.html" class="cta-button" style="background: rgba(255,255,255,0.1);">← Back to Portfolio</a>
+            <a class="u-bac-rgba-255 cta-button" href="index.html" >← Back to Portfolio</a>
         </div>
     </section>
 

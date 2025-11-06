@@ -8,329 +8,19 @@
     
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #00d4ff;
-            --secondary: #7b2ff7;
-            --accent: #ff006e;
-            --dark: #0a0e27;
-            --darker: #050815;
-            --light: #ffffff;
-            --gray: #8892b0;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: var(--darker);
-            color: var(--light);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(5, 8, 21, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
-        }
-
-        .nav-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-decoration: none;
-        }
-
-        .nav-link {
-            color: var(--gray);
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            transition: color 0.3s;
-        }
-
-        .nav-link:hover {
-            color: var(--primary);
-        }
-
-        .hero {
-            position: relative;
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            margin-top: 60px;
-        }
-
-        #neural-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            max-width: 1200px;
-            padding: 4rem 2rem;
-        }
-
-        h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .subtitle {
-            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-            color: var(--gray);
-            max-width: 900px;
-            margin: 0 auto 2rem;
-        }
-
-        .metrics {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .metric {
-            text-align: center;
-        }
-
-        .metric-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            display: block;
-        }
-
-        .metric-label {
-            font-size: 0.9rem;
-            color: var(--gray);
-            text-transform: uppercase;
-        }
-
-        section {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        h2 {
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            margin-bottom: 2rem;
-            color: var(--primary);
-        }
-
-        h3 {
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            margin: 2.5rem 0 1rem;
-            color: var(--light);
-        }
-
-        p {
-            color: var(--gray);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .feature-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.3);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature-card h4 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .math-framework {
-            background: rgba(0, 212, 255, 0.05);
-            border-left: 4px solid var(--primary);
-            padding: 2rem;
-            margin: 2rem 0;
-            border-radius: 8px;
-            overflow-x: auto;
-        }
-
-        .math-framework h4 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .timeline {
-            position: relative;
-            padding: 2rem 0;
-            margin: 3rem 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, var(--primary), var(--secondary));
-        }
-
-        .timeline-item {
-            position: relative;
-            margin: 2rem 0;
-            padding: 0 3rem;
-        }
-
-        .timeline-item:nth-child(odd) {
-            text-align: right;
-            padding-right: 50%;
-        }
-
-        .timeline-item:nth-child(even) {
-            text-align: left;
-            padding-left: 50%;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            transform: translateX(-50%);
-            width: 20px;
-            height: 20px;
-            background: var(--primary);
-            border-radius: 50%;
-            box-shadow: 0 0 20px var(--primary);
-        }
-
-        .phase-tag {
-            display: inline-block;
-            background: var(--secondary);
-            color: var(--light);
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .governance-grid {
-            display: grid;
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .governance-item {
-            background: rgba(123, 47, 247, 0.1);
-            border-left: 3px solid var(--secondary);
-            padding: 1.5rem;
-            border-radius: 8px;
-        }
-
-        .governance-item h5 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .back-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--light);
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            margin: 2rem 0;
-            transition: all 0.3s ease;
-        }
-
-        .back-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
-        }
-
-        @media (max-width: 768px) {
-            .nav-content {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .metrics {
-                gap: 1.5rem;
-            }
-
-            .timeline::before {
-                left: 20px;
-            }
-
-            .timeline-item {
-                padding-left: 60px !important;
-                padding-right: 1rem !important;
-                text-align: left !important;
-            }
-
-            .timeline-dot {
-                left: 20px;
-            }
-        }
-    </style>
+    
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/utilities.css">
+    <link rel="stylesheet" href="styles/neuroprogressive-ai-project.css">
 </head>
 <body>
     <nav>
         <div class="nav-content">
-            <a href="index.html" class="nav-logo">JARMACZ</a>
-            <a href="index.html#innovations" class="nav-link">â† Back to Portfolio</a>
+            <a href="index.html" class="nav-logo" aria-label="Jason Jarmacz home">
+                <img src="images/1000002043.jpg" alt="Jason Jarmacz logo" class="site-logo">
+                <span class="logo-text">JARMACZ</span>
+            </a>
+            <a href="index.html#innovations" class="nav-link">&larr; Back to Portfolio</a>
         </div>
     </nav>
 
@@ -354,12 +44,15 @@
                     <span class="metric-label">Cost Savings</span>
                 </div>
             </div>
+            <div class="cta-group">
+                <a class="btn btn-primary" href="docs/NeuroProgressive_AI.pdf" download>Download Full Proposal (PDF)</a>
+            </div>
         </div>
     </section>
 
     <section>
         <h2>Paradigm-Shifting Technology</h2>
-        <p>NeuroProgressive AI represents the convergence of neurotechnology, artificial intelligence, and knowledge architectureâ€”creating a unified platform where human intent is amplified by computational power. This isn't incremental improvement; it's a fundamental shift in human-computer interaction.</p>
+        <p>NeuroProgressive AI represents the convergence of neurotechnology, artificial intelligence, and knowledge architecture—creating a unified platform where human intent is amplified by computational power. This isn't incremental improvement; it's a fundamental shift in human-computer interaction.</p>
 
         <h3>Core Technology Pillars</h3>
         <div class="feature-grid">
@@ -382,22 +75,22 @@
             </div>
 
             <div class="feature-card">
-                <div class="feature-icon">âš¡</div>
+                <div class="feature-icon">⚡</div>
                 <h4>Non-Invasive Neuromodulation</h4>
-                <p>Focused ultrasound and TMS alter neural activity for therapeutic benefit without surgery. Targets brain circuits for depression, OCD, and chronic painâ€”providing powerful alternatives to pharmacological interventions.</p>
+                <p>Focused ultrasound and TMS alter neural activity for therapeutic benefit without surgery. Targets brain circuits for depression, OCD, and chronic pain—providing powerful alternatives to pharmacological interventions.</p>
             </div>
         </div>
 
         <h3>Mathematical Foundation: Human-as-the-Loop</h3>
         <div class="math-framework">
             <h4>Objective Function:</h4>
-            <p style="text-align: center; font-size: 1.3rem; margin: 1.5rem 0;">
+            <p class="u-tex-center-fon-1-3rem-mar-1-5rem">
                 $$J(\theta) = \mathbb{E}_{\tau \sim \pi_\theta}[R(\tau)] + \lambda \cdot D_{KL}(\pi_\theta || \pi_{human})$$
             </p>
-            <p>This objective function balances AI task performance with alignment to human intent. The first term maximizes expected reward over trajectories, while the KL divergence term ensures the AI policy stays close to human preferences. The Î» parameter controls the strength of human alignmentâ€”higher values prioritize safety over raw performance.</p>
+            <p>This objective function balances AI task performance with alignment to human intent. The first term maximizes expected reward over trajectories, while the KL divergence term ensures the AI policy stays close to human preferences. The Î» parameter controls the strength of human alignment—higher values prioritize safety over raw performance.</p>
             
-            <h4 style="margin-top: 2rem;">Industry Translation:</h4>
-            <ul style="color: var(--gray); margin-left: 2rem; line-height: 2;">
+            <h4 class="u-mar-2rem">Industry Translation:</h4>
+            <ul class="u-col-gray-mar-2rem-lin">
                 <li><strong>C-Suite:</strong> Reduces AI alignment risks by 87% through continuous human feedback integration, protecting brand reputation</li>
                 <li><strong>Engineering:</strong> Modular architecture enabling real-time human intervention without system shutdown</li>
                 <li><strong>Operations:</strong> Maintains 99.7% uptime while preserving human veto authority at all times</li>
@@ -417,7 +110,7 @@
             <div class="governance-item">
                 <h5>Regaining Independence for Motor Impairments</h5>
                 <p><strong>Target:</strong> Individuals with paralysis or severe motor impairments</p>
-                <p><strong>Solution:</strong> Non-invasive, wearable AI-BCI co-pilot enabling completion of everyday physical tasks. UCLA system demonstrated paralyzed participant completing robotic arm task with AI assistanceâ€”impossible without it.</p>
+                <p><strong>Solution:</strong> Non-invasive, wearable AI-BCI co-pilot enabling completion of everyday physical tasks. UCLA system demonstrated paralyzed participant completing robotic arm task with AI assistance—impossible without it.</p>
                 <p><strong>Impact:</strong> Shared autonomy where technology helps restore independence without full automation.</p>
             </div>
 
@@ -434,28 +127,28 @@
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <span class="phase-tag">Phase 1: Years 1-2</span>
-                <h4 style="color: var(--light); margin: 0.5rem 0;">Foundational Research</h4>
+                <h4 class="u-col-light-mar-0-5rem-2">Foundational Research</h4>
                 <p>Refine core EEG and implantable signal decoding algorithms. Address critical device safety concerns. Conduct pre-clinical animal studies under humane protocols to validate safety and proof-of-concept.</p>
             </div>
 
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <span class="phase-tag">Phase 2: Years 3-7</span>
-                <h4 style="color: var(--light); margin: 0.5rem 0;">Clinical Trials & Regulatory Approval</h4>
+                <h4 class="u-col-light-mar-0-5rem-2">Clinical Trials & Regulatory Approval</h4>
                 <p>Secure FDA Investigational Device Exemption. Assemble independent IRB for protocol oversight. Execute multi-phase human clinical trials demonstrating safety and efficacy for therapeutic use.</p>
             </div>
 
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <span class="phase-tag">Phase 3: Years 8-10</span>
-                <h4 style="color: var(--light); margin: 0.5rem 0;">Targeted Commercial Launch</h4>
+                <h4 class="u-col-light-mar-0-5rem-2">Targeted Commercial Launch</h4>
                 <p>Apply for final FDA approval to market devices for validated medical conditions. Focus initial launch on high-need populations: ALS patients, stroke survivors, treatment-resistant depression.</p>
             </div>
 
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <span class="phase-tag">Phase 4: Year 10+</span>
-                <h4 style="color: var(--light); margin: 0.5rem 0;">Broader Market Exploration</h4>
+                <h4 class="u-col-light-mar-0-5rem-2">Broader Market Exploration</h4>
                 <p>Consider applications beyond initial clinical scope only after establishing proven safety record. Any "general population device" subject to new, rigorous ethical and regulatory review.</p>
             </div>
         </div>
@@ -468,7 +161,7 @@
                 <h5>People-First Ethical Mandate</h5>
                 <p><strong>Human Dignity:</strong> Unwavering commitment to respecting the dignity of patients and research participants</p>
                 <p><strong>Augmentation Over Replacement:</strong> Strategic focus on hybrid human-AI collaborations that empower rather than replace</p>
-                <p><strong>Responsible Marketing:</strong> Avoid hyped-up claimsâ€”communicate concrete, verifiable benefits only</p>
+                <p><strong>Responsible Marketing:</strong> Avoid hyped-up claims—communicate concrete, verifiable benefits only</p>
             </div>
 
             <div class="governance-item">
@@ -488,13 +181,13 @@
         </div>
 
         <h3>The Vision: Human-Computer Symbiosis</h3>
-        <p>NeuroProgressive AI is more than a research initiativeâ€”it's a solemn commitment to redefining the boundaries of human potential. Our mission is not simply to build advanced technology, but to use that technology to reconnect individuals to their lives, families, and communities.</p>
+        <p>NeuroProgressive AI is more than a research initiative—it's a solemn commitment to redefining the boundaries of human potential. Our mission is not simply to build advanced technology, but to use that technology to reconnect individuals to their lives, families, and communities.</p>
 
         <p>From enabling paralyzed individuals to speak again to offering new hope for debilitating neurological conditions, our objectives are squarely focused on delivering tangible, life-altering impact. Through rigorous governance, stringent safety protocols, and a pragmatic phased approach, we chart a future where human-computer symbiosis serves to elevate the human experience for all.</p>
 
-        <div style="text-align: center; margin: 4rem 0;">
+        <div class="u-tex-center-mar-4rem-0">
             <a href="index.html" class="back-btn">Return to Portfolio</a>
-            <a href="mathematical-frameworks.html" class="back-btn" style="margin-left: 1rem;">View Mathematical Frameworks</a>
+            <a class="u-mar-1rem-2 back-btn" href="mathematical-frameworks.html" >View Mathematical Frameworks</a>
         </div>
     </section>
 

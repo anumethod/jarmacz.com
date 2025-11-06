@@ -1,0 +1,238 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        :root {
+            --primary: #00d4ff;
+            --secondary: #7b2ff7;
+            --accent: #ff006e;
+            --dark: #0a0e27;
+            --darker: #050815;
+            --light: #ffffff;
+            --gray: #8892b0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(0,212,255,0.1) 0%, rgba(5,8,21,0) 100%);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: var(--gray);
+            max-width: 900px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        h4 {
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            color: var(--light);
+            margin-bottom: 1rem;
+        }
+
+        /* Service Cards */
+        .service-category {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(0,212,255,0.2);
+            border-radius: 16px;
+            padding: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 3rem;
+        }
+
+        .service-category.purple {
+            border-color: rgba(123,47,247,0.2);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0,212,255,0.2);
+        }
+
+        .service-card ul {
+            color: var(--gray);
+            line-height: 1.8;
+            margin: 1rem 0 1.5rem 1.5rem;
+        }
+
+        .service-card li {
+            margin-bottom: 0.5rem;
+        }
+
+        .price-box {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(0,212,255,0.1), rgba(123,47,247,0.1));
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+        }
+
+        .price-label {
+            color: var(--light);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-value {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-note {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(123,47,247,0.15));
+            border: 1px solid rgba(0,212,255,0.3);
+            border-radius: 12px;
+            padding: clamp(1.5rem, 3vw, 2.5rem);
+            margin: 2rem 0;
+        }
+
+        .highlight-box h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--darker);
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,212,255,0.3);
+        }
+
+        /* Engagement Models */
+        .engagement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .engagement-card {
+            background: rgba(255,255,255,0.03);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Back Link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        .back-link::before {
+            content: "←";
+            margin-right: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            .service-category {
+                padding: 1.5rem;
+            }
+        }

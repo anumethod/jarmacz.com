@@ -19,10 +19,10 @@ import logging
 from datetime import datetime
 from typing import Dict, Tuple, Any
 import json
+import ssl
 
 # Initialize Flask app
 app = Flask(__name__)
-CORS(app)
 
 # Rate limiting to prevent abuse
 limiter = Limiter(
@@ -47,8 +47,22 @@ class Config:
     SMTP_PASSWORD = os.getenv('SMTP_PASSWORD', '')  # Set via environment variable
     RECIPIENT_EMAIL = os.getenv('RECIPIENT_EMAIL', 'jayjarmacz@gmail.com')
     SECRET_KEY = os.getenv('SECRET_KEY', 'dev-secret-key-change-in-production')
+    ALLOWED_ORIGINS = os.getenv(
+        'ALLOWED_ORIGINS',
+        'https://jarmacz.com,https://www.jarmacz.com,http://localhost:5000,http://127.0.0.1:5000'
+    ).split(',')
 
 app.config.from_object(Config)
+
+# Enable CORS with explicit origins
+CORS(
+    app,
+    resources={
+        r"/api/*": {
+            "origins": [origin.strip() for origin in app.config['ALLOWED_ORIGINS'] if origin.strip()]
+        }
+    }
+)
 
 # ========================================
 # VALIDATION UTILITIES
@@ -143,9 +157,16 @@ def send_email(to_email: str, subject: str, body_html: str, body_text: str = Non
         bool: True if email sent successfully
     """
     try:
+        username = app.config['SMTP_USERNAME']
+        password = app.config['SMTP_PASSWORD']
+
+        if not username or not password:
+            logger.error("SMTP credentials are not configured.")
+            return False
+
         # Create message
         msg = MIMEMultipart('alternative')
-        msg['From'] = app.config['SMTP_USERNAME']
+        msg['From'] = username
         msg['To'] = to_email
         msg['Subject'] = subject
         
@@ -154,11 +175,19 @@ def send_email(to_email: str, subject: str, body_html: str, body_text: str = Non
             msg.attach(MIMEText(body_text, 'plain'))
         msg.attach(MIMEText(body_html, 'html'))
         
-        # Connect to SMTP server
-        with smtplib.SMTP(app.config['SMTP_SERVER'], app.config['SMTP_PORT']) as server:
-            server.starttls()
-            server.login(app.config['SMTP_USERNAME'], app.config['SMTP_PASSWORD'])
-            server.send_message(msg)
+        context = ssl.create_default_context()
+        smtp_server = app.config['SMTP_SERVER']
+        smtp_port = app.config['SMTP_PORT']
+
+        if smtp_port == 465:
+            with smtplib.SMTP_SSL(smtp_server, smtp_port, context=context) as server:
+                server.login(username, password)
+                server.send_message(msg)
+        else:
+            with smtplib.SMTP(smtp_server, smtp_port) as server:
+                server.starttls(context=context)
+                server.login(username, password)
+                server.send_message(msg)
         
         logger.info(f"Email sent successfully to {to_email}")
         return True
@@ -295,8 +324,19 @@ def contact():
     Rate limited to 5 submissions per hour per IP
     """
     try:
+        if not request.is_json:
+            return jsonify({
+                'success': False,
+                'error': 'Request must be JSON.'
+            }), 400
+
         # Get form data
-        data = request.get_json()
+        data = request.get_json(silent=True)
+        if data is None or not isinstance(data, dict):
+            return jsonify({
+                'success': False,
+                'error': 'Invalid JSON payload.'
+            }), 400
         
         # Validate data
         is_valid, error_message = validate_contact_form(data)

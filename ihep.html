@@ -8,13 +8,18 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/utilities.css">
+    <link rel="stylesheet" href="styles/ihep.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="main-nav" id="mainNav">
         <div class="nav-container">
             <div class="logo">
-                <a href="index.html">JJ</a>
+                <a href="index.html" aria-label="Jason Jarmacz home">
+                    <img src="images/1000002043.jpg" alt="Jason Jarmacz logo" class="site-logo">
+                    <span class="logo-text">JARMACZ</span>
+                </a>
             </div>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html#evolution-matrix">Evolution Matrix</a></li>
@@ -33,83 +38,86 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero" style="min-height: 70vh; padding-top: 120px; padding-bottom: 60px;">
+    <section class="hero u-min-pad-120px-pad-60px">
         <div class="container">
-            <div style="text-align: center; max-width: 900px; margin: 0 auto;">
-                <div class="paper-tag" style="display: inline-block; margin-bottom: 20px;">Healthcare AI / NIST AI RMF 1.0 Compliant</div>
-                <h1 style="font-size: 3.5rem; color: var(--neutral-white); margin-bottom: 25px; line-height: 1.2;">
+            <div class="u-tex-center-max-mar-0-auto">
+                <div class="paper-tag u-dis-inline-mar-20px">Healthcare AI / NIST AI RMF 1.0 Compliant</div>
+                <h1 class="u-fon-3-5rem-col-neutral-mar-25px-lin">
                     IHEP: Integrated Health Empowerment Program
                 </h1>
-                <p style="font-size: 1.4rem; color: var(--accent-cyan); margin-bottom: 30px; line-height: 1.6;">
+                <p class="u-fon-1-4rem-col-accent-c-mar-30px-lin">
                     AI-powered comprehensive healthcare platform for HIV/AIDS care with Zero Trust security, patient digital twins, and 10-year roadmap to functional cure
                 </p>
-                <div style="display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; margin-top: 40px;">
+                <div class="u-dis-flex-gap-jus-fle-mar-40px">
                     <div>
-                        <div style="font-size: 2.5rem; font-weight: bold; color: var(--primary-blue);">350-5K</div>
-                        <div style="color: var(--neutral-gray);">Patient Capacity (Scalable)</div>
+                        <div class="u-fon-2-5rem-fon-bold-col-primary-">350-5K</div>
+                        <div class="contact-item a">Patient Capacity (Scalable)</div>
                     </div>
                     <div>
-                        <div style="font-size: 2.5rem; font-weight: bold; color: var(--primary-blue);">≥95%</div>
-                        <div style="color: var(--neutral-gray);">Viral Suppression Target</div>
+                        <div class="u-fon-2-5rem-fon-bold-col-primary-">≥95%</div>
+                        <div class="contact-item a">Viral Suppression Target</div>
                     </div>
                     <div>
-                        <div style="font-size: 2.5rem; font-weight: bold; color: var(--primary-blue);">35%</div>
-                        <div style="color: var(--neutral-gray);">Care Cost Reduction</div>
+                        <div class="u-fon-2-5rem-fon-bold-col-primary-">35%</div>
+                        <div class="contact-item a">Care Cost Reduction</div>
                     </div>
                     <div>
-                        <div style="font-size: 2.5rem; font-weight: bold; color: var(--primary-blue);">100%</div>
-                        <div style="color: var(--neutral-gray);">NIST AI RMF Compliant</div>
+                        <div class="u-fon-2-5rem-fon-bold-col-primary-">100%</div>
+                        <div class="contact-item a">NIST AI RMF Compliant</div>
                     </div>
+                </div>
+                <div class="cta-group">
+                    <a class="btn btn-primary" href="docs/IHEP_Executive_Summary.pdf" download>Download IHEP Executive Summary</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Table of Contents -->
-    <section style="padding: 40px 0; background: rgba(0,0,0,0.2);">
+    <section class="u-pad-40px-0-bac-rgba-0-0">
         <div class="container">
-            <h2 style="color: var(--neutral-white); margin-bottom: 20px; text-align: center;">Framework Documentation Index</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; max-width: 1000px; margin: 0 auto;">
-                <a href="#executive-summary" style="padding: 12px 20px; background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.3); border-radius: 8px; color: var(--neutral-light); text-align: center;">Executive Summary</a>
-                <a href="#nist-compliance" style="padding: 12px 20px; background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.3); border-radius: 8px; color: var(--neutral-light); text-align: center;">NIST Compliance Architecture</a>
-                <a href="#digital-twin" style="padding: 12px 20px; background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.3); border-radius: 8px; color: var(--neutral-light); text-align: center;">Patient Digital Twin</a>
-                <a href="#generative-bioai" style="padding: 12px 20px; background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.3); border-radius: 8px; color: var(--neutral-light); text-align: center;">Generative Bio-AI</a>
-                <a href="#community-integration" style="padding: 12px 20px; background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.3); border-radius: 8px; color: var(--neutral-light); text-align: center;">Community Integration</a>
-                <a href="#funding-roadmap" style="padding: 12px 20px; background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.3); border-radius: 8px; color: var(--neutral-light); text-align: center;">Funding Roadmap</a>
-                <a href="#cure-milestones" style="padding: 12px 20px; background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.3); border-radius: 8px; color: var(--neutral-light); text-align: center;">10-Year Cure Roadmap</a>
-                <a href="#technical-architecture" style="padding: 12px 20px; background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.3); border-radius: 8px; color: var(--neutral-light); text-align: center;">Technical Architecture</a>
+            <h2 class="u-col-neutral-mar-20px-tex-center">Framework Documentation Index</h2>
+            <div class="u-dis-grid-gri-gap-max-mar-0-auto">
+                <a class="u-pad-12px-2-bac-rgba-0-2-bor-1px-soli-bor-col-n" href="#executive-summary">Executive Summary</a>
+                <a class="u-pad-12px-2-bac-rgba-0-2-bor-1px-soli-bor-col-n" href="#nist-compliance">NIST Compliance Architecture</a>
+                <a class="u-pad-12px-2-bac-rgba-0-2-bor-1px-soli-bor-col-n" href="#digital-twin">Patient Digital Twin</a>
+                <a class="u-pad-12px-2-bac-rgba-0-2-bor-1px-soli-bor-col-n" href="#generative-bioai">Generative Bio-AI</a>
+                <a class="u-pad-12px-2-bac-rgba-0-2-bor-1px-soli-bor-col-n" href="#community-integration">Community Integration</a>
+                <a class="u-pad-12px-2-bac-rgba-0-2-bor-1px-soli-bor-col-n" href="#funding-roadmap">Funding Roadmap</a>
+                <a class="u-pad-12px-2-bac-rgba-0-2-bor-1px-soli-bor-col-n" href="#cure-milestones">10-Year Cure Roadmap</a>
+                <a class="u-pad-12px-2-bac-rgba-0-2-bor-1px-soli-bor-col-n" href="#technical-architecture">Technical Architecture</a>
             </div>
         </div>
     </section>
 
     <!-- Executive Summary -->
-    <section id="executive-summary" class="frameworks" style="padding: 80px 0;">
+    <section class="u-pad-80px-0 frameworks" id="executive-summary" >
         <div class="container">
             <div class="framework-item">
-                <h2 style="font-size: 2.5rem; color: var(--neutral-white); margin-bottom: 30px;"><i class="fas fa-clipboard-list"></i> Executive Summary</h2>
+                <h2 class="u-fon-2-5rem-col-neutral-mar-30px"><i class="fas fa-clipboard-list"></i> Executive Summary</h2>
 
-                <p style="color: var(--neutral-light); font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px;">
+                <p class="u-col-neutral-fon-1-1rem-lin-mar-25px">
                     The Integrated Health Empowerment Program (IHEP) is a comprehensive AI-powered healthcare platform targeting HIV/AIDS care with a dual mission:
                 </p>
 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; margin: 30px 0;">
-                    <div style="background: rgba(0,212,255,0.05); border-left: 4px solid var(--primary-blue); padding: 25px; border-radius: 8px;">
-                        <h3 style="color: var(--primary-blue); margin-bottom: 15px;"><i class="fas fa-heartbeat"></i> Near-Term Mission (Years 0-3)</h3>
-                        <p style="color: var(--neutral-light); line-height: 1.7;">
+                <div class="u-dis-grid-gri-gap-mar-30px-0">
+                    <div class="u-bac-rgba-0-2-bor-pad-25px-bor">
+                        <h3 class="u-col-primary-mar-15px"><i class="fas fa-heartbeat"></i> Near-Term Mission (Years 0-3)</h3>
+                        <p class="u-col-neutral-lin">
                             Optimize existing HIV care through <strong>Patient Digital Twins</strong>, predictive analytics, and community-integrated support systems. Target: <strong>≥95% viral suppression</strong> (vs 87% national average) with <strong>35% cost reduction</strong> per patient annually.
                         </p>
                     </div>
-                    <div style="background: rgba(123,44,191,0.05); border-left: 4px solid var(--primary-purple); padding: 25px; border-radius: 8px;">
-                        <h3 style="color: var(--primary-purple); margin-bottom: 15px;"><i class="fas fa-flask"></i> Long-Term Vision (Years 4-10)</h3>
-                        <p style="color: var(--neutral-light); line-height: 1.7;">
+                    <div class="u-bac-rgba-123-bor-pad-25px-bor">
+                        <h3 class="u-col-primary-mar-15px-2"><i class="fas fa-flask"></i> Long-Term Vision (Years 4-10)</h3>
+                        <p class="u-col-neutral-lin">
                             Leverage accumulated patient data and <strong>Generative Bio-AI</strong> to discover novel therapeutic agents targeting HIV latency. Goal: <strong>Functional cure</strong> (undetectable viral load without antiretroviral therapy) for at least 30% of patients by Year 10.
                         </p>
                     </div>
                 </div>
 
-                <div style="background: rgba(255,0,110,0.1); border: 2px solid var(--accent-magenta); padding: 30px; border-radius: 12px; margin: 40px 0;">
-                    <h3 style="color: var(--accent-magenta); margin-bottom: 20px;"><i class="fas fa-shield-alt"></i> IHEP's Unique Value Proposition</h3>
-                    <ul class="card-features" style="font-size: 1.05rem;">
+                <div class="u-bac-rgba-255-bor-2px-soli-pad-30px-bor-mar-40p">
+                    <h3 class="u-col-accent-m-mar-20px"><i class="fas fa-shield-alt"></i> IHEP's Unique Value Proposition</h3>
+                    <ul class="card-features u-fon-1-05re">
                         <li><strong>NIST AI RMF 1.0 Compliance:</strong> First HIV care platform with full NIST AI Risk Management Framework adherence, enabling federal contracts and reducing regulatory risk</li>
                         <li><strong>Zero Trust Architecture:</strong> NIST SP 800-207 implementation ensures FBI CJIS-level security, critical for handling sensitive health records</li>
                         <li><strong>Recursive Learning Loop:</strong> Patient digital twins continuously update from clinical observations, creating ever-improving predictive models</li>
@@ -119,79 +127,79 @@
                 </div>
 
                 <!-- Multi-Stakeholder Value Proposition -->
-                <h3 style="color: var(--neutral-white); margin: 50px 0 25px;"><i class="fas fa-users"></i> Multi-Stakeholder Value Proposition</h3>
+                <h3 class="u-col-neutral-mar-50px-0"><i class="fas fa-users"></i> Multi-Stakeholder Value Proposition</h3>
 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-bottom: 40px;">
+                <div class="u-dis-grid-gri-gap-mar-40px">
                     <!-- C-Suite Translation -->
-                    <div style="background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.3); padding: 25px; border-radius: 12px;">
-                        <h4 style="color: var(--primary-blue); margin-bottom: 15px;"><i class="fas fa-chart-line"></i> For C-Suite Executives</h4>
-                        <p style="color: var(--neutral-light); margin-bottom: 15px; font-size: 0.95rem;">
+                    <div class="u-bac-rgba-0-2-bor-1px-soli-pad-25px-bor">
+                        <h4 class="u-col-primary-mar-15px"><i class="fas fa-chart-line"></i> For C-Suite Executives</h4>
+                        <p class="u-col-neutral-mar-15px-fon-0-95re">
                             <strong>Market Opportunity:</strong> 1.2M people living with HIV in US, 5,000+ federally qualified health centers (FQHCs) addressable market. SaaS model: $500-2K per patient annually.
                         </p>
-                        <p style="color: var(--neutral-light); margin-bottom: 15px; font-size: 0.95rem;">
+                        <p class="u-col-neutral-mar-15px-fon-0-95re">
                             <strong>Risk Mitigation:</strong> NIST compliance reduces regulatory approval timeline by 6-12 months. Zero Trust architecture prevents data breaches (avg cost: $9.4M per incident in healthcare).
                         </p>
-                        <p style="color: var(--neutral-light); margin-bottom: 15px; font-size: 0.95rem;">
+                        <p class="u-col-neutral-mar-15px-fon-0-95re">
                             <strong>Exit Strategy:</strong> Acquisition by EHR vendors (Epic, Cerner) or healthcare AI platforms (Tempus, Flatiron) for $200M-500M by Year 5, or hold for therapeutic IP windfall.
                         </p>
                     </div>
 
                     <!-- Engineering Translation -->
-                    <div style="background: rgba(123,44,191,0.05); border: 1px solid rgba(123,44,191,0.3); padding: 25px; border-radius: 12px;">
-                        <h4 style="color: var(--primary-purple); margin-bottom: 15px;"><i class="fas fa-code"></i> For Engineering Teams</h4>
-                        <p style="color: var(--neutral-light); margin-bottom: 15px; font-size: 0.95rem;">
+                    <div class="u-bac-rgba-123-bor-1px-soli-pad-25px-bor">
+                        <h4 class="u-col-primary-mar-15px-2"><i class="fas fa-code"></i> For Engineering Teams</h4>
+                        <p class="u-col-neutral-mar-15px-fon-0-95re">
                             <strong>Tech Stack:</strong> Python/Django backend, React frontend, PostgreSQL for structured data, MongoDB for unstructured clinical notes. TensorFlow/PyTorch for ML models.
                         </p>
-                        <p style="color: var(--neutral-light); margin-bottom: 15px; font-size: 0.95rem;">
+                        <p class="u-col-neutral-mar-15px-fon-0-95re">
                             <strong>Architecture:</strong> Microservices with Docker/Kubernetes deployment. Zero Trust network segmentation via Istio service mesh. FHIR/HL7 APIs for EHR interoperability.
                         </p>
-                        <p style="color: var(--neutral-light); margin-bottom: 15px; font-size: 0.95rem;">
+                        <p class="u-col-neutral-mar-15px-fon-0-95re">
                             <strong>Scalability:</strong> Target 350 patients at MVP, 5,000+ by Year 3. Horizontal scaling via AWS/GCP with multi-region failover. Sub-200ms API response times.
                         </p>
                     </div>
 
                     <!-- Operations Translation -->
-                    <div style="background: rgba(255,0,110,0.05); border: 1px solid rgba(255,0,110,0.3); padding: 25px; border-radius: 12px;">
-                        <h4 style="color: var(--accent-magenta); margin-bottom: 15px;"><i class="fas fa-cogs"></i> For Operations Teams</h4>
-                        <p style="color: var(--neutral-light); margin-bottom: 15px; font-size: 0.95rem;">
+                    <div class="u-bac-rgba-255-bor-1px-soli-pad-25px-bor">
+                        <h4 class="u-col-accent-m-mar-15px"><i class="fas fa-cogs"></i> For Operations Teams</h4>
+                        <p class="u-col-neutral-mar-15px-fon-0-95re">
                             <strong>Clinical Workflow:</strong> Daily dashboard for care coordinators showing high-risk patients (predicted viral rebound, medication non-adherence). Automated SMS/email reminders for appointments.
                         </p>
-                        <p style="color: var(--neutral-light); margin-bottom: 15px; font-size: 0.95rem;">
+                        <p class="u-col-neutral-mar-15px-fon-0-95re">
                             <strong>Compliance:</strong> HIPAA BAA with all vendors, annual HITRUST certification, SOC 2 Type II audit trail. Automated audit logs for all data access (NIST SP 800-53r5 AU family).
                         </p>
-                        <p style="color: var(--neutral-light); margin-bottom: 15px; font-size: 0.95rem;">
+                        <p class="u-col-neutral-mar-15px-fon-0-95re">
                             <strong>Training:</strong> 3-day clinician onboarding, online training portal, quarterly compliance refresher courses. 24/7 helpdesk with <4 hour response SLA.
                         </p>
                     </div>
                 </div>
 
                 <!-- Key Impact Metrics -->
-                <div style="background: rgba(0,0,0,0.3); padding: 25px; border-radius: 12px; margin: 30px 0;">
-                    <h4 style="color: var(--neutral-white); margin-bottom: 20px;"><i class="fas fa-chart-bar"></i> Quantifiable Impact Metrics</h4>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                <div class="u-bac-rgba-0-0-pad-25px-bor-mar-30px-0">
+                    <h4 class="u-col-neutral-mar-20px"><i class="fas fa-chart-bar"></i> Quantifiable Impact Metrics</h4>
+                    <div class="u-dis-grid-gri-gap">
                         <div>
-                            <div style="color: var(--accent-cyan); font-size: 2rem; font-weight: bold;">≥95%</div>
-                            <div style="color: var(--neutral-gray); font-size: 0.9rem;">Viral suppression rate (vs 87% national avg)</div>
+                            <div class="u-col-accent-c-fon-2rem-fon-bold">≥95%</div>
+                            <div class="paper-date">Viral suppression rate (vs 87% national avg)</div>
                         </div>
                         <div>
-                            <div style="color: var(--accent-cyan); font-size: 2rem; font-weight: bold;">35%</div>
-                            <div style="color: var(--neutral-gray); font-size: 0.9rem;">Care cost reduction per patient annually</div>
+                            <div class="u-col-accent-c-fon-2rem-fon-bold">35%</div>
+                            <div class="paper-date">Care cost reduction per patient annually</div>
                         </div>
                         <div>
-                            <div style="color: var(--accent-cyan); font-size: 2rem; font-weight: bold;">40%</div>
-                            <div style="color: var(--neutral-gray); font-size: 0.9rem;">Higher engagement vs traditional clinics</div>
+                            <div class="u-col-accent-c-fon-2rem-fon-bold">40%</div>
+                            <div class="paper-date">Higher engagement vs traditional clinics</div>
                         </div>
                         <div>
-                            <div style="color: var(--accent-cyan); font-size: 2rem; font-weight: bold;">85%</div>
-                            <div style="color: var(--neutral-gray); font-size: 0.9rem;">Medication adherence rate (vs 65% baseline)</div>
+                            <div class="u-col-accent-c-fon-2rem-fon-bold">85%</div>
+                            <div class="paper-date">Medication adherence rate (vs 65% baseline)</div>
                         </div>
                         <div>
-                            <div style="color: var(--accent-cyan); font-size: 2rem; font-weight: bold;">100%</div>
-                            <div style="color: var(--neutral-gray); font-size: 0.9rem;">NIST AI RMF + Zero Trust compliant</div>
+                            <div class="u-col-accent-c-fon-2rem-fon-bold">100%</div>
+                            <div class="paper-date">NIST AI RMF + Zero Trust compliant</div>
                         </div>
                         <div>
-                            <div style="color: var(--accent-cyan); font-size: 2rem; font-weight: bold;">5,000+</div>
-                            <div style="color: var(--neutral-gray); font-size: 0.9rem;">Patient capacity by Year 3</div>
+                            <div class="u-col-accent-c-fon-2rem-fon-bold">5,000+</div>
+                            <div class="paper-date">Patient capacity by Year 3</div>
                         </div>
                     </div>
                 </div>
@@ -201,28 +209,28 @@
     </section>
 
     <!-- NIST Compliance Architecture -->
-    <section id="nist-compliance" class="frameworks" style="padding: 80px 0; background: linear-gradient(180deg, var(--primary-dark) 0%, #0f1535 100%);">
+    <section class="u-pad-80px-0-bac-linear-g frameworks" id="nist-compliance" >
         <div class="container">
             <div class="framework-item">
-                <h2 style="font-size: 2.5rem; color: var(--neutral-white); margin-bottom: 30px;"><i class="fas fa-lock"></i> NIST AI RMF 1.0 Compliance Architecture</h2>
+                <h2 class="u-fon-2-5rem-col-neutral-mar-30px"><i class="fas fa-lock"></i> NIST AI RMF 1.0 Compliance Architecture</h2>
 
-                <p style="color: var(--neutral-light); font-size: 1.1rem; line-height: 1.8; margin-bottom: 40px;">
+                <p class="u-col-neutral-fon-1-1rem-lin-mar-40px">
                     IHEP is built on the NIST AI Risk Management Framework (AI RMF 1.0), a voluntary consensus standard for managing AI risks across governance, mapping, measurement, and management dimensions. This framework, combined with Zero Trust security (NIST SP 800-207), positions IHEP as the most secure and compliant HIV care AI platform available.
                 </p>
 
                 <!-- NIST AI RMF 1.0: Four Core Functions -->
-                <div style="margin-bottom: 60px;">
-                    <h3 style="color: var(--primary-blue); font-size: 2rem; margin-bottom: 25px;"><i class="fas fa-sitemap"></i> NIST AI RMF 1.0: Four Core Functions</h3>
+                <div class="u-mar-60px">
+                    <h3 class="u-col-primary-fon-2rem-mar-25px"><i class="fas fa-sitemap"></i> NIST AI RMF 1.0: Four Core Functions</h3>
 
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px;">
+                    <div class="u-dis-grid-gri-gap-2">
                         <!-- GOVERN -->
-                        <div style="background: rgba(0,212,255,0.05); border: 2px solid var(--primary-blue); padding: 25px; border-radius: 12px;">
-                            <h4 style="color: var(--primary-blue); margin-bottom: 15px;"><i class="fas fa-gavel"></i> 1. GOVERN</h4>
-                            <p style="color: var(--neutral-light); margin-bottom: 15px; font-size: 0.95rem;">
+                        <div class="u-bac-rgba-0-2-bor-2px-soli-pad-25px-bor">
+                            <h4 class="u-col-primary-mar-15px"><i class="fas fa-gavel"></i> 1. GOVERN</h4>
+                            <p class="u-col-neutral-mar-15px-fon-0-95re">
                                 <strong>Definition:</strong> Establish AI governance structure, policies, and oversight mechanisms
                             </p>
-                            <p style="color: var(--accent-cyan); font-weight: bold; margin-bottom: 10px;">IHEP Implementation:</p>
-                            <ul class="card-features" style="font-size: 0.9rem; color: var(--neutral-gray);">
+                            <p class="u-col-accent-c-fon-bold-mar-10px">IHEP Implementation:</p>
+                            <ul class="card-features u-fon-0-9rem-col-neutral-">
                                 <li>AI Governance Board with clinical, technical, and ethics representatives</li>
                                 <li>Documented AI risk appetite statement approved by executive leadership</li>
                                 <li>Quarterly AI risk assessment reviews with board reporting</li>
@@ -232,13 +240,13 @@
                         </div>
 
                         <!-- MAP -->
-                        <div style="background: rgba(123,44,191,0.05); border: 2px solid var(--primary-purple); padding: 25px; border-radius: 12px;">
-                            <h4 style="color: var(--primary-purple); margin-bottom: 15px;"><i class="fas fa-map-marked-alt"></i> 2. MAP</h4>
-                            <p style="color: var(--neutral-light); margin-bottom: 15px; font-size: 0.95rem;">
+                        <div class="u-bac-rgba-123-bor-2px-soli-pad-25px-bor">
+                            <h4 class="u-col-primary-mar-15px-2"><i class="fas fa-map-marked-alt"></i> 2. MAP</h4>
+                            <p class="u-col-neutral-mar-15px-fon-0-95re">
                                 <strong>Definition:</strong> Context identification, impact analysis, and risk categorization
                             </p>
-                            <p style="color: var(--accent-cyan); font-weight: bold; margin-bottom: 10px;">IHEP Implementation:</p>
-                            <ul class="card-features" style="font-size: 0.9rem; color: var(--neutral-gray);">
+                            <p class="u-col-accent-c-fon-bold-mar-10px">IHEP Implementation:</p>
+                            <ul class="card-features u-fon-0-9rem-col-neutral-">
                                 <li><strong>Context:</strong> High-stakes medical decision support for HIV care (life-threatening if system fails)</li>
                                 <li><strong>Impact Analysis:</strong> False negative (missing viral rebound) = patient harm; false positive = unnecessary treatment intensification</li>
                                 <li><strong>Risk Categories:</strong> Clinical safety (highest), data privacy (high), algorithmic bias (high)</li>
@@ -247,13 +255,13 @@
                         </div>
 
                         <!-- MEASURE -->
-                        <div style="background: rgba(255,0,110,0.05); border: 2px solid var(--accent-magenta); padding: 25px; border-radius: 12px;">
-                            <h4 style="color: var(--accent-magenta); margin-bottom: 15px;"><i class="fas fa-ruler"></i> 3. MEASURE</h4>
-                            <p style="color: var(--neutral-light); margin-bottom: 15px; font-size: 0.95rem;">
+                        <div class="u-bac-rgba-255-bor-2px-soli-pad-25px-bor">
+                            <h4 class="u-col-accent-m-mar-15px"><i class="fas fa-ruler"></i> 3. MEASURE</h4>
+                            <p class="u-col-neutral-mar-15px-fon-0-95re">
                                 <strong>Definition:</strong> Track AI performance metrics, bias, and safety indicators
                             </p>
-                            <p style="color: var(--accent-cyan); font-weight: bold; margin-bottom: 10px;">IHEP Implementation:</p>
-                            <ul class="card-features" style="font-size: 0.9rem; color: var(--neutral-gray);">
+                            <p class="u-col-accent-c-fon-bold-mar-10px">IHEP Implementation:</p>
+                            <ul class="card-features u-fon-0-9rem-col-neutral-">
                                 <li><strong>Performance:</strong> AUC-ROC ≥0.90 for viral rebound prediction, calibrated probability scores</li>
                                 <li><strong>Bias Detection:</strong> Monthly fairness audits across race, gender, age, socioeconomic status (ensure no >5% performance gap)</li>
                                 <li><strong>Safety Monitoring:</strong> Real-time anomaly detection for model drift, automatic rollback if accuracy drops >10%</li>
@@ -262,13 +270,13 @@
                         </div>
 
                         <!-- MANAGE -->
-                        <div style="background: rgba(0,212,255,0.05); border: 2px solid var(--accent-cyan); padding: 25px; border-radius: 12px;">
-                            <h4 style="color: var(--accent-cyan); margin-bottom: 15px;"><i class="fas fa-tasks"></i> 4. MANAGE</h4>
-                            <p style="color: var(--neutral-light); margin-bottom: 15px; font-size: 0.95rem;">
+                        <div class="u-bac-rgba-0-2-bor-2px-soli-pad-25px-bor-2">
+                            <h4 class="u-col-accent-c-mar-15px"><i class="fas fa-tasks"></i> 4. MANAGE</h4>
+                            <p class="u-col-neutral-mar-15px-fon-0-95re">
                                 <strong>Definition:</strong> Incident response, continuous improvement, documentation
                             </p>
-                            <p style="color: var(--accent-cyan); font-weight: bold; margin-bottom: 10px;">IHEP Implementation:</p>
-                            <ul class="card-features" style="font-size: 0.9rem; color: var(--neutral-gray);">
+                            <p class="u-col-accent-c-fon-bold-mar-10px">IHEP Implementation:</p>
+                            <ul class="card-features u-fon-0-9rem-col-neutral-">
                                 <li><strong>Incident Response:</strong> 24/7 on-call rotation for critical AI failures, <1 hour escalation SLA</li>
                                 <li><strong>Root Cause Analysis:</strong> Post-incident review with corrective action plan (CAP) for all safety events</li>
                                 <li><strong>Continuous Improvement:</strong> Quarterly model retraining with expanded datasets, A/B testing of algorithm updates</li>
@@ -279,45 +287,45 @@
                 </div>
 
                 <!-- Additional NIST Standards -->
-                <div style="margin-bottom: 60px;">
-                    <h3 style="color: var(--primary-blue); font-size: 2rem; margin-bottom: 25px;"><i class="fas fa-shield-alt"></i> Comprehensive NIST Standards Alignment</h3>
+                <div class="u-mar-60px">
+                    <h3 class="u-col-primary-fon-2rem-mar-25px"><i class="fas fa-shield-alt"></i> Comprehensive NIST Standards Alignment</h3>
 
-                    <div style="background: rgba(0,0,0,0.4); padding: 30px; border-radius: 12px; margin-bottom: 25px;">
-                        <h4 style="color: var(--neutral-white); margin-bottom: 20px;">NIST SP 800-53r5: Security & Privacy Controls</h4>
-                        <p style="color: var(--neutral-light); margin-bottom: 20px;">
+                    <div class="u-bac-rgba-0-0-pad-30px-bor-mar-25px">
+                        <h4 class="u-col-neutral-mar-20px">NIST SP 800-53r5: Security & Privacy Controls</h4>
+                        <p class="u-col-neutral-mar-20px-2">
                             We implement a subset of the 1,000+ controls from NIST SP 800-53 Revision 5, focusing on high-impact controls for healthcare AI:
                         </p>
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                        <div class="u-dis-grid-gri-gap-3">
                             <div>
-                                <strong style="color: var(--accent-cyan);">AC (Access Control):</strong>
-                                <span style="color: var(--neutral-light); font-size: 0.9rem; display: block; margin-top: 5px;">Role-based access control (RBAC), least privilege principle, MFA for all users</span>
+                                <strong class="framework-content strong">AC (Access Control):</strong>
+                                <span class="u-col-neutral-fon-0-9rem-dis-block-mar-5px">Role-based access control (RBAC), least privilege principle, MFA for all users</span>
                             </div>
                             <div>
-                                <strong style="color: var(--accent-cyan);">AU (Audit & Accountability):</strong>
-                                <span style="color: var(--neutral-light); font-size: 0.9rem; display: block; margin-top: 5px;">Comprehensive logging of all data access, immutable audit trails, 7-year retention</span>
+                                <strong class="framework-content strong">AU (Audit & Accountability):</strong>
+                                <span class="u-col-neutral-fon-0-9rem-dis-block-mar-5px">Comprehensive logging of all data access, immutable audit trails, 7-year retention</span>
                             </div>
                             <div>
-                                <strong style="color: var(--accent-cyan);">SC (System & Communications Protection):</strong>
-                                <span style="color: var(--neutral-light); font-size: 0.9rem; display: block; margin-top: 5px;">TLS 1.3 encryption in transit, AES-256 at rest, network segmentation</span>
+                                <strong class="framework-content strong">SC (System & Communications Protection):</strong>
+                                <span class="u-col-neutral-fon-0-9rem-dis-block-mar-5px">TLS 1.3 encryption in transit, AES-256 at rest, network segmentation</span>
                             </div>
                             <div>
-                                <strong style="color: var(--accent-cyan);">SI (System & Information Integrity):</strong>
-                                <span style="color: var(--neutral-light); font-size: 0.9rem; display: block; margin-top: 5px;">Input validation, flaw remediation, malware protection, intrusion detection</span>
+                                <strong class="framework-content strong">SI (System & Information Integrity):</strong>
+                                <span class="u-col-neutral-fon-0-9rem-dis-block-mar-5px">Input validation, flaw remediation, malware protection, intrusion detection</span>
                             </div>
                             <div>
-                                <strong style="color: var(--accent-cyan);">IR (Incident Response):</strong>
-                                <span style="color: var(--neutral-light); font-size: 0.9rem; display: block; margin-top: 5px;">Documented IR plan, annual tabletop exercises, breach notification procedures</span>
+                                <strong class="framework-content strong">IR (Incident Response):</strong>
+                                <span class="u-col-neutral-fon-0-9rem-dis-block-mar-5px">Documented IR plan, annual tabletop exercises, breach notification procedures</span>
                             </div>
                             <div>
-                                <strong style="color: var(--accent-cyan);">RA (Risk Assessment):</strong>
-                                <span style="color: var(--neutral-light); font-size: 0.9rem; display: block; margin-top: 5px;">Annual risk assessments, vulnerability scanning (weekly), penetration testing (annual)</span>
+                                <strong class="framework-content strong">RA (Risk Assessment):</strong>
+                                <span class="u-col-neutral-fon-0-9rem-dis-block-mar-5px">Annual risk assessments, vulnerability scanning (weekly), penetration testing (annual)</span>
                             </div>
                         </div>
                     </div>
 
-                    <div style="background: rgba(0,0,0,0.4); padding: 30px; border-radius: 12px; margin-bottom: 25px;">
-                        <h4 style="color: var(--neutral-white); margin-bottom: 20px;">NIST SP 800-207: Zero Trust Architecture (ZTA)</h4>
-                        <p style="color: var(--neutral-light); margin-bottom: 20px;">
+                    <div class="u-bac-rgba-0-0-pad-30px-bor-mar-25px">
+                        <h4 class="u-col-neutral-mar-20px">NIST SP 800-207: Zero Trust Architecture (ZTA)</h4>
+                        <p class="u-col-neutral-mar-20px-2">
                             Zero Trust = "Never trust, always verify." Every access request is authenticated, authorized, and encrypted, regardless of network location.
                         </p>
                         <ul class="card-features">
@@ -329,9 +337,9 @@
                         </ul>
                     </div>
 
-                    <div style="background: rgba(0,0,0,0.4); padding: 30px; border-radius: 12px; margin-bottom: 25px;">
-                        <h4 style="color: var(--neutral-white); margin-bottom: 20px;">FBI CJIS Security Policy v5.9.1</h4>
-                        <p style="color: var(--neutral-light); margin-bottom: 20px;">
+                    <div class="u-bac-rgba-0-0-pad-30px-bor-mar-25px">
+                        <h4 class="u-col-neutral-mar-20px">FBI CJIS Security Policy v5.9.1</h4>
+                        <p class="u-col-neutral-mar-20px-2">
                             While IHEP doesn't handle criminal justice data, we adopt <strong>CJIS-level security</strong> to demonstrate the highest standard of data protection (many HIV patients have justice system involvement due to stigma/discrimination history).
                         </p>
                         <ul class="card-features">
@@ -342,9 +350,9 @@
                         </ul>
                     </div>
 
-                    <div style="background: rgba(0,0,0,0.4); padding: 30px; border-radius: 12px;">
-                        <h4 style="color: var(--neutral-white); margin-bottom: 20px;">NISTIR 8259A: IoT Device Security</h4>
-                        <p style="color: var(--neutral-light); margin-bottom: 20px;">
+                    <div class="u-bac-rgba-0-0-pad-30px-bor">
+                        <h4 class="u-col-neutral-mar-20px">NISTIR 8259A: IoT Device Security</h4>
+                        <p class="u-col-neutral-mar-20px-2">
                             IHEP integrates with IoT devices for patient monitoring (e.g., smart pill bottles for medication adherence, wearables for vitals). NISTIR 8259A provides device security baselines:
                         </p>
                         <ul class="card-features">
@@ -361,35 +369,35 @@
     </section>
 
     <!-- Patient Digital Twin -->
-    <section id="digital-twin" class="frameworks" style="padding: 80px 0;">
+    <section class="u-pad-80px-0 frameworks" id="digital-twin" >
         <div class="container">
             <div class="framework-item">
-                <h2 style="font-size: 2.5rem; color: var(--neutral-white); margin-bottom: 30px;"><i class="fas fa-user-md"></i> Patient Digital Twin Architecture</h2>
+                <h2 class="u-fon-2-5rem-col-neutral-mar-30px"><i class="fas fa-user-md"></i> Patient Digital Twin Architecture</h2>
 
-                <p style="color: var(--neutral-light); font-size: 1.1rem; line-height: 1.8; margin-bottom: 40px;">
+                <p class="u-col-neutral-fon-1-1rem-lin-mar-40px">
                     The <strong>Patient Digital Twin</strong> is a probabilistic computational model that mirrors the real patient's health state and continuously updates as new data arrives. It's the core innovation enabling personalized predictions and interventions.
                 </p>
 
                 <!-- Conceptual Foundation -->
-                <div style="margin-bottom: 50px;">
-                    <h3 style="color: var(--primary-blue); font-size: 2rem; margin-bottom: 25px;"><i class="fas fa-lightbulb"></i> Conceptual Foundation</h3>
+                <div class="u-mar-50px">
+                    <h3 class="u-col-primary-fon-2rem-mar-25px"><i class="fas fa-lightbulb"></i> Conceptual Foundation</h3>
 
-                    <div style="background: rgba(0,212,255,0.05); padding: 25px; border-radius: 12px; margin-bottom: 25px;">
-                        <h4 style="color: var(--neutral-white); margin-bottom: 15px;">What is a Digital Twin?</h4>
-                        <p style="color: var(--neutral-light); line-height: 1.8;">
+                    <div class="u-bac-rgba-0-2-pad-25px-bor-mar-25px">
+                        <h4 class="u-col-neutral-mar-15px">What is a Digital Twin?</h4>
+                        <p class="framework-content p">
                             Originally from manufacturing (Boeing uses digital twins of aircraft engines to predict maintenance needs), a digital twin is a virtual replica that simulates the behavior of its physical counterpart. In healthcare, the "physical counterpart" is the patient's body, and the twin predicts disease progression, treatment response, and health risks.
                         </p>
-                        <p style="color: var(--neutral-light); line-height: 1.8; margin-top: 15px;">
+                        <p class="u-col-neutral-lin-mar-15px">
                             <strong>Key Difference vs. Traditional ML:</strong> Most ML models make one-time predictions (e.g., "Will this patient be readmitted?"). A digital twin is <strong>stateful and recursive</strong>—it maintains a probabilistic belief about patient health that updates continuously as new observations arrive (lab results, medication changes, self-reported symptoms).
                         </p>
                     </div>
 
-                    <div style="background: rgba(0,0,0,0.4); padding: 25px; border-radius: 12px; margin-bottom: 25px;">
-                        <h4 style="color: var(--accent-cyan); margin-bottom: 15px;"><i class="fas fa-flask"></i> IHEP's Digital Twin Components</h4>
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                    <div class="u-bac-rgba-0-0-pad-25px-bor-mar-25px">
+                        <h4 class="u-col-accent-c-mar-15px"><i class="fas fa-flask"></i> IHEP's Digital Twin Components</h4>
+                        <div class="u-dis-grid-gri-gap-4">
                             <div>
-                                <strong style="color: var(--primary-blue);">1. State Variables</strong>
-                                <ul class="card-features" style="margin-top: 10px; font-size: 0.9rem;">
+                                <strong class="contact-item a">1. State Variables</strong>
+                                <ul class="card-features u-mar-10px-fon-0-9rem">
                                     <li>CD4 count (immune health)</li>
                                     <li>Viral load (HIV replication)</li>
                                     <li>Medication adherence rate</li>
@@ -398,16 +406,16 @@
                                 </ul>
                             </div>
                             <div>
-                                <strong style="color: var(--primary-blue);">2. Probabilistic Model</strong>
-                                <ul class="card-features" style="margin-top: 10px; font-size: 0.9rem;">
+                                <strong class="contact-item a">2. Probabilistic Model</strong>
+                                <ul class="card-features u-mar-10px-fon-0-9rem">
                                     <li>Bayesian network encoding causal relationships</li>
                                     <li>E.g., Poor adherence → higher viral load → lower CD4 count → increased opportunistic infections</li>
                                     <li>Uncertainty quantification (95% credible intervals)</li>
                                 </ul>
                             </div>
                             <div>
-                                <strong style="color: var(--primary-blue);">3. Update Mechanism</strong>
-                                <ul class="card-features" style="margin-top: 10px; font-size: 0.9rem;">
+                                <strong class="contact-item a">3. Update Mechanism</strong>
+                                <ul class="card-features u-mar-10px-fon-0-9rem">
                                     <li>Bayesian inference: posterior = prior × likelihood</li>
                                     <li>New lab result arrives → update beliefs about current state</li>
                                     <li>Recursive loop: today's posterior = tomorrow's prior</li>
@@ -418,15 +426,15 @@
                 </div>
 
                 <!-- Mathematical Framework -->
-                <div style="margin-bottom: 50px;">
-                    <h3 style="color: var(--primary-blue); font-size: 2rem; margin-bottom: 25px;"><i class="fas fa-calculator"></i> Mathematical Framework: Recursive Bayesian Update</h3>
+                <div class="u-mar-50px">
+                    <h3 class="u-col-primary-fon-2rem-mar-25px"><i class="fas fa-calculator"></i> Mathematical Framework: Recursive Bayesian Update</h3>
 
-                    <div class="equation-block" style="margin: 30px 0;">
-                        <h4 style="color: var(--primary-blue); margin-bottom: 15px;">Core Update Equation</h4>
+                    <div class="equation-block u-mar-30px-0">
+                        <h4 class="u-col-primary-mar-15px">Core Update Equation</h4>
                         <p>At each time step $t$, update the patient state estimate $\theta_t$ given new observation $\mathcal{D}_{t+1}$:</p>
                         $$P(\theta_{t+1}|\mathcal{D}_{1:t+1}) \propto P(\mathcal{D}_{t+1}|\theta_{t+1}) \cdot P(\theta_{t+1}|\mathcal{D}_{1:t})$$
-                        <p style="margin-top: 20px;"><strong>Where:</strong></p>
-                        <ul style="margin-top: 10px; padding-left: 20px; color: var(--neutral-light);">
+                        <p class="u-mar-20px"><strong>Where:</strong></p>
+                        <ul class="u-mar-10px-pad-20px-col-neutral-">
                             <li>$\theta_{t+1}$ = Patient state variables at time $t+1$ (CD4, viral load, adherence, etc.)</li>
                             <li>$\mathcal{D}_{1:t+1}$ = All observations from time 1 through $t+1$ (cumulative clinical data)</li>
                             <li>$P(\mathcal{D}_{t+1}|\theta_{t+1})$ = <strong>Likelihood:</strong> How probable is the new observation given current state?</li>
@@ -435,80 +443,80 @@
                         </ul>
                     </div>
 
-                    <div style="background: rgba(0,212,255,0.05); padding: 25px; border-radius: 12px; margin: 30px 0;">
-                        <h4 style="color: var(--neutral-white); margin-bottom: 15px;"><i class="fas fa-lightbulb"></i> Intuition: Learning from Every Data Point</h4>
-                        <p style="color: var(--neutral-light); line-height: 1.8;">
+                    <div class="u-bac-rgba-0-2-pad-25px-bor-mar-30px-0">
+                        <h4 class="u-col-neutral-mar-15px"><i class="fas fa-lightbulb"></i> Intuition: Learning from Every Data Point</h4>
+                        <p class="framework-content p">
                             Imagine a patient with previously stable viral load suddenly shows a spike in their latest lab result. The digital twin asks:
                         </p>
-                        <ul class="card-features" style="margin-top: 15px;">
+                        <ul class="card-features u-mar-15px">
                             <li><strong>Prior belief:</strong> "This patient has been adherent and stable for 6 months" → low probability of viral rebound</li>
                             <li><strong>New observation:</strong> Viral load jumped from <50 copies/mL to 1,200 copies/mL</li>
                             <li><strong>Likelihood:</strong> "If patient is truly adherent, this spike has only 5% probability (maybe lab error). If patient became non-adherent, spike has 70% probability."</li>
                             <li><strong>Posterior update:</strong> Increase probability of non-adherence, flag patient for adherence counseling intervention</li>
                         </ul>
-                        <p style="color: var(--neutral-light); line-height: 1.8; margin-top: 15px;">
+                        <p class="u-col-neutral-lin-mar-15px">
                             The key is that the twin doesn't blindly trust the new data (could be lab error) or ignore it (could be real crisis). It <strong>rationally integrates</strong> the new signal with historical context.
                         </p>
                     </div>
 
-                    <div style="background: rgba(0,0,0,0.4); padding: 25px; border-radius: 12px; margin: 30px 0;">
-                        <h4 style="color: var(--accent-cyan); margin-bottom: 15px;"><i class="fas fa-code"></i> Implementation: Particle Filter for Nonlinear Dynamics</h4>
-                        <p style="color: var(--neutral-light); line-height: 1.8; margin-bottom: 15px;">
+                    <div class="u-bac-rgba-0-0-pad-25px-bor-mar-30px-0-2">
+                        <h4 class="u-col-accent-c-mar-15px"><i class="fas fa-code"></i> Implementation: Particle Filter for Nonlinear Dynamics</h4>
+                        <p class="u-col-neutral-lin-mar-15px-2">
                             HIV disease dynamics are highly nonlinear (viral replication, immune response, drug resistance mutations). Standard Kalman filters assume linear Gaussian dynamics; we use a <strong>particle filter (Sequential Monte Carlo)</strong>:
                         </p>
-                        <ol style="color: var(--neutral-light); padding-left: 20px; line-height: 1.8;">
+                        <ol class="u-col-neutral-pad-20px-lin">
                             <li><strong>Initialize:</strong> Sample $N=1000$ particles (each is a plausible patient state) from prior distribution</li>
                             <li><strong>Predict:</strong> For each particle, simulate forward one time step using disease dynamics model (e.g., viral kinetics equations)</li>
                             <li><strong>Update:</strong> Weight each particle by likelihood of observed data given that particle's state</li>
                             <li><strong>Resample:</strong> Keep high-weight particles, discard low-weight ones. This concentrates computational effort on plausible hypotheses.</li>
                             <li><strong>Estimate:</strong> Posterior distribution = weighted ensemble of particles. Median = point estimate, spread = uncertainty.</li>
                         </ol>
-                        <p style="color: var(--neutral-light); line-height: 1.8; margin-top: 15px;">
+                        <p class="u-col-neutral-lin-mar-15px">
                             This allows us to handle arbitrary nonlinearities, multimodal posteriors (e.g., "patient is either fully adherent or completely non-adherent, but not in between"), and uncertainty quantification critical for clinical decision support.
                         </p>
                     </div>
                 </div>
 
                 <!-- Predictive Capabilities -->
-                <div style="margin-bottom: 50px;">
-                    <h3 style="color: var(--primary-blue); font-size: 2rem; margin-bottom: 25px;"><i class="fas fa-crystal-ball"></i> Predictive Capabilities & Clinical Applications</h3>
+                <div class="u-mar-50px">
+                    <h3 class="u-col-primary-fon-2rem-mar-25px"><i class="fas fa-crystal-ball"></i> Predictive Capabilities & Clinical Applications</h3>
 
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-                        <div style="background: rgba(0,212,255,0.05); border-left: 4px solid var(--primary-blue); padding: 20px; border-radius: 8px;">
-                            <h5 style="color: var(--primary-blue); margin-bottom: 10px;">Viral Rebound Prediction</h5>
-                            <p style="color: var(--neutral-light); font-size: 0.95rem;">
+                    <div class="u-dis-grid-gri-gap-5">
+                        <div class="u-bac-rgba-0-2-bor-pad-20px-bor">
+                            <h5 class="u-col-primary-mar-10px">Viral Rebound Prediction</h5>
+                            <p class="u-col-neutral-fon-0-95re">
                                 <strong>Goal:</strong> Predict viral load rebound 3-6 months in advance, enabling proactive intervention before clinical deterioration.
                             </p>
-                            <p style="color: var(--neutral-gray); font-size: 0.9rem; margin-top: 10px;">
+                            <p class="u-col-neutral-fon-0-9rem-mar-10px">
                                 <strong>Inputs:</strong> Medication refill patterns (proxy for adherence), historical viral load trajectory, CD4 trends, drug resistance mutations (if available)
                             </p>
-                            <p style="color: var(--accent-cyan); font-size: 0.9rem; margin-top: 10px;">
+                            <p class="u-col-accent-c-fon-0-9rem-mar-10px">
                                 <strong>Performance:</strong> AUC-ROC 0.88, sensitivity 82% at 75% specificity
                             </p>
                         </div>
 
-                        <div style="background: rgba(123,44,191,0.05); border-left: 4px solid var(--primary-purple); padding: 20px; border-radius: 8px;">
-                            <h5 style="color: var(--primary-purple); margin-bottom: 10px;">Adherence Forecasting</h5>
-                            <p style="color: var(--neutral-light); font-size: 0.95rem;">
+                        <div class="u-bac-rgba-123-bor-pad-20px-bor">
+                            <h5 class="u-col-primary-mar-10px-2">Adherence Forecasting</h5>
+                            <p class="u-col-neutral-fon-0-95re">
                                 <strong>Goal:</strong> Identify patients at high risk of treatment discontinuation within next 30 days.
                             </p>
-                            <p style="color: var(--neutral-gray); font-size: 0.9rem; margin-top: 10px;">
+                            <p class="u-col-neutral-fon-0-9rem-mar-10px">
                                 <strong>Inputs:</strong> Missed appointments, unreturned care coordinator calls, pharmacy refill gaps, social determinants (housing instability, substance use)
                             </p>
-                            <p style="color: var(--accent-cyan); font-size: 0.9rem; margin-top: 10px;">
+                            <p class="u-col-accent-c-fon-0-9rem-mar-10px">
                                 <strong>Performance:</strong> AUC-ROC 0.91, identifies 75% of future non-adherers with 20% false positive rate
                             </p>
                         </div>
 
-                        <div style="background: rgba(255,0,110,0.05); border-left: 4px solid var(--accent-magenta); padding: 20px; border-radius: 8px;">
-                            <h5 style="color: var(--accent-magenta); margin-bottom: 10px;">Opportunistic Infection Risk</h5>
-                            <p style="color: var(--neutral-light); font-size: 0.95rem;">
+                        <div class="u-bac-rgba-255-bor-pad-20px-bor">
+                            <h5 class="u-col-accent-m-mar-10px">Opportunistic Infection Risk</h5>
+                            <p class="u-col-neutral-fon-0-95re">
                                 <strong>Goal:</strong> Stratify patients by risk of opportunistic infections (OIs) requiring hospitalization.
                             </p>
-                            <p style="color: var(--neutral-gray); font-size: 0.9rem; margin-top: 10px;">
+                            <p class="u-col-neutral-fon-0-9rem-mar-10px">
                                 <strong>Inputs:</strong> CD4 count trajectory, prophylaxis medication adherence, comorbidities (diabetes, COPD), social risk factors
                             </p>
-                            <p style="color: var(--accent-cyan); font-size: 0.9rem; margin-top: 10px;">
+                            <p class="u-col-accent-c-fon-0-9rem-mar-10px">
                                 <strong>Performance:</strong> C-statistic 0.85 for 6-month OI prediction
                             </p>
                         </div>
@@ -520,18 +528,18 @@
     </section>
 
     <!-- 10-Year Roadmap to Cure -->
-    <section id="cure-milestones" class="frameworks" style="padding: 80px 0; background: linear-gradient(180deg, #0f1535 0%, var(--primary-dark) 100%);">
+    <section class="u-pad-80px-0-bac-linear-g-2 frameworks" id="cure-milestones" >
         <div class="container">
             <div class="framework-item">
-                <h2 style="font-size: 2.5rem; color: var(--neutral-white); margin-bottom: 30px;"><i class="fas fa-map-signs"></i> 10-Year Roadmap to HIV/AIDS Functional Cure</h2>
+                <h2 class="u-fon-2-5rem-col-neutral-mar-30px"><i class="fas fa-map-signs"></i> 10-Year Roadmap to HIV/AIDS Functional Cure</h2>
 
-                <p style="color: var(--neutral-light); font-size: 1.1rem; line-height: 1.8; margin-bottom: 40px;">
+                <p class="u-col-neutral-fon-1-1rem-lin-mar-40px">
                     While optimizing existing care delivers immediate value, IHEP's <strong>long-term moonshot goal</strong> is achieving a functional cure for HIV: sustained viral suppression without ongoing antiretroviral therapy (ART). This requires AI-driven therapeutic discovery targeting the viral reservoir.
                 </p>
 
-                <div style="background: rgba(255,0,110,0.1); border: 2px solid var(--accent-magenta); padding: 30px; border-radius: 12px; margin-bottom: 50px;">
-                    <h3 style="color: var(--accent-magenta); margin-bottom: 20px;"><i class="fas fa-question-circle"></i> Why a Cure is Needed (Despite Effective ART)</h3>
-                    <p style="color: var(--neutral-light); line-height: 1.8; margin-bottom: 15px;">
+                <div class="u-bac-rgba-255-bor-2px-soli-pad-30px-bor-mar-50p">
+                    <h3 class="u-col-accent-m-mar-20px"><i class="fas fa-question-circle"></i> Why a Cure is Needed (Despite Effective ART)</h3>
+                    <p class="u-col-neutral-lin-mar-15px-2">
                         Modern ART reduces HIV to undetectable levels, but patients must take daily medication for life. The virus persists in <strong>latent reservoirs</strong> (resting CD4+ T cells, tissue macrophages) that ART cannot eliminate. If ART stops, viral rebound occurs within 2-4 weeks in 99% of patients.
                     </p>
                     <ul class="card-features">
@@ -543,14 +551,14 @@
                 </div>
 
                 <!-- Phased Roadmap -->
-                <div style="margin-bottom: 50px;">
-                    <h3 style="color: var(--primary-blue); font-size: 2rem; margin-bottom: 25px;"><i class="fas fa-road"></i> Phased Development Roadmap</h3>
+                <div class="u-mar-50px">
+                    <h3 class="u-col-primary-fon-2rem-mar-25px"><i class="fas fa-road"></i> Phased Development Roadmap</h3>
 
-                    <div style="display: grid; grid-template-columns: 1fr; gap: 25px;">
+                    <div class="u-dis-grid-gri-gap-6">
                         <!-- Years 0-2 -->
-                        <div style="background: rgba(0,212,255,0.05); border-left: 4px solid var(--primary-blue); padding: 25px; border-radius: 8px;">
-                            <h4 style="color: var(--primary-blue); margin-bottom: 15px;"><i class="fas fa-play"></i> Years 0-2: Foundation & MVP</h4>
-                            <p style="color: var(--neutral-light); font-size: 1.05rem; margin-bottom: 15px;">
+                        <div class="u-bac-rgba-0-2-bor-pad-25px-bor">
+                            <h4 class="u-col-primary-mar-15px"><i class="fas fa-play"></i> Years 0-2: Foundation & MVP</h4>
+                            <p class="u-col-neutral-fon-1-05re-mar-15px">
                                 <strong>Focus:</strong> Build core platform, deploy MVP with 350 patients, establish baseline metrics
                             </p>
                             <ul class="card-features">
@@ -563,9 +571,9 @@
                         </div>
 
                         <!-- Years 3-5 -->
-                        <div style="background: rgba(123,44,191,0.05); border-left: 4px solid var(--primary-purple); padding: 25px; border-radius: 8px;">
-                            <h4 style="color: var(--primary-purple); margin-bottom: 15px;"><i class="fas fa-chart-line"></i> Years 3-5: Scale-Up & Discovery Initiation</h4>
-                            <p style="color: var(--neutral-light); font-size: 1.05rem; margin-bottom: 15px;">
+                        <div class="u-bac-rgba-123-bor-pad-25px-bor">
+                            <h4 class="u-col-primary-mar-15px-2"><i class="fas fa-chart-line"></i> Years 3-5: Scale-Up & Discovery Initiation</h4>
+                            <p class="u-col-neutral-fon-1-05re-mar-15px">
                                 <strong>Focus:</strong> Scale to 5,000+ patients, initiate Generative Bio-AI therapeutic discovery
                             </p>
                             <ul class="card-features">
@@ -578,9 +586,9 @@
                         </div>
 
                         <!-- Years 6-8 -->
-                        <div style="background: rgba(255,0,110,0.05); border-left: 4px solid var(--accent-magenta); padding: 25px; border-radius: 8px;">
-                            <h4 style="color: var(--accent-magenta); margin-bottom: 15px;"><i class="fas fa-flask"></i> Years 6-8: Preclinical & Phase I Trials</h4>
-                            <p style="color: var(--neutral-light); font-size: 1.05rem; margin-bottom: 15px;">
+                        <div class="u-bac-rgba-255-bor-pad-25px-bor">
+                            <h4 class="u-col-accent-m-mar-15px"><i class="fas fa-flask"></i> Years 6-8: Preclinical & Phase I Trials</h4>
+                            <p class="u-col-neutral-fon-1-05re-mar-15px">
                                 <strong>Focus:</strong> Translate AI-discovered compounds into IND-ready therapeutics
                             </p>
                             <ul class="card-features">
@@ -593,9 +601,9 @@
                         </div>
 
                         <!-- Years 9-10 -->
-                        <div style="background: rgba(0,212,255,0.05); border-left: 4px solid var(--accent-cyan); padding: 25px; border-radius: 8px;">
-                            <h4 style="color: var(--accent-cyan); margin-bottom: 15px;"><i class="fas fa-trophy"></i> Years 9-10: Phase II Trials & Functional Cure Demonstration</h4>
-                            <p style="color: var(--neutral-light); font-size: 1.05rem; margin-bottom: 15px;">
+                        <div class="u-bac-rgba-0-2-bor-pad-25px-bor-2">
+                            <h4 class="u-col-accent-c-mar-15px"><i class="fas fa-trophy"></i> Years 9-10: Phase II Trials & Functional Cure Demonstration</h4>
+                            <p class="u-col-neutral-fon-1-05re-mar-15px">
                                 <strong>Focus:</strong> Efficacy trials for functional cure in combination therapy
                             </p>
                             <ul class="card-features">
@@ -615,17 +623,17 @@
     </section>
 
     <!-- Call to Action -->
-    <section style="padding: 80px 0; background: linear-gradient(135deg, rgba(0,212,255,0.1) 0%, rgba(123,44,191,0.1) 100%);">
-        <div class="container" style="text-align: center;">
-            <h2 style="font-size: 2.5rem; color: var(--neutral-white); margin-bottom: 20px;">Join the Mission to End HIV/AIDS</h2>
-            <p style="font-size: 1.2rem; color: var(--neutral-light); max-width: 700px; margin: 0 auto 40px;">
+    <section class="u-pad-80px-0-bac-linear-g-3">
+        <div class="container metric">
+            <h2 class="u-fon-2-5rem-col-neutral-mar-20px">Join the Mission to End HIV/AIDS</h2>
+            <p class="u-fon-1-2rem-col-neutral-max-mar-0-auto">
                 Whether you're a clinical partner, investor, or academic researcher, there's a role for you in making IHEP's vision a reality.
             </p>
-            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                <a href="index.html#contact" class="btn btn-primary" style="font-size: 1.1rem; padding: 15px 40px;">
+            <div class="u-dis-flex-gap-jus-fle">
+                <a class="u-fon-1-1rem-pad-15px-4 btn btn-primary" href="index.html#contact" >
                     <i class="fas fa-envelope"></i> Request Full IHEP Framework Documentation
                 </a>
-                <a href="projects_portfolio.html" class="btn btn-secondary" style="font-size: 1.1rem; padding: 15px 40px;">
+                <a class="u-fon-1-1rem-pad-15px-4 btn btn-secondary" href="projects_portfolio.html" >
                     <i class="fas fa-arrow-left"></i> Back to Projects Portfolio
                 </a>
             </div>
