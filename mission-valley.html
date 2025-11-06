@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Valley Nexus | $215M Strategic Acquisition Analysis</title>
+    <meta name="description" content="Comprehensive multi-pathway analysis for transformative 17.38-acre Mission Valley property development featuring UCSD innovation hub, faith-community partnership, and corporate life sciences campus scenarios with 194% ROI projections.">
+    
+    <!-- MathJax for equation rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00d4ff;
+            --secondary: #7b2ff7;
+            --accent: #ff006e;
+            --dark: #0a0e27;
+            --darker: #050815;
+            --light: #ffffff;
+            --gray: #8892b0;
+            --success: #00ff88;
+            --warning: #ffd700;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(5, 8, 21, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(123, 47, 247, 0.1));
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: var(--gray);
+            max-width: 900px;
+            margin: 0 auto 2rem;
+        }
+
+        .property-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto;
+        }
+
+        .spec-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .spec-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .spec-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Content Sections */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Pathway Cards */
+        .pathways-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pathway-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid rgba(0, 212, 255, 0.2);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pathway-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .pathway-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        .pathway-tag {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .pathway-card p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .pathway-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .metric-item {
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            color: var(--gray);
+            text-transform: uppercase;
+        }
+
+        /* Financial Model Section */
+        .financial-model {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(123, 47, 247, 0.05));
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+
+        .capital-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stack-layer {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .stack-layer h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stack-amount {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--light);
+            margin: 0.5rem 0;
+        }
+
+        .stack-percentage {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        th {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(123, 47, 247, 0.2));
+            color: var(--light);
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray);
+        }
+
+        tr:hover {
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+        .highlight-value {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Math Framework */
+        .math-framework {
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 4px solid var(--primary);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        .math-framework h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+            margin: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 0 2rem;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border: 4px solid var(--darker);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        /* Key Benefits */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .benefit-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(123, 47, 247, 0.1));
+            border-radius: 20px;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--light);
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .timeline-content {
+                margin: 0 0 0 2rem;
+            }
+
+            .timeline-marker {
+                left: 0;
+                transform: translateX(-50%);
+            }
+
+            .property-specs {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+
+            .pathways-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .capital-stack {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-content">
+            <div class="nav-logo">JARMACZ</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="#overview">Overview</a>
+                <a href="#pathways">Acquisition Pathways</a>
+                <a href="#financial">Financial Model</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Mission Valley Nexus</h1>
+        <p class="subtitle">
+            Strategic Multi-Pathway Analysis for Transformative $215M Property Acquisition in San Diego's Innovation Corridor
+        </p>
+        
+        <div class="property-specs">
+            <div class="spec-box">
+                <span class="spec-value">$215M</span>
+                <span class="spec-label">Asset Value</span>
+            </div>
+            <div class="spec-box">
+                <span class="spec-value">17.38</span>
+                <span class="spec-label">Acres</span>
+            </div>
+            <div class="spec-box">
+                <span class="spec-value">216K</span>
+                <span class="spec-label">Sq Ft Building</span>
+            </div>
+            <div class="spec-box">
+                <span class="spec-value">4.89×</span>
+                <span class="spec-label">Equity Multiple</span>
+            </div>
+            <div class="spec-box">
+                <span class="spec-value">18-25%</span>
+                <span class="spec-label">Sponsor IRR</span>
+            </div>
+            <div class="spec-box">
+                <span class="spec-value">$1.1B+</span>
+                <span class="spec-label">Economic Impact</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Executive Overview -->
+    <section id="overview">
+        <h2>Executive Overview</h2>
+        <p style="text-align: center; color: var(--gray); max-width: 900px; margin: 0 auto 3rem; font-size: 1.1rem;">
+            This comprehensive analysis synthesizes strategic, operational, and financial frameworks for the acquisition of 875 Hotel Circle South—a turnkey, LEED Gold certified property presenting unprecedented opportunity across academic, faith-community, and corporate life sciences sectors.
+        </p>
+
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <div class="benefit-icon">🎯</div>
+                <h4 style="color: var(--light); margin-bottom: 0.5rem;">Strategic Location</h4>
+                <p style="color: var(--gray); font-size: 0.9rem;">Mission Valley Innovation Corridor with direct trolley access and I-8/I-805 proximity</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">⚡</div>
+                <h4 style="color: var(--light); margin-bottom: 0.5rem;">Rapid Deployment</h4>
+                <p style="color: var(--gray); font-size: 0.9rem;">Beneficial occupancy in <12 months vs. 5-7+ years for new construction</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">💰</div>
+                <h4 style="color: var(--light); margin-bottom: 0.5rem;">Cost Advantage</h4>
+                <p style="color: var(--gray); font-size: 0.9rem;">~$12.4M/acre vs. La Jolla's $40M+/acre; 40%+ capital savings vs. build-to-suit</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🏗️</div>
+                <h4 style="color: var(--light); margin-bottom: 0.5rem;">Turnkey Infrastructure</h4>
+                <p style="color: var(--gray); font-size: 0.9rem;">Commercial HVAC, robust power, 126 hotel rooms ready for adaptive reuse</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-item">
+                <div class="benefit-icon">🌱</div>
+                <h4 style="color: var(--light); margin-bottom: 0.5rem;">Sustainability</h4>
+                <p style="color: var(--gray); font-size: 0.9rem;">LEED Gold certified, adaptive reuse showcases environmental leadership</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">📈</div>
+                <h4 style="color: var(--light); margin-bottom: 0.5rem;">Proven ROI</h4>
+                <p style="color: var(--gray); font-size: 0.9rem;">194% ROI (Illumina), 147% ROI (Novartis), 1000+ jobs created across scenarios</p>
+            </div>
+        </div>
+
+        <div class="math-framework">
+            <h4>30-Year Investment Thesis</h4>
+            <p style="text-align: center; margin: 1.5rem 0;">
+                $$\text{Equity Multiple} = \frac{\text{Exit Valuation} + \text{Cumulative Cash Flow}}{\text{Initial Equity}} = \frac{\$399.6M + \$347M}{\$70.95M} = 4.89\times$$
+            </p>
+            <p style="color: var(--gray); text-align: center;">
+                <strong style="color: var(--primary);">Sponsor IRR:</strong> 18-25% on 20% common equity position<br>
+                <strong style="color: var(--primary);">Exit Cap Rate:</strong> 5.5% | <strong style="color: var(--primary);">Total Return:</strong> $347M net profit
+            </p>
+        </div>
+    </section>
+
+    <!-- Acquisition Pathways -->
+    <section id="pathways">
+        <h2>Three Strategic Acquisition Pathways</h2>
+        <p style="text-align: center; color: var(--gray); max-width: 900px; margin: 0 auto 3rem; font-size: 1.1rem;">
+            Each pathway leverages the property's unique attributes to address critical institutional needs while maximizing economic and social impact through innovative financial and operational models.
+        </p>
+
+        <div class="pathways-grid">
+            <!-- Pathway 1: UCSD -->
+            <div class="pathway-card">
+                <span class="pathway-tag">Academic Innovation</span>
+                <h3>UC San Diego Innovation Hub</h3>
+                <p>
+                    Revolutionary <strong>"Architecture-as-a-Service"</strong> model transforming the property into a multi-sector research and innovation hub anchored by the School of Computing, Information & Data Sciences (SCIDS) and San Diego Supercomputer Center.
+                </p>
+
+                <div style="background: rgba(0, 212, 255, 0.05); padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0;">
+                    <h4 style="color: var(--primary); margin-bottom: 1rem;">Core Innovation: Pay-By-The-Drink Model</h4>
+                    <p style="color: var(--gray); font-size: 0.95rem; margin-bottom: 1rem;">
+                        Converting capital expenditure to flexible operating expenses through metered access to compute, conference, and lab infrastructure. Departments and external partners pay only for resources consumed, creating new revenue streams while democratizing access to campus-class facilities.
+                    </p>
+                    <ul style="color: var(--gray); margin-left: 1.5rem;">
+                        <li>Dynamic bundling for biotech startups and corporate partners</li>
+                        <li>Comic-Con auxiliary venue solving chronic overflow ($160M+ event impact)</li>
+                        <li>Turnkey management freeing users to focus on core missions</li>
+                        <li>Revenue generation offsets operating costs</li>
+                    </ul>
+                </div>
+
+                <div class="pathway-metrics">
+                    <div class="metric-item">
+                        <span class="metric-value">&lt;12mo</span>
+                        <span class="metric-label">To Occupancy</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-value">$28M</span>
+                        <span class="metric-label">Annual Savings</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-value">126</span>
+                        <span class="metric-label">Grad Housing Units</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-value">10K</span>
+                        <span class="metric-label">AI Compute GPUs</span>
+                    </div>
+                </div>
+
+                <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <h4 style="color: var(--secondary); margin-bottom: 0.5rem;">Nuclear Energy Catalyst</h4>
+                    <p style="color: var(--gray); font-size: 0.9rem;">
+                        Integration of 300MW SMR or 1MW Kaleidos microreactor to power AI compute infrastructure, creating $280-410M value-add through premium tech leases, reduced CapEx, federal grants, and carbon credits. Potential anchor for General Atomics fusion data science satellite lab.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pathway 2: Faith-Based -->
+            <div class="pathway-card">
+                <span class="pathway-tag">Community + Ministry</span>
+                <h3>Faith-Based Community Uplift</h3>
+                <p>
+                    Leveraging the property's purpose-built Christian ministry infrastructure (Morris Cerullo Legacy International Center) for acquisition by Rock Church San Diego, with optimal hybrid model combining ministry headquarters and 350-400 affordable housing units.
+                </p>
+
+                <div style="background: rgba(123, 47, 247, 0.05); padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0;">
+                    <h4 style="color: var(--secondary); margin-bottom: 1rem;">Optimal Hybrid Model</h4>
+                    <p style="color: var(--gray); font-size: 0.95rem; margin-bottom: 1rem;">
+                        Joint LLC structure with San Diego Housing Commission developing affordable housing while Rock Church acquires equity stake and 99-year ground lease for sanctuary and community services (childcare, food ministry). Creates replicable national model for faith-secular partnerships.
+                    </p>
+                    <p style="color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">
+                        25% Better Social Outcomes vs. Single-Entity Models
+                    </p>
+                    <ul style="color: var(--gray); margin-left: 1.5rem; font-size: 0.9rem;">
+                        <li>Preserves $90M ministry legacy infrastructure</li>
+                        <li>Saves Rock Church $5M/year consolidating 5 leased campuses</li>
+                        <li>Maximizes affordable housing creation (50-80% AMI)</li>
+                        <li>Combines strengths: public funding + mission alignment</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-table" style="margin-top: 1.5rem;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Model</th>
+                                <th>Housing Units</th>
+                                <th>Key Advantage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Secular (SDHC)</td>
+                                <td class="highlight-value">300-400</td>
+                                <td>Max units, public funding</td>
+                            </tr>
+                            <tr>
+                                <td>Faith-Based</td>
+                                <td class="highlight-value">50-100</td>
+                                <td>Ministry legacy, $5M savings</td>
+                            </tr>
+                            <tr style="background: rgba(0, 212, 255, 0.1);">
+                                <td><strong>Optimal Hybrid</strong></td>
+                                <td class="highlight-value"><strong>350-400</strong></td>
+                                <td><strong>25% better outcomes</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pathway-metrics">
+                    <div class="metric-item">
+                        <span class="metric-value">$90M</span>
+                        <span class="metric-label">Ministry Infrastructure</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-value">350-400</span>
+                        <span class="metric-label">Affordable Units</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-value">500</span>
+                        <span class="metric-label">Seat Theater</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-value">$5M</span>
+                        <span class="metric-label">Annual Savings</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pathway 3: Corporate Life Sciences -->
+            <div class="pathway-card">
+                <span class="pathway-tag">Life Sciences R&D</span>
+                <h3>Corporate Innovation Campus</h3>
+                <p>
+                    Positioning as premier R&D hub for global life sciences leaders, with comprehensive development charters and LOIs prepared for both Illumina ($567M BioInsight Innovation Campus) and Novartis ($647M Biomedical Research Hub).
+                </p>
+
+                <div style="background: rgba(255, 0, 110, 0.05); padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0;">
+                    <h4 style="color: var(--accent); margin-bottom: 1rem;">Genomics-to-Therapeutics Corridor</h4>
+                    <p style="color: var(--gray); font-size: 0.95rem; margin-bottom: 1rem;">
+                        While in competition, Illumina (upstream: genomic data/AI insights) and Novartis (downstream: drug discovery/therapeutics) proposals are complementary, potentially creating complete innovation pipeline in Mission Valley.
+                    </p>
+                </div>
+
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Novartis</th>
+                                <th>Illumina</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Total Investment</td>
+                                <td class="highlight-value">$647.3M</td>
+                                <td class="highlight-value">$567.4M</td>
+                            </tr>
+                            <tr>
+                                <td>Campus Size</td>
+                                <td>466,175 SF</td>
+                                <td>430,175 SF</td>
+                            </tr>
+                            <tr>
+                                <td>Primary Focus</td>
+                                <td>Wet/Dry Lab Research</td>
+                                <td>AI/Computational Genomics</td>
+                            </tr>
+                            <tr>
+                                <td>Timeline</td>
+                                <td>48 months</td>
+                                <td>40 months</td>
+                            </tr>
+                            <tr>
+                                <td>30-Year ROI</td>
+                                <td class="highlight-value">147%</td>
+                                <td class="highlight-value">194%</td>
+                            </tr>
+                            <tr>
+                                <td>Jobs Created</td>
+                                <td class="highlight-value">1,000+</td>
+                                <td class="highlight-value">850+</td>
+                            </tr>
+                            <tr>
+                                <td>Economic Impact</td>
+                                <td>$951.7M</td>
+                                <td>$1.1B</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pathway-metrics">
+                    <div class="metric-item">
+                        <span class="metric-value">40%+</span>
+                        <span class="metric-label">Capital Savings</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-value">1,850+</span>
+                        <span class="metric-label">Total Jobs</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-value">$2.05B</span>
+                        <span class="metric-label">Combined Economic Impact</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-value">194%</span>
+                        <span class="metric-label">Max ROI (Illumina)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financial Model -->
+    <section id="financial">
+        <h2>Comprehensive Financial Framework</h2>
+        
+        <div class="financial-model">
+            <h3 style="text-align: center; color: var(--primary); margin-bottom: 2rem;">$215M Capital Stack Architecture</h3>
+            <p style="text-align: center; color: var(--gray); max-width: 800px; margin: 0 auto 3rem;">
+                Four-layer optimization strategy designed to minimize cost of capital while maintaining operational flexibility and alignment with institutional investor requirements across all acquisition pathways.
+            </p>
+
+            <div class="capital-stack">
+                <div class="stack-layer">
+                    <h4>Layer 1: Senior Debt</h4>
+                    <div class="stack-amount">$107.5M</div>
+                    <div class="stack-percentage">50% of Capital Stack</div>
+                    <p style="color: var(--gray); font-size: 0.9rem; margin-top: 1rem;">
+                        <strong>Source:</strong> Life Insurance Co. (MetLife, Prudential)<br>
+                        <strong>Rate:</strong> 6.5% fixed<br>
+                        <strong>Rationale:</strong> Lowest cost of capital, long-term stability
+                    </p>
+                </div>
+
+                <div class="stack-layer">
+                    <h4>Layer 2: Mezzanine Debt</h4>
+                    <div class="stack-amount">$32.25M</div>
+                    <div class="stack-percentage">15% of Capital Stack</div>
+                    <p style="color: var(--gray); font-size: 0.9rem; margin-top: 1rem;">
+                        <strong>Source:</strong> Private Debt Fund (Ladder Capital)<br>
+                        <strong>Rationale:</strong> Fills financing gap, fast closing, refinance at stabilization
+                    </p>
+                </div>
+
+                <div class="stack-layer">
+                    <h4>Layer 3: Preferred Equity</h4>
+                    <div class="stack-amount">$32.25M</div>
+                    <div class="stack-percentage">15% of Capital Stack</div>
+                    <p style="color: var(--gray); font-size: 0.9rem; margin-top: 1rem;">
+                        <strong>Source:</strong> Family Office / HNWI<br>
+                        <strong>Rationale:</strong> Patient capital with potential for mission alignment
+                    </p>
+                </div>
+
+                <div class="stack-layer">
+                    <h4>Layer 4: Common Equity</h4>
+                    <div class="stack-amount">$43.0M</div>
+                    <div class="stack-percentage">20% of Capital Stack</div>
+                    <p style="color: var(--gray); font-size: 0.9rem; margin-top: 1rem;">
+                        <strong>Source:</strong> PE Fund ($30M) + Sponsor ($13M)<br>
+                        <strong>Rationale:</strong> Institutional expertise, operational control, exit execution
+                    </p>
+                </div>
+            </div>
+
+            <div class="math-framework" style="margin-top: 3rem;">
+                <h4>Investment Return Calculations</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0;">
+                    <div>
+                        <p style="color: var(--gray); margin-bottom: 1rem;"><strong>Exit Valuation (Year 30):</strong></p>
+                        <p style="text-align: center; color: var(--primary); font-size: 1.2rem;">
+                            $$V_{exit} = \frac{NOI_{30}}{\text{Cap Rate}} = \frac{\$22M}{5.5\%} = \$399.6M$$
+                        </p>
+                    </div>
+                    <div>
+                        <p style="color: var(--gray); margin-bottom: 1rem;"><strong>Equity Multiple:</strong></p>
+                        <p style="text-align: center; color: var(--primary); font-size: 1.2rem;">
+                            $$EM = \frac{V_{exit} + CF_{cum}}{E_0} = \frac{\$399.6M + \$347M}{\$70.95M} = 4.89\times$$
+                        </p>
+                    </div>
+                </div>
+                <div style="background: rgba(0, 212, 255, 0.05); padding: 1.5rem; border-radius: 8px; margin-top: 2rem;">
+                    <h4 style="color: var(--primary); margin-bottom: 1rem;">Target Investor Profiles (Tiered)</h4>
+                    <p style="color: var(--gray); margin-bottom: 0.5rem;">
+                        <strong>Tier 1 (Highest Fit):</strong> Starwood Capital Group (sweet spot: $25-75M), Blackstone, Family Offices, Life Insurance Companies
+                    </p>
+                    <p style="color: var(--gray); margin-bottom: 0.5rem;">
+                        <strong>Tier 2 (Strong Fit):</strong> CalPERS, Mezzanine Lenders, REITs
+                    </p>
+                    <p style="color: var(--gray);">
+                        <strong>Tier 3 (Specialized Fit):</strong> Federal/Government Programs, PropTech Venture Capital
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Multi-Stakeholder Communication -->
+    <section>
+        <h2>Strategic Communication Framework</h2>
+        <p style="text-align: center; color: var(--gray); max-width: 900px; margin: 0 auto 3rem; font-size: 1.1rem;">
+            Translating incredible complexity into stakeholder-appropriate language across C-suite, engineering, operations, and community audiences—demonstrating mastery of multi-departmental communication essential for large-scale strategic initiatives.
+        </p>
+
+        <div class="pathways-grid">
+            <div class="pathway-card">
+                <div class="benefit-icon">👔</div>
+                <h3>C-Suite Executives</h3>
+                <p>
+                    <strong>4.89× equity multiple</strong> with 18-25% sponsor IRR presents superior risk-adjusted returns. Acquisition at $12.4M/acre vs. La Jolla's $40M+ captures $175M+ in valuation arbitrage. <strong>Beneficial occupancy in <12 months</strong> vs. 5-7 year build cycle accelerates revenue generation and competitive positioning. Mission Valley Innovation Corridor adjacency positions for participation in SDSU's 1.6M SF R&D expansion.
+                </p>
+            </div>
+
+            <div class="pathway-card">
+                <div class="benefit-icon">⚙️</div>
+                <h3>Engineering Teams</h3>
+                <p>
+                    Commercial-grade HVAC sustains rapid cooling for compute-intensive HPC/AI workloads (10K GPU capacity). Robust power infrastructure supports distributed energy architecture including potential 300MW SMR or 1MW microreactor integration. Existing structured cabling and network backbone enables rapid deployment of Zero Trust, NIST SP 800-207 compliant security architecture. <strong>Modular infrastructure supports iterative deployment</strong> without disrupting operations.
+                </p>
+            </div>
+
+            <div class="pathway-card">
+                <div class="benefit-icon">📊</div>
+                <h3>Operations</h3>
+                <p>
+                    Architecture-as-a-Service model converts $215M CapEx to flexible OpEx, eliminating balance sheet burden. Metered access billing creates <strong>predictable cash flows with 99.7% uptime</strong> targeting. Turnkey facilities management (Jarmacz & Paras) handles technical staffing, cybersecurity, and maintenance—freeing departments to focus on core missions. Dynamic resource allocation optimizes utilization rates across academic, research, and commercial tenants.
+                </p>
+            </div>
+
+            <div class="pathway-card">
+                <div class="benefit-icon">🏘️</div>
+                <h3>Community Impact</h3>
+                <p>
+                    Hybrid model creates <strong>350-400 affordable housing units (50-80% AMI)</strong> while preserving $90M ministry legacy. 1,850+ high-wage jobs across all scenarios with emphasis on local hiring. Maker labs, theaters, and workshop spaces democratize access to innovation infrastructure for schools and nonprofits. $1.1B+ economic impact creates sustained tax revenue supporting regional infrastructure and services.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact">
+        <div class="cta-section">
+            <h2 style="margin-bottom: 1.5rem;">Transform Strategic Vision into Measurable Reality</h2>
+            <p style="color: var(--gray); font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem;">
+                Whether architecting university innovation hubs, structuring complex public-private partnerships, or modeling corporate R&D campus development—the Mission Valley Nexus demonstrates comprehensive mastery of multi-stakeholder strategic planning, financial engineering, and execution.
+            </p>
+            
+            <div style="margin-top: 3rem;">
+                <a href="mailto:jayjarmacz@gmail.com?subject=Mission%20Valley%20Strategic%20Consultation" class="cta-button">
+                    Schedule Strategic Consultation
+                </a>
+                <a href="index.html" class="cta-button" style="background: rgba(255,255,255,0.1);">
+                    View Full Portfolio
+                </a>
+            </div>
+
+            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                <p style="color: var(--gray);">
+                    <strong>Jason Jarmacz</strong> | NeuroProgressive AI Evolution Strategist<br>
+                    📧 jayjarmacz@gmail.com | 📱 (917) 566-8112 | 💼 <a href="https://linkedin.com/in/omniunum" style="color: var(--primary);">LinkedIn</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Animate metrics on scroll
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.pathway-card, .stack-layer, .benefit-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
