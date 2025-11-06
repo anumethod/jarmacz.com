@@ -283,7 +283,7 @@ code {
     .nav-toggle {
         display: flex;
     }
-
+    
     .nav-menu {
         position: absolute;
         top: 100%;
@@ -296,13 +296,12 @@ code {
         max-height: 0;
         overflow: hidden;
         transition: max-height var(--transition-base);
-        z-index: var(--z-dropdown);
     }
-
+    
     .nav-menu.active {
         max-height: 500px;
     }
-
+    
     .nav-menu li {
         padding: var(--space-sm) 0;
         border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -320,8 +319,7 @@ code {
     position: relative;
     background: var(--primary-dark);
     overflow: hidden;
-    padding-top: 100px;
-    padding-bottom: var(--space-lg);
+    padding-top: 80px;
 }
 
 .hero::before {
@@ -515,25 +513,19 @@ code {
 
 /* Mobile Hero */
 @media (max-width: 968px) {
-    .hero {
-        padding-top: 160px;
-        min-height: auto;
-        padding-bottom: var(--space-xl);
-    }
-
     .hero-container {
         grid-template-columns: 1fr;
         text-align: center;
     }
-
+    
     .hero-visual {
         height: 300px;
     }
-
+    
     .hero-metrics {
         grid-template-columns: 1fr;
     }
-
+    
     .cta-buttons {
         flex-direction: column;
     }
@@ -617,33 +609,6 @@ code {
     margin: var(--space-md) 0;
     overflow-x: auto;
     border-left: 3px solid var(--primary-blue);
-    color: var(--neutral-white);
-}
-
-/* MathJax equation styling */
-.equation .MathJax,
-.equation .mjx-math,
-.equation mjx-container {
-    color: var(--accent-cyan) !important;
-}
-
-.equation mjx-math {
-    color: var(--accent-cyan) !important;
-}
-
-.equation mjx-mi,
-.equation mjx-mn,
-.equation mjx-mo {
-    color: var(--neutral-white) !important;
-}
-
-/* Additional MathJax overrides for visibility */
-mjx-container[jax="CHTML"] {
-    color: var(--neutral-white) !important;
-}
-
-mjx-container[jax="CHTML"] mjx-math {
-    color: var(--accent-cyan) !important;
 }
 
 .card-features {
@@ -741,22 +706,6 @@ mjx-container[jax="CHTML"] mjx-math {
 .equation-block p {
     color: var(--neutral-light);
     margin-bottom: var(--space-sm);
-}
-
-/* MathJax styling within equation blocks */
-.equation-block .MathJax,
-.equation-block mjx-container {
-    color: var(--accent-cyan) !important;
-}
-
-.equation-block mjx-math {
-    color: var(--accent-cyan) !important;
-}
-
-.equation-block mjx-mi,
-.equation-block mjx-mn,
-.equation-block mjx-mo {
-    color: var(--neutral-white) !important;
 }
 
 .equation-block ul {
@@ -863,19 +812,6 @@ mjx-container[jax="CHTML"] mjx-math {
     border-radius: var(--radius-sm);
     margin: var(--space-md) 0;
     border-left: 3px solid var(--accent-magenta);
-}
-
-/* MathJax in paper cards */
-.paper-math .MathJax,
-.paper-math mjx-container,
-.paper-math mjx-math {
-    color: var(--accent-cyan) !important;
-}
-
-.paper-math mjx-mi,
-.paper-math mjx-mn,
-.paper-math mjx-mo {
-    color: var(--neutral-white) !important;
 }
 
 .paper-actions {
@@ -1259,20 +1195,12 @@ mjx-container[jax="CHTML"] mjx-math {
     :root {
         font-size: 14px;
     }
-
-    .hero {
-        padding-top: 180px;
-    }
-
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-
+    
     .matrix-grid,
     .ventures-grid {
         grid-template-columns: 1fr;
     }
-
+    
     .footer-content {
         grid-template-columns: 1fr;
     }
@@ -1309,44 +1237,4 @@ mjx-container[jax="CHTML"] mjx-math {
         background: white;
         color: black;
     }
-}
-
-/* ========================================
-   MATHJAX GLOBAL OVERRIDES
-   ======================================== */
-/* Ensure all mathematical equations are visible on dark background */
-mjx-container,
-mjx-container[jax="CHTML"],
-mjx-container[display="true"] {
-    color: var(--accent-cyan) !important;
-}
-
-mjx-math {
-    color: var(--accent-cyan) !important;
-}
-
-/* Individual MathJax elements */
-mjx-mi,  /* identifiers */
-mjx-mn,  /* numbers */
-mjx-mo,  /* operators */
-mjx-mtext,  /* text */
-mjx-ms {  /* string literals */
-    color: var(--neutral-white) !important;
-}
-
-/* Greek letters and special symbols */
-mjx-c {
-    color: var(--neutral-white) !important;
-}
-
-/* Ensure proper styling in all contexts */
-.MathJax,
-.MathJax_Display,
-.MathJax_Preview {
-    color: var(--accent-cyan) !important;
-}
-
-/* Force visibility for all math containers */
-[class*="mjx-"] {
-    color: var(--neutral-white) !important;
 }

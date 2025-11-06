@@ -17,6 +17,7 @@ import os
 import re
 import logging
 from datetime import datetime
+from typing import Dict, Tuple, Any
 import json
 
 # Initialize Flask app
@@ -53,7 +54,7 @@ app.config.from_object(Config)
 # VALIDATION UTILITIES
 # ========================================
 
-def validate_email(email):
+def validate_email(email: str) -> bool:
     """
     Validate email format using regex
     
@@ -66,7 +67,7 @@ def validate_email(email):
     pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
     return re.match(pattern, email) is not None
 
-def sanitize_input(text, max_length=1000):
+def sanitize_input(text: str, max_length: int = 1000) -> str:
     """
     Sanitize user input to prevent XSS and injection attacks
     
@@ -85,7 +86,7 @@ def sanitize_input(text, max_length=1000):
     text = text.strip()
     return text
 
-def validate_contact_form(data):
+def validate_contact_form(data: Dict[str, Any]) -> Tuple[bool, str]:
     """
     Validate contact form data
     
@@ -100,7 +101,7 @@ def validate_contact_form(data):
     
     for field in required_fields:
         if field not in data or not data[field]:
-            return False, "Missing required field: {0}".format(field)
+            return False, f"Missing required field: {field}"
     
     # Validate email
     if not validate_email(data['email']):
@@ -125,7 +126,7 @@ def validate_contact_form(data):
 # EMAIL UTILITIES
 # ========================================
 
-def send_email(to_email, subject, body_html, body_text=None):
+def send_email(to_email: str, subject: str, body_html: str, body_text: str = None) -> bool:
     """
     Send email using SMTP
     
@@ -151,20 +152,19 @@ def send_email(to_email, subject, body_html, body_text=None):
         msg.attach(MIMEText(body_html, 'html'))
         
         # Connect to SMTP server
-        server = smtplib.SMTP(app.config['SMTP_SERVER'], app.config['SMTP_PORT'])
-        server.starttls()
-        server.login(app.config['SMTP_USERNAME'], app.config['SMTP_PASSWORD'])
-        server.send_message(msg)
-        server.quit()
+        with smtplib.SMTP(app.config['SMTP_SERVER'], app.config['SMTP_PORT']) as server:
+            server.starttls()
+            server.login(app.config['SMTP_USERNAME'], app.config['SMTP_PASSWORD'])
+            server.send_message(msg)
         
-        logger.info("Email sent successfully to {0}".format(to_email))
+        logger.info(f"Email sent successfully to {to_email}")
         return True
         
     except Exception as e:
-        logger.error("Failed to send email: {0}".format(str(e)))
+        logger.error(f"Failed to send email: {str(e)}")
         return False
 
-def format_contact_email(data):
+def format_contact_email(data: Dict[str, Any]) -> Tuple[str, str]:
     """
     Format contact form data into email HTML and text
     
@@ -184,9 +184,8 @@ def format_contact_email(data):
     }
     
     engagement_label = engagement_labels.get(data['engagement'], data['engagement'])
-    timestamp = datetime.now().strftime('%B %d, %Y at %I:%M %p')
     
-    html_body = """
+    html_body = f"""
     <!DOCTYPE html>
     <html>
     <head>
@@ -237,60 +236,46 @@ def format_contact_email(data):
             <div class="content">
                 <div class="field">
                     <div class="field-label">Name</div>
-                    <div class="field-value">{name}</div>
+                    <div class="field-value">{sanitize_input(data['name'])}</div>
                 </div>
                 <div class="field">
                     <div class="field-label">Email</div>
-                    <div class="field-value">{email}</div>
+                    <div class="field-value">{sanitize_input(data['email'])}</div>
                 </div>
                 <div class="field">
                     <div class="field-label">Organization</div>
-                    <div class="field-value">{organization}</div>
+                    <div class="field-value">{sanitize_input(data.get('organization', 'Not provided'))}</div>
                 </div>
                 <div class="field">
                     <div class="field-label">Engagement Type</div>
-                    <div class="field-value">{engagement}</div>
+                    <div class="field-value">{engagement_label}</div>
                 </div>
                 <div class="field">
                     <div class="field-label">Message</div>
-                    <div class="field-value">{message}</div>
+                    <div class="field-value">{sanitize_input(data['message'], 5000).replace(chr(10), '<br>')}</div>
                 </div>
                 <p style="color: #6c757d; font-size: 14px; margin-top: 30px;">
-                    Submitted on {timestamp}
+                    Submitted on {datetime.now().strftime('%B %d, %Y at %I:%M %p')}
                 </p>
             </div>
         </div>
     </body>
     </html>
-    """.format(
-        name=sanitize_input(data['name']),
-        email=sanitize_input(data['email']),
-        organization=sanitize_input(data.get('organization', 'Not provided')),
-        engagement=engagement_label,
-        message=sanitize_input(data['message'], 5000).replace('\n', '<br>'),
-        timestamp=timestamp
-    )
+    """
     
-    text_body = """
+    text_body = f"""
     New Contact Form Submission - jarmacz.com
     
-    Name: {name}
-    Email: {email}
-    Organization: {organization}
-    Engagement Type: {engagement}
+    Name: {sanitize_input(data['name'])}
+    Email: {sanitize_input(data['email'])}
+    Organization: {sanitize_input(data.get('organization', 'Not provided'))}
+    Engagement Type: {engagement_label}
     
     Message:
-    {message}
+    {sanitize_input(data['message'], 5000)}
     
-    Submitted on {timestamp}
-    """.format(
-        name=sanitize_input(data['name']),
-        email=sanitize_input(data['email']),
-        organization=sanitize_input(data.get('organization', 'Not provided')),
-        engagement=engagement_label,
-        message=sanitize_input(data['message'], 5000),
-        timestamp=timestamp
-    )
+    Submitted on {datetime.now().strftime('%B %d, %Y at %I:%M %p')}
+    """
     
     return html_body, text_body
 
@@ -322,7 +307,7 @@ def contact():
         html_body, text_body = format_contact_email(data)
         
         # Send email
-        subject = "New Contact: {0} - {1}".format(data['engagement'].title(), data['name'])
+        subject = f"New Contact: {data['engagement'].title()} - {data['name']}"
         email_sent = send_email(
             app.config['RECIPIENT_EMAIL'],
             subject,
@@ -332,7 +317,7 @@ def contact():
         
         if email_sent:
             # Log submission
-            logger.info("Contact form submitted by {0} - {1}".format(data['email'], data['engagement']))
+            logger.info(f"Contact form submitted by {data['email']} - {data['engagement']}")
             
             return jsonify({
                 'success': True,
@@ -345,7 +330,7 @@ def contact():
             }), 500
             
     except Exception as e:
-        logger.error("Error processing contact form: {0}".format(str(e)))
+        logger.error(f"Error processing contact form: {str(e)}")
         return jsonify({
             'success': False,
             'error': 'An unexpected error occurred. Please try again later.'
@@ -433,7 +418,7 @@ def rate_limit_exceeded(e):
 @app.errorhandler(500)
 def internal_error(e):
     """Handle 500 errors"""
-    logger.error("Internal server error: {0}".format(str(e)))
+    logger.error(f"Internal server error: {str(e)}")
     return jsonify({
         'success': False,
         'error': 'Internal server error. Please try again later.'
@@ -451,8 +436,8 @@ if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
     debug = os.getenv('DEBUG', 'False').lower() == 'true'
     
-    logger.info("Starting Flask server on port {0}".format(port))
-    logger.info("Debug mode: {0}".format(debug))
+    logger.info(f"Starting Flask server on port {port}")
+    logger.info(f"Debug mode: {debug}")
     
     app.run(
         host='0.0.0.0',

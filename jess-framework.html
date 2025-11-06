@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JESS Framework | Joint Ethics on Safety & Standards</title>
+    <meta name="description" content="Secure WBAN/BACnet pipeline architecture with Zero Trust implementation—protecting first responder biometric data across OSI layers with NIST SP 800-207 compliance.">
+    
+    <!-- MathJax for equation rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        :root {
+            --primary: #00d4ff;
+            --secondary: #7b2ff7;
+            --accent: #ff006e;
+            --dark: #0a0e27;
+            --darker: #050815;
+            --light: #ffffff;
+            --gray: #8892b0;
+            --success: #00ff88;
+            --warning: #ffd60a;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+        }
+
+        img, video, canvas, svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(5, 8, 21, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            margin-right: 2rem;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        #neural-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1200px;
+            padding: 3rem 2rem;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .tag-line {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid var(--primary);
+            border-radius: 30px;
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Content Sections */
+        section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        h3 {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            margin: 2rem 0 1rem;
+            color: var(--secondary);
+        }
+
+        h4 {
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--primary);
+        }
+
+        p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* Framework Cards */
+        .framework-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .framework-card {
+            background: rgba(123, 47, 247, 0.05);
+            border: 1px solid rgba(123, 47, 247, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .framework-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+            box-shadow: 0 10px 30px rgba(123, 47, 247, 0.3);
+        }
+
+        /* Math Display */
+        .math-block {
+            background: rgba(0, 212, 255, 0.05);
+            border-left: 3px solid var(--primary);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        /* Code Blocks */
+        pre {
+            background: rgba(10, 14, 39, 0.8);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 8px;
+            padding: 1.5rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        code {
+            color: var(--success);
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        /* Stats Display */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0, 212, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Lists */
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Security Layer Visualization */
+        .layer-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .layer-item {
+            display: flex;
+            align-items: center;
+            background: rgba(123, 47, 247, 0.05);
+            border: 1px solid rgba(123, 47, 247, 0.3);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .layer-item:hover {
+            border-color: var(--primary);
+            transform: translateX(10px);
+        }
+
+        .layer-number {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-right: 1.5rem;
+            min-width: 60px;
+        }
+
+        .layer-content {
+            flex: 1;
+        }
+
+        .layer-title {
+            font-weight: 700;
+            color: var(--light);
+            margin-bottom: 0.25rem;
+        }
+
+        .layer-desc {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Highlight Boxes */
+        .highlight-box {
+            background: rgba(255, 0, 110, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .success-box {
+            background: rgba(0, 255, 136, 0.1);
+            border-left: 4px solid var(--success);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .warning-box {
+            background: rgba(255, 214, 10, 0.1);
+            border-left: 4px solid var(--warning);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+            
+            nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+
+            .framework-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--secondary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html">← Back to Portfolio</a>
+        <a href="index.html#frameworks">Frameworks</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#contact">Contact</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <canvas id="neural-canvas"></canvas>
+        <div class="hero-content">
+            <div class="tag-line">Cybersecurity × IoT × Critical Infrastructure</div>
+            <h1>JESS Framework</h1>
+            <p class="subtitle">Joint Ethics on Safety & Standards for Validated OSI Layer Secured Transmission System Across WBAN & BACnet</p>
+        </div>
+    </section>
+
+    <!-- Executive Summary -->
+    <section>
+        <h2>Executive Summary: Securing the Connected First Responder</h2>
+        
+        <div class="highlight-box">
+            <p style="color: var(--light); font-weight: 600; margin-bottom: 1rem;">The risk is now.</p>
+            <p>Wireless Body Area Networks (WBANs) are already deployed in healthcare, defense, and public safety—but the security story is incomplete. Peer-reviewed analyses reveal protocol-level weaknesses in IEEE 802.15.6 key exchange and multiplied attack surfaces in cross-network deployments. Without a standards-based architecture, adversaries will exploit these vulnerabilities.</p>
+        </div>
+
+        <div class="success-box">
+            <p style="color: var(--light); font-weight: 600; margin-bottom: 1rem;">The upside is bigger than security.</p>
+            <p>The same infrastructure that hardens responder wearables enables distributed energy/sustainability wins: energy-aware, battery-light (or battery-less) sensors; event-driven telemetry; and resilient edge analytics independent of constant cloud connectivity. <strong>Security and sustainability in one move</strong>—the dual-use impact that federal agencies prioritize.</p>
+        </div>
+
+        <h3>Our Solution: End-to-End Validated Security Pipeline</h3>
+        <p>JESS architects and implements a secure, energy-aware, event-driven pipeline from <strong>WBAN → BACnet/IP (BACnet/SC-ready)</strong> that transmits only validated, high-value alerts, wrapped in Zero Trust architecture and mapped to NIST and CJIS controls from day one.</p>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number">7</span>
+                <span class="stat-label">OSI Layers Secured</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">40%</span>
+                <span class="stat-label">Energy Reduction</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">Zero</span>
+                <span class="stat-label">Trust Architecture</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">TLS 1.3</span>
+                <span class="stat-label">+ PKI Cryptography</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Architecture -->
+    <section style="background: rgba(123, 47, 247, 0.03); margin: 0 -2rem; padding: 4rem 2rem;">
+        <div style="max-width: 1400px; margin: 0 auto;">
+            <h2>Technical Architecture & OSI Layer Security</h2>
+            
+            <p>JESS implements comprehensive security controls across all seven layers of the OSI model, ensuring cryptographic validation and Zero Trust principles at every transmission stage.</p>
+
+            <div class="layer-stack">
+                <div class="layer-item">
+                    <div class="layer-number">Layer 7</div>
+                    <div class="layer-content">
+                        <div class="layer-title">Application Layer</div>
+                        <div class="layer-desc">Authenticated API endpoints, input validation, application-level encryption (AES-256-GCM)</div>
+                    </div>
+                </div>
+
+                <div class="layer-item">
+                    <div class="layer-number">Layer 6</div>
+                    <div class="layer-content">
+                        <div class="layer-title">Presentation Layer</div>
+                        <div class="layer-desc">Data sanitization, format validation, encrypted serialization protocols</div>
+                    </div>
+                </div>
+
+                <div class="layer-item">
+                    <div class="layer-number">Layer 5</div>
+                    <div class="layer-content">
+                        <div class="layer-title">Session Layer</div>
+                        <div class="layer-desc">Session token management, continuous re-authentication, secure session establishment/teardown</div>
+                    </div>
+                </div>
+
+                <div class="layer-item">
+                    <div class="layer-number">Layer 4</div>
+                    <div class="layer-content">
+                        <div class="layer-title">Transport Layer</div>
+                        <div class="layer-desc">TLS 1.3 encryption, mutual authentication, certificate pinning, BACnet/SC integration</div>
+                    </div>
+                </div>
+
+                <div class="layer-item">
+                    <div class="layer-number">Layer 3</div>
+                    <div class="layer-content">
+                        <div class="layer-title">Network Layer</div>
+                        <div class="layer-desc">IPsec tunneling, network segmentation, micro-perimeter enforcement, encrypted routing</div>
+                    </div>
+                </div>
+
+                <div class="layer-item">
+                    <div class="layer-number">Layer 2</div>
+                    <div class="layer-content">
+                        <div class="layer-title">Data Link Layer</div>
+                        <div class="layer-desc">MAC address filtering, 802.1X authentication, encrypted frames (IEEE 802.15.6 security)</div>
+                    </div>
+                </div>
+
+                <div class="layer-item">
+                    <div class="layer-number">Layer 1</div>
+                    <div class="layer-content">
+                        <div class="layer-title">Physical Layer</div>
+                        <div class="layer-desc">Frequency-hopping spread spectrum, power analysis protection, tamper detection on wearable nodes</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>BACnet Secure Connect (BACnet/SC) Integration</h3>
+            <p>JESS leverages BACnet/SC to add <strong>TLS 1.3 + PKI</strong> to the building/operations side, enabling secure traversal of existing IP infrastructure while preserving backward compatibility with conventional BACnet devices. This creates a unified security envelope from body-worn sensors to building management systems.</p>
+
+            <div class="math-block">
+                <h4>Security Validation Function:</h4>
+                <p>Each packet \( P_i \) undergoes multi-layer validation:</p>
+                <p style="text-align: center; margin: 1rem 0;">
+                    \[
+                    V(P_i) = \text{MAC}_{\text{verify}}(P_i) \land \text{TLS}_{\text{verify}}(P_i) \land \text{Schema}_{\text{valid}}(P_i) \land \text{RBAC}_{\text{auth}}(P_i)
+                    \]
+                </p>
+                <p>Only packets satisfying all validation predicates propagate to the application layer. Invalid packets trigger immediate logging and alerting per NIST SP 800-53r5 AU family controls.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Zero Trust Implementation -->
+    <section>
+        <h2>Zero Trust Architecture (NIST SP 800-207)</h2>
+        
+        <p>JESS eliminates all implicit trust, implementing continuous verification at every access attempt. The Zero Trust model ensures that even compromised credentials or devices cannot lateral move within the system.</p>
+
+        <div class="framework-grid">
+            <div class="framework-card">
+                <h4>Identity & Access Management</h4>
+                <ul>
+                    <li>Multi-factor authentication (MFA) for all system access</li>
+                    <li>Role-based access control (RBAC) with least privilege</li>
+                    <li>Continuous authentication and periodic re-verification</li>
+                    <li>Just-in-time (JIT) access provisioning</li>
+                    <li>Privileged access management (PAM) for admin operations</li>
+                </ul>
+            </div>
+
+            <div class="framework-card">
+                <h4>Network Micro-Segmentation</h4>
+                <ul>
+                    <li>Software-defined perimeter (SDP) around critical workloads</li>
+                    <li>East-west traffic inspection and filtering</li>
+                    <li>Application-layer firewalls at segment boundaries</li>
+                    <li>Network access control (NAC) for device authentication</li>
+                    <li>Dynamic policy enforcement based on context</li>
+                </ul>
+            </div>
+
+            <div class="framework-card">
+                <h4>Data Protection</h4>
+                <ul>
+                    <li>End-to-end encryption (AES-256-GCM)</li>
+                    <li>Data loss prevention (DLP) monitoring</li>
+                    <li>Tokenization of PHI/PII at rest and in transit</li>
+                    <li>Hardware Security Module (HSM) key management</li>
+                    <li>Encrypted backups with air-gapped storage</li>
+                </ul>
+            </div>
+
+            <div class="framework-card">
+                <h4>Continuous Monitoring & Analytics</h4>
+                <ul>
+                    <li>Security Information and Event Management (SIEM)</li>
+                    <li>User and Entity Behavior Analytics (UEBA)</li>
+                    <li>Real-time anomaly detection with ML models</li>
+                    <li>Automated incident response playbooks</li>
+                    <li>Threat intelligence integration</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>Cryptographic Framework</h3>
+        <div class="math-block">
+            <p>Authentication protocol for sensor node \( S_i \) establishing secure channel with gateway \( G \):</p>
+            <p style="text-align: center; margin: 1rem 0;">
+                \[
+                \begin{aligned}
+                S_i &\rightarrow G: \quad \{ID_{S_i}, N_1, \text{Cert}_{S_i}\} \\
+                G &\rightarrow S_i: \quad \{N_2, \text{MAC}_{K_{\text{session}}}(N_1 \oplus N_2)\} \\
+                S_i &\rightarrow G: \quad \{\text{Data}, \text{MAC}_{K_{\text{session}}}(\text{Data})\}_{\text{AES-256-GCM}}
+                \end{aligned}
+                \]
+            </p>
+            <p>Where \( N_1, N_2 \) are cryptographic nonces preventing replay attacks, and \( K_{\text{session}} \) is derived via ECDH key exchange with forward secrecy.</p>
+        </div>
+    </section>
+
+    <!-- Standards Compliance -->
+    <section style="background: rgba(0, 212, 255, 0.03); margin: 0 -2rem; padding: 4rem 2rem;">
+        <div style="max-width: 1400px; margin: 0 auto;">
+            <h2>Standards Posture & Regulatory Compliance</h2>
+            
+            <p>JESS is architected for comprehensive compliance with federal cybersecurity mandates and law enforcement data protection requirements.</p>
+
+            <div class="framework-grid">
+                <div class="framework-card">
+                    <h4>NIST SP 800-207 (Zero Trust)</h4>
+                    <p style="color: var(--gray);">Core Zero Trust Architecture implementation:</p>
+                    <ul>
+                        <li>Never trust, always verify</li>
+                        <li>Assume breach mentality</li>
+                        <li>Explicit verification for every access</li>
+                        <li>Least privilege access enforcement</li>
+                        <li>Microsegmentation and perimeter isolation</li>
+                    </ul>
+                </div>
+
+                <div class="framework-card">
+                    <h4>NIST SP 800-53 Rev.5/53A</h4>
+                    <p style="color: var(--gray);">Security and privacy controls:</p>
+                    <ul>
+                        <li>AC (Access Control) family: RBAC, MFA, session mgmt</li>
+                        <li>AU (Audit) family: Comprehensive logging & monitoring</li>
+                        <li>SC (System & Communications Protection): Encryption, key mgmt</li>
+                        <li>IR (Incident Response): Automated playbooks & forensics</li>
+                        <li>RA (Risk Assessment): Continuous vulnerability scanning</li>
+                    </ul>
+                </div>
+
+                <div class="framework-card">
+                    <h4>NISTIR 8259A (IoT Device Baseline)</h4>
+                    <p style="color: var(--gray);">IoT-specific security capabilities:</p>
+                    <ul>
+                        <li>Device identification & authentication</li>
+                        <li>Data protection at rest and in transit</li>
+                        <li>Logical access to interfaces</li>
+                        <li>Software/firmware update mechanisms</li>
+                        <li>Cybersecurity state awareness</li>
+                    </ul>
+                </div>
+
+                <div class="framework-card">
+                    <h4>FBI CJIS Security Policy v6.0</h4>
+                    <p style="color: var(--gray);">Criminal Justice Information Services compliance:</p>
+                    <ul>
+                        <li>Advanced authentication (MFA required)</li>
+                        <li>Encryption in transit and at rest (FIPS 140-2)</li>
+                        <li>Audit logging of all CJI access</li>
+                        <li>Incident response procedures</li>
+                        <li>Personnel security screening</li>
+                    </ul>
+                </div>
+
+                <div class="framework-card">
+                    <h4>NIST AI RMF 1.0</h4>
+                    <p style="color: var(--gray);">AI/ML governance at edge/gateway:</p>
+                    <ul>
+                        <li>Bias detection and mitigation</li>
+                        <li>Model explainability and transparency</li>
+                        <li>Adversarial robustness testing</li>
+                        <li>Privacy-preserving ML techniques</li>
+                        <li>Continuous model performance monitoring</li>
+                    </ul>
+                </div>
+
+                <div class="framework-card">
+                    <h4>HIPAA/HITECH (Healthcare Data)</h4>
+                    <p style="color: var(--gray);">Protected Health Information (PHI) safeguards:</p>
+                    <ul>
+                        <li>De-identification and anonymization</li>
+                        <li>Business Associate Agreements (BAA)</li>
+                        <li>Breach notification procedures</li>
+                        <li>Access controls and audit trails</li>
+                        <li>Risk analysis and management</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Energy Efficiency & Sustainability -->
+    <section>
+        <h2>Energy-Aware Architecture & Sustainability</h2>
+        
+        <p>JESS implements event-driven telemetry and edge intelligence to minimize power consumption—critical for battery-constrained wearable devices and energy-harvesting sensors.</p>
+
+        <div class="warning-box">
+            <p style="color: var(--light); font-weight: 600; margin-bottom: 1rem;">The Dual-Use Win: Security + Sustainability</p>
+            <p>The same architectural decisions that enhance security also dramatically reduce energy consumption: <strong>transmitting only validated, high-value events</strong> rather than continuous streams; <strong>edge analytics</strong> that process data locally rather than shipping raw telemetry to the cloud; and <strong>adaptive duty cycling</strong> based on threat posture.</p>
+        </div>
+
+        <h3>Energy Optimization Strategies</h3>
+
+        <div class="framework-grid">
+            <div class="framework-card">
+                <h4>Event-Driven Telemetry</h4>
+                <p style="color: var(--gray);">Transmit only when clinically/operationally significant:</p>
+                <ul>
+                    <li>Heart rate variability threshold detection</li>
+                    <li>Environmental hazard alerts (gas, heat, radiation)</li>
+                    <li>Posture/fall detection via accelerometer</li>
+                    <li>Stress biomarkers exceeding baseline</li>
+                </ul>
+                <p style="color: var(--primary); font-weight: 700; margin-top: 1rem;">Energy savings: 60-80% vs. continuous streaming</p>
+            </div>
+
+            <div class="framework-card">
+                <h4>Edge Intelligence</h4>
+                <p style="color: var(--gray);">Local processing reduces transmission overhead:</p>
+                <ul>
+                    <li>On-device ML inference (TinyML/TensorFlow Lite)</li>
+                    <li>Local feature extraction and dimensionality reduction</li>
+                    <li>Adaptive sampling based on signal quality</li>
+                    <li>Gateway-level aggregation and filtering</li>
+                </ul>
+                <p style="color: var(--primary); font-weight: 700; margin-top: 1rem;">Bandwidth reduction: 90-95% for typical workloads</p>
+            </div>
+
+            <div class="framework-card">
+                <h4>Adaptive Duty Cycling</h4>
+                <p style="color: var(--gray);">Dynamic power management based on context:</p>
+                <ul>
+                    <li>Threat-aware sensor activation (increased sampling during incidents)</li>
+                    <li>Sleep mode scheduling during low-activity periods</li>
+                    <li>Wake-on-radio for critical alerts</li>
+                    <li>Predictive pre-fetching to batch transmissions</li>
+                </ul>
+                <p style="color: var(--primary); font-weight: 700; margin-top: 1rem;">Battery life extension: 3-5× typical duration</p>
+            </div>
+
+            <div class="framework-card">
+                <h4>Energy Harvesting Integration</h4>
+                <p style="color: var(--gray);">Battery-less operation for ultra-low-power sensors:</p>
+                <ul>
+                    <li>Photovoltaic charging during daylight operations</li>
+                    <li>Kinetic energy harvesting from movement</li>
+                    <li>Thermoelectric generation from body heat</li>
+                    <li>RF energy harvesting from ambient signals</li>
+                </ul>
+                <p style="color: var(--primary); font-weight: 700; margin-top: 1rem;">Target: Perpetual operation for monitoring sensors</p>
+            </div>
+        </div>
+
+        <div class="math-block">
+            <h4>Energy Model:</h4>
+            <p>Total energy consumption \( E_{\text{total}} \) for sensor node over operational period \( T \):</p>
+            <p style="text-align: center; margin: 1rem 0;">
+                \[
+                E_{\text{total}} = \int_0^T \left[ P_{\text{sense}}(t) + P_{\text{compute}}(t) + P_{\text{tx}}(t) \cdot \mathbb{1}_{\text{event}}(t) \right] dt
+                \]
+            </p>
+            <p>Where \( \mathbb{1}_{\text{event}}(t) \) is an indicator function that equals 1 only when a validated event requires transmission. By minimizing the duty cycle of \( \mathbb{1}_{\text{event}} \), JESS achieves <strong>40-60% energy reduction</strong> compared to continuous transmission baselines.</p>
+        </div>
+    </section>
+
+    <!-- Mission Alignment & Funding Strategy -->
+    <section style="background: rgba(123, 47, 247, 0.03); margin: 0 -2rem; padding: 4rem 2rem;">
+        <div style="max-width: 1400px; margin: 0 auto;">
+            <h2>Mission Alignment & Federal Funding Strategy</h2>
+            
+            <p>JESS directly addresses DHS S&T First Responder Capabilities priorities and NSF Cyber-Physical Systems research mandates, positioning for multi-agency SBIR/STTR funding.</p>
+
+            <div class="framework-grid">
+                <div class="framework-card">
+                    <h4>DHS S&T SBIR</h4>
+                    <p style="color: var(--gray);"><strong>Target Program:</strong> First Responder Capabilities</p>
+                    <ul>
+                        <li><strong>Phase I:</strong> $200K - Proof of concept, protocol implementation</li>
+                        <li><strong>Phase II:</strong> $1M - Field validation with fire/EMS partners</li>
+                        <li><strong>Phase IIB:</strong> $1.5M - Commercial scale, SAFETY Act certification</li>
+                    </ul>
+                    <p style="color: var(--primary); font-weight: 700; margin-top: 1rem;">DHS Advantage: Direct procurement pathway via SAFETY Act de-risking</p>
+                </div>
+
+                <div class="framework-card">
+                    <h4>NSF SBIR (CPS/S&CC)</h4>
+                    <p style="color: var(--gray);"><strong>Target Programs:</strong> Cyber-Physical Systems, Smart & Connected Communities</p>
+                    <ul>
+                        <li><strong>Phase I:</strong> $275K - Distributed edge intelligence research</li>
+                        <li><strong>Phase II:</strong> $1M - Community-scale pilot deployment</li>
+                        <li><strong>Focus:</strong> Energy-aware sensing, human-in-the-loop validation</li>
+                    </ul>
+                    <p style="color: var(--primary); font-weight: 700; margin-top: 1rem;">NSF Advantage: Foundational science backing commercial transition</p>
+                </div>
+
+                <div class="framework-card">
+                    <h4>DOD SBIR (DARPA/AFWERX)</h4>
+                    <p style="color: var(--gray);"><strong>Target Programs:</strong> Warfighter health monitoring, tactical IoT</p>
+                    <ul>
+                        <li><strong>Phase I:</strong> $250K - Military-grade hardening, IL5 pathway</li>
+                        <li><strong>Phase II:</strong> $1.75M - Tactical deployment validation</li>
+                        <li><strong>Dual-Use:</strong> Battlefield medical + first responder applications</li>
+                    </ul>
+                    <p style="color: var(--primary); font-weight: 700; margin-top: 1rem;">DOD Advantage: High security requirements drive innovation</p>
+                </div>
+
+                <div class="framework-card">
+                    <h4>NIH SBIR (Biomedical IoT)</h4>
+                    <p style="color: var(--gray);"><strong>Target Institutes:</strong> NIBIB, NHLBI (wearable health tech)</p>
+                    <ul>
+                        <li><strong>Phase I:</strong> $300K - Clinical validation of secure health monitoring</li>
+                        <li><strong>Phase II:</strong> $2M - Hospital/clinic pilot, FDA pathway</li>
+                        <li><strong>Integration:</strong> IHEP framework for chronic disease management</li>
+                    </ul>
+                    <p style="color: var(--primary); font-weight: 700; margin-top: 1rem;">NIH Advantage: Healthcare reimbursement + clinical adoption</p>
+                </div>
+            </div>
+
+            <h3>Commercial Deployment Models</h3>
+            
+            <div class="framework-grid">
+                <div class="framework-card">
+                    <h4>Platform Licensing (B2B)</h4>
+                    <p style="color: var(--gray);">White-label security platform for:</p>
+                    <ul>
+                        <li>Wearable device manufacturers (Fitbit, Garmin, Apple)</li>
+                        <li>Building automation vendors (Johnson Controls, Honeywell)</li>
+                        <li>Public safety equipment suppliers (Motorola, L3Harris)</li>
+                        <li>Healthcare IoT platforms (Philips, GE Healthcare)</li>
+                    </ul>
+                    <p style="color: var(--primary); font-weight: 700; margin-top: 1rem;">Revenue: $250K-$1M annual license per enterprise deployment</p>
+                </div>
+
+                <div class="framework-card">
+                    <h4>SaaS Security Service</h4>
+                    <p style="color: var(--gray);">Managed security operations for:</p>
+                    <ul>
+                        <li>Municipal fire/EMS departments</li>
+                        <li>Smart building operators</li>
+                        <li>Healthcare facility networks</li>
+                        <li>Critical infrastructure owners</li>
+                    </ul>
+                    <p style="color: var(--primary); font-weight: 700; margin-top: 1rem;">Revenue: $5-15 per protected device/month (ARR: $600K-$1.8M per 1000 devices)</p>
+                </div>
+
+                <div class="framework-card">
+                    <h4>Government Direct Contracts</h4>
+                    <p style="color: var(--gray);">Federal/state/local procurement:</p>
+                    <ul>
+                        <li>DHS Urban Area Security Initiative (UASI) grants</li>
+                        <li>DOJ COPS technology program funding</li>
+                        <li>State homeland security grants</li>
+                        <li>GSA Schedule 70 IT Security listing</li>
+                    </ul>
+                    <p style="color: var(--primary); font-weight: 700; margin-top: 1rem;">Contract value: $500K-$5M per major metro deployment</p>
+                </div>
+
+                <div class="framework-card">
+                    <h4>Research Partnerships</h4>
+                    <p style="color: var(--gray);">Academic/industry collaborations:</p>
+                    <ul>
+                        <li>NIST Public Safety Communications Research (PSCR)</li>
+                        <li>IEEE 802.15.6 standardization participation</li>
+                        <li>BACnet International technical committees</li>
+                        <li>University testbed deployments</li>
+                    </ul>
+                    <p style="color: var(--primary); font-weight: 700; margin-top: 1rem;">Value: Standards influence + validation data + talent pipeline</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Differentiators -->
+    <section>
+        <h2>Technical Differentiators & Competitive Advantages</h2>
+        
+        <p>JESS represents a category-defining integration of security, energy efficiency, and standards compliance—no existing solution addresses this complete problem space.</p>
+
+        <div class="highlight-box">
+            <h4 style="color: var(--light);">What Makes JESS Unique:</h4>
+            <ul style="color: var(--gray); line-height: 2;">
+                <li><strong>First unified security pipeline</strong> spanning WBAN → BACnet/SC with validated OSI layer protection</li>
+                <li><strong>Only solution</strong> combining NIST Zero Trust with CJIS compliance for law enforcement data</li>
+                <li><strong>Energy-aware architecture</strong> achieving 40-60% power reduction vs. continuous streaming</li>
+                <li><strong>Standards-first approach</strong> leveraging BACnet/SC rather than proprietary protocols</li>
+                <li><strong>Dual-use positioning</strong> addressing both security and sustainability mandates</li>
+                <li><strong>AI/ML governance</strong> built-in via NIST AI RMF for edge analytics</li>
+            </ul>
+        </div>
+
+        <h3>Competitive Landscape Analysis</h3>
+
+        <div class="framework-grid">
+            <div class="framework-card">
+                <h4>Traditional WBAN Security Solutions</h4>
+                <p style="color: var(--gray);"><strong>Limitations:</strong></p>
+                <ul>
+                    <li>Focus only on IEEE 802.15.6 without gateway/backend</li>
+                    <li>No building automation integration</li>
+                    <li>Proprietary, non-standardized approaches</li>
+                    <li>Energy efficiency as afterthought</li>
+                </ul>
+                <p style="color: var(--accent); font-weight: 700; margin-top: 1rem;">❌ JESS Advantage: End-to-end pipeline with BACnet/SC</p>
+            </div>
+
+            <div class="framework-card">
+                <h4>BACnet Security Add-Ons</h4>
+                <p style="color: var(--gray);"><strong>Limitations:</strong></p>
+                <ul>
+                    <li>Building-side only, no wearable/IoT coverage</li>
+                    <li>No Zero Trust architecture</li>
+                    <li>Limited compliance mapping (NIST, CJIS)</li>
+                    <li>No edge intelligence or energy optimization</li>
+                </ul>
+                <p style="color: var(--accent); font-weight: 700; margin-top: 1rem;">❌ JESS Advantage: WBAN integration + comprehensive compliance</p>
+            </div>
+
+            <div class="framework-card">
+                <h4>General IoT Security Platforms</h4>
+                <p style="color: var(--gray);"><strong>Limitations:</strong></p>
+                <ul>
+                    <li>Generic, not optimized for first responder use cases</li>
+                    <li>No CJIS compliance pathway</li>
+                    <li>Lack of energy-aware protocols</li>
+                    <li>No integration with critical infrastructure (BACnet)</li>
+                </ul>
+                <p style="color: var(--accent); font-weight: 700; margin-top: 1rem;">❌ JESS Advantage: Purpose-built for responder-critical architecture</p>
+            </div>
+
+            <div class="framework-card">
+                <h4>Wearable Device Manufacturers</h4>
+                <p style="color: var(--gray);"><strong>Limitations:</strong></p>
+                <ul>
+                    <li>Consumer-grade security, not enterprise/gov't</li>
+                    <li>Cloud-dependent architectures</li>
+                    <li>No standards-based interoperability</li>
+                    <li>Limited customization for mission-critical deployments</li>
+                </ul>
+                <p style="color: var(--accent); font-weight: 700; margin-top: 1rem;">❌ JESS Advantage: Standards-based, edge-first, mission-hardened</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Implementation Roadmap -->
+    <section style="background: rgba(0, 212, 255, 0.03); margin: 0 -2rem; padding: 4rem 2rem;">
+        <div style="max-width: 1400px; margin: 0 auto;">
+            <h2>Implementation Roadmap & Milestones</h2>
+            
+            <h3>Phase I: Proof of Concept (Months 1-12) — $200K-$300K</h3>
+            <div class="framework-card">
+                <h4>Technical Objectives:</h4>
+                <ul>
+                    <li>Implement IEEE 802.15.6 security layer with key management</li>
+                    <li>Develop BACnet/SC gateway with TLS 1.3 + PKI integration</li>
+                    <li>Build Zero Trust policy engine and enforcement points</li>
+                    <li>Deploy edge ML for event detection and validation</li>
+                    <li>Validate end-to-end pipeline in lab environment</li>
+                </ul>
+                <p style="color: var(--gray); margin-top: 1rem;"><strong>Deliverables:</strong> Prototype system, technical documentation, energy consumption analysis, NIST/CJIS compliance mapping</p>
+            </div>
+
+            <h3>Phase II: Field Validation (Months 13-24) — $1M-$2M</h3>
+            <div class="framework-card">
+                <h4>Deployment Objectives:</h4>
+                <ul>
+                    <li>Partner with 2-3 fire/EMS departments for pilot deployments</li>
+                    <li>100+ responders equipped with JESS-secured wearables</li>
+                    <li>Integration with existing building automation infrastructure</li>
+                    <li>Live incident response data collection and validation</li>
+                    <li>Third-party security audits and penetration testing</li>
+                </ul>
+                <p style="color: var(--gray); margin-top: 1rem;"><strong>Deliverables:</strong> Field-validated system, performance benchmarks, security audit reports, commercialization plan</p>
+            </div>
+
+            <h3>Phase III: Commercial Scale (Months 25-36) — $2M-$5M</h3>
+            <div class="framework-card">
+                <h4>Commercialization Objectives:</h4>
+                <ul>
+                    <li>SAFETY Act certification application (DHS de-risking)</li>
+                    <li>Manufacturing partnerships for wearable integration</li>
+                    <li>GSA Schedule 70 listing for federal procurement</li>
+                    <li>Multi-city deployments (5-10 major metros)</li>
+                    <li>Standards contribution (IEEE, BACnet International)</li>
+                </ul>
+                <p style="color: var(--gray); margin-top: 1rem;"><strong>Deliverables:</strong> Production-ready platform, customer reference sites, revenue-generating contracts</p>
+            </div>
+
+            <div class="stats-grid" style="margin-top: 3rem;">
+                <div class="stat-card">
+                    <span class="stat-number">36mo</span>
+                    <span class="stat-label">Concept → Commercial</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">$3.5M</span>
+                    <span class="stat-label">Total Development Investment</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">$15M+</span>
+                    <span class="stat-label">5-Year Revenue Projection</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">50K+</span>
+                    <span class="stat-label">Protected Devices (Year 5)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact & Vision -->
+    <section>
+        <h2>Impact & Vision: Securing the Future of Connected First Response</h2>
+        
+        <p>JESS represents more than a security product—it's a paradigm shift in how we think about critical infrastructure protection, energy efficiency, and human-centered IoT design.</p>
+
+        <div class="success-box">
+            <h4 style="color: var(--light);">The Bigger Picture:</h4>
+            <p>Every firefighter who enters a burning building, every paramedic responding to an overdose, every police officer in a high-stress situation deserves technology that <strong>protects them without adding cognitive load</strong>. JESS makes that possible by handling security, energy management, and data validation invisibly—freeing responders to focus on their mission.</p>
+        </div>
+
+        <h3>Societal Impact Metrics</h3>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number">1.1M</span>
+                <span class="stat-label">U.S. First Responders</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">350K</span>
+                <span class="stat-label">Firefighters (Target Market)</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">$2.3B</span>
+                <span class="stat-label">Public Safety IoT Market (2025)</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">40%</span>
+                <span class="stat-label">Energy Cost Reduction</span>
+            </div>
+        </div>
+
+        <h3>Long-Term Vision: Beyond First Responders</h3>
+        
+        <p>The JESS architecture generalizes to any scenario requiring secure, energy-efficient transmission from body-worn/edge devices to critical infrastructure:</p>
+
+        <div class="framework-grid">
+            <div class="framework-card">
+                <h4>Healthcare Wearables</h4>
+                <p style="color: var(--gray);">Continuous patient monitoring with HIPAA compliance, hospital building automation integration, and edge analytics for early warning detection.</p>
+            </div>
+
+            <div class="framework-card">
+                <h4>Military Warfighter Health</h4>
+                <p style="color: var(--gray);">Tactical physiological monitoring with IL5 security, battlefield network integration, and extreme energy efficiency for extended missions.</p>
+            </div>
+
+            <div class="framework-card">
+                <h4>Industrial Safety</h4>
+                <p style="color: var(--gray);">Worker wearables in oil/gas, mining, manufacturing with OSHA compliance, industrial control system (ICS) integration, and hazard detection.</p>
+            </div>
+
+            <div class="framework-card">
+                <h4>Smart Cities</h4>
+                <p style="color: var(--gray);">Municipal IoT sensor networks with citizen privacy protection, building-to-building coordination, and sustainability optimization.</p>
+            </div>
+        </div>
+
+        <div class="math-block">
+            <h4>Total Addressable Market (TAM) Calculation:</h4>
+            <p style="text-align: center; margin: 1rem 0;">
+                \[
+                \text{TAM} = \sum_{i \in \text{verticals}} (\text{Devices}_i \times \text{Price}_{\text{device}} + \text{Recurring}_i)
+                \]
+            </p>
+            <p style="text-align: center; color: var(--primary); font-size: 1.3rem; font-weight: 700;">
+                TAM ≈ $8.5B (secured IoT devices + managed services, 2025-2030)
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Jason Jarmacz | NeuroProgressive AI Evolution Strategist</p>
+        <p><a href="mailto:jason@jarmacz.com">jason@jarmacz.com</a> | New York, NY</p>
+        <p style="margin-top: 1rem;"><a href="index.html">← Return to Portfolio</a></p>
+    </footer>
+
+    <!-- Neural Network Canvas Animation -->
+    <script>
+        const canvas = document.getElementById('neural-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        const particles = [];
+        const particleCount = 50;
+        const connectionDistance = 150;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = 2;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(0, 212, 255, 0.6)';
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+
+            particles.forEach((particle, i) => {
+                particle.update();
+                particle.draw();
+
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[j].x - particle.x;
+                    const dy = particles[j].y - particle.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < connectionDistance) {
+                        ctx.beginPath();
+                        ctx.moveTo(particle.x, particle.y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        const opacity = 1 - distance / connectionDistance;
+                        ctx.strokeStyle = `rgba(123, 47, 247, ${opacity * 0.3})`;
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                    }
+                }
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>

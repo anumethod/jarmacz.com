@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIPG AI Therapeutics | AI-Driven Drug Discovery for Pediatric Brain Cancer</title>
+    <meta name="description" content="Revolutionary machine learning approach to Diffuse Intrinsic Pontine Glioma—designing novel brain-penetrant therapeutics targeting metabolic vulnerabilities with AI-powered molecular optimization.">
+    
+    <!-- MathJax for equation rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        :root {
+            --primary: #00d4ff;
+            --secondary: #7b2ff7;
+            --accent: #ff006e;
+            --dark: #0a0e27;
+            --darker: #050815;
+            --light: #ffffff;
+            --gray: #8892b0;
+            --success: #00ff88;
+            --warning: #ffd60a;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+        }
+
+        img, video, canvas, svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(5, 8, 21, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            margin-right: 2rem;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        #neural-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1200px;
+            padding: 3rem 2rem;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .tag-line {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(255, 0, 110, 0.1);
+            border: 1px solid var(--accent);
+            border-radius: 30px;
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Content Sections */
+        section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        h3 {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            margin: 2rem 0 1rem;
+            color: var(--secondary);
+        }
+
+        h4 {
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--primary);
+        }
+
+        p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* Framework Cards */
+        .framework-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .framework-card {
+            background: rgba(123, 47, 247, 0.05);
+            border: 1px solid rgba(123, 47, 247, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .framework-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+            box-shadow: 0 10px 30px rgba(123, 47, 247, 0.3);
+        }
+
+        /* Math Display */
+        .math-block {
+            background: rgba(0, 212, 255, 0.05);
+            border-left: 3px solid var(--primary);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        /* Code Blocks */
+        pre {
+            background: rgba(10, 14, 39, 0.8);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 8px;
+            padding: 1.5rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        code {
+            color: var(--success);
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        /* Stats Display */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0, 212, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Lists */
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Highlight Boxes */
+        .highlight-box {
+            background: rgba(255, 0, 110, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .success-box {
+            background: rgba(0, 255, 136, 0.1);
+            border-left: 4px solid var(--success);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .warning-box {
+            background: rgba(255, 214, 10, 0.1);
+            border-left: 4px solid var(--warning);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        /* Process Flow */
+        .process-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .process-step {
+            display: flex;
+            align-items: flex-start;
+            background: rgba(123, 47, 247, 0.05);
+            border: 1px solid rgba(123, 47, 247, 0.3);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover {
+            border-color: var(--primary);
+            transform: translateX(10px);
+        }
+
+        .step-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-right: 1.5rem;
+            min-width: 60px;
+        }
+
+        .step-content h4 {
+            margin-top: 0;
+            color: var(--light);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+            
+            nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+
+            .framework-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--secondary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html">← Back to Portfolio</a>
+        <a href="index.html#frameworks">Frameworks</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#contact">Contact</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <canvas id="neural-canvas"></canvas>
+        <div class="hero-content">
+            <div class="tag-line">Biomedical AI × Drug Discovery × Pediatric Oncology</div>
+            <h1>AI-Driven DIPG Therapeutics</h1>
+            <p class="subtitle">Revolutionary Machine Learning Approach to Diffuse Intrinsic Pontine Glioma—Designing Novel Brain-Penetrant Molecules Targeting Metabolic Vulnerabilities</p>
+        </div>
+    </section>
+
+    <!-- The Crisis -->
+    <section>
+        <h2>The Unmet Need: A Lethal Pediatric Cancer With No Effective Treatment</h2>
+        
+        <div class="warning-box">
+            <p style="color: var(--light); font-weight: 600; margin-bottom: 1rem;">The Grim Reality</p>
+            <p><strong>Diffuse Intrinsic Pontine Glioma (DIPG)</strong> is a rare, inoperable childhood brainstem tumor that has defeated over 200 clinical trials. Despite decades of research, no chemotherapy has succeeded against DIPG. The 5-year survival rate is under 1%. DIPG typically kills children within 12 months of diagnosis.</p>
+        </div>
+
+        <p>This devastating outcome underscores the desperate need for <strong>out-of-the-box innovations</strong> in pediatric oncology. The NCI's SBIR Innovative Concept Award specifically seeks high-risk, high-reward ideas that could transform care for pediatric or rare cancers. DIPG represents the ultimate test case for transformative therapeutic strategies.</p>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number">&lt;1%</span>
+                <span class="stat-label">5-Year Survival Rate</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">200+</span>
+                <span class="stat-label">Failed Clinical Trials</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">12mo</span>
+                <span class="stat-label">Median Survival</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">300</span>
+                <span class="stat-label">U.S. Children/Year</span>
+            </div>
+        </div>
+
+        <h3>Why Traditional Approaches Have Failed</h3>
+
+        <div class="framework-grid">
+            <div class="framework-card">
+                <h4>Inoperable Location</h4>
+                <p style="color: var(--gray);">Located in the brainstem (pons), DIPG cannot be surgically removed without causing catastrophic neurological damage. Biopsy is high-risk, limiting tissue availability for research.</p>
+            </div>
+
+            <div class="framework-card">
+                <h4>Blood-Brain Barrier</h4>
+                <p style="color: var(--gray);">Most chemotherapy agents cannot cross the BBB in therapeutic concentrations. Even systemically toxic doses fail to reach the tumor effectively.</p>
+            </div>
+
+            <div class="framework-card">
+                <h4>Unique Biology</h4>
+                <p style="color: var(--gray);">DIPG's hallmark H3K27M mutation creates a distinct epigenetic landscape. Adult glioblastoma drugs fail because DIPG's molecular dependencies differ fundamentally.</p>
+            </div>
+
+            <div class="framework-card">
+                <h4>Pediatric Specificity</h4>
+                <p style="color: var(--gray);">DIPG occurs almost exclusively in children (peak age 6-7 years). Developing brain tissue responds differently to therapies than adult tumors, requiring pediatric-specific solutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Solution -->
+    <section style="background: rgba(123, 47, 247, 0.03); margin: 0 -2rem; padding: 4rem 2rem;">
+        <div style="max-width: 1400px; margin: 0 auto;">
+            <h2>The Paradigm Shift: AI-Guided De Novo Drug Design</h2>
+            
+            <p>Rather than screening existing compounds or making incremental modifications, we propose a <strong>fundamentally new technique</strong>: using artificial intelligence to design completely novel therapeutic molecules from scratch, optimized specifically for DIPG's unique vulnerabilities.</p>
+
+            <div class="success-box">
+                <h4 style="color: var(--light);">Why This Is Transformative:</h4>
+                <ul style="color: var(--gray); line-height: 2;">
+                    <li><strong>AI-powered creativity</strong>: Generative models explore chemical space beyond human intuition, discovering structures no medicinal chemist would propose</li>
+                    <li><strong>Simultaneous multi-objective optimization</strong>: AI designs molecules that hit the target, cross the BBB, and minimize toxicity—all in parallel</li>
+                    <li><strong>Velocity advantage</strong>: AI-designed drug candidates have reached human trials in 12-18 months vs. 5-10 years for traditional discovery</li>
+                    <li><strong>Unprecedented for pediatric cancer</strong>: AI drug design has never been applied to childhood brain tumors—this is a first-in-class approach</li>
+                </ul>
+            </div>
+
+            <h3>Targeting DIPG's Metabolic Achilles' Heel</h3>
+
+            <p>Recent research has revealed that DIPG tumors exhibit unique metabolic dependencies exploitable with targeted therapies:</p>
+
+            <div class="framework-grid">
+                <div class="framework-card">
+                    <h4>NAD⁺ Metabolism Vulnerability</h4>
+                    <p style="color: var(--gray);">DIPG cells show aberrant reliance on NAD⁺-dependent pathways for energy production and survival. Drug combinations exploiting this weakness have shown tumor cell-selective killing in vitro.</p>
+                </div>
+
+                <div class="framework-card">
+                    <h4>De Novo Nucleotide Synthesis</h4>
+                    <p style="color: var(--gray);">H3K27M mutation drives elevated pyrimidine biosynthesis requirements. DHODH (dihydroorotate dehydrogenase) inhibition shows promise in preclinical models.</p>
+                    <p style="color: var(--primary); font-weight: 700; margin-top: 1rem;">Primary Target Candidate</p>
+                </div>
+
+                <div class="framework-card">
+                    <h4>Epigenetic Dependencies</h4>
+                    <p style="color: var(--gray);">The H3K27M mutation creates unique chromatin structure requiring specific histone demethylases and methyltransferases—targetable enzymes not critical in normal brain tissue.</p>
+                </div>
+
+                <div class="framework-card">
+                    <h4>Oncogenic Pathway Addiction</h4>
+                    <p style="color: var(--gray);">DIPG exhibits aberrant activation of PI3K/AKT and MAPK signaling. Novel multi-kinase inhibitors designed for BBB penetration could simultaneously disrupt multiple dependencies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Approach -->
+    <section>
+        <h2>Technical Architecture: End-to-End AI Drug Discovery Pipeline</h2>
+        
+        <p>Our approach integrates cutting-edge generative AI, computational chemistry, and systems biology to design first-in-class molecules optimized for DIPG.</p>
+
+        <div class="process-flow">
+            <div class="process-step">
+                <div class="step-number">01</div>
+                <div class="step-content">
+                    <h4>Target Validation & Biological Data Integration</h4>
+                    <p style="color: var(--gray);">Mine DIPG patient tumor datasets (genomics, transcriptomics, proteomics) to confirm therapeutic target. Perform <em>in vitro</em> validation with siRNA/CRISPR knockdown in DIPG cell lines to establish target essentiality.</p>
+                    <p style="color: var(--primary); font-weight: 600; margin-top: 0.5rem;">Deliverable: Validated target with confirmed tumor-selective dependency</p>
+                </div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">02</div>
+                <div class="step-content">
+                    <h4>AI-Powered Molecular Generation</h4>
+                    <p style="color: var(--gray);">Deploy generative adversarial networks (GANs) and transformer-based models trained on:
+                    <br>• 1B+ known chemical structures
+                    <br>• BBB permeability databases
+                    <br>• Target-ligand binding data
+                    <br>• ADMET (absorption, distribution, metabolism, excretion, toxicity) profiles</p>
+                    <p style="color: var(--primary); font-weight: 600; margin-top: 0.5rem;">Output: 10,000+ novel candidate structures</p>
+                </div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">03</div>
+                <div class="step-content">
+                    <h4>Multi-Objective Optimization & Filtering</h4>
+                    <p style="color: var(--gray);">Apply reinforcement learning to optimize for:
+                    <br>• Target binding affinity (K<sub>d</sub> &lt; 10 nM)
+                    <br>• BBB penetration (CNS MPO score &gt; 4.0)
+                    <br>• Drug-likeness (Lipinski's Rule of Five)
+                    <br>• Synthetic accessibility (SA score &lt; 4.0)
+                    <br>• Predicted low toxicity (hERG IC₅₀ &gt; 10 μM)</p>
+                    <p style="color: var(--primary); font-weight: 600; margin-top: 0.5rem;">Filtered set: Top 50-100 lead candidates</p>
+                </div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">04</div>
+                <div class="step-content">
+                    <h4>Computational Docking & MD Simulations</h4>
+                    <p style="color: var(--gray);">Molecular dynamics simulations to validate target binding, assess stability, and predict off-target interactions. Use AlphaFold-predicted structures for novel target conformations.</p>
+                    <p style="color: var(--primary); font-weight: 600; margin-top: 0.5rem;">Validated leads: 10-20 compounds for synthesis</p>
+                </div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">05</div>
+                <div class="step-content">
+                    <h4>Chemical Synthesis & Characterization</h4>
+                    <p style="color: var(--gray);">Partner with medicinal chemistry CROs to synthesize lead compounds. NMR, mass spec, HPLC characterization. Stability testing in aqueous/physiological conditions.</p>
+                    <p style="color: var(--primary); font-weight: 600; margin-top: 0.5rem;">Synthesized library: 5-10 final candidates</p>
+                </div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">06</div>
+                <div class="step-content">
+                    <h4><em>In Vitro</em> Efficacy & Selectivity Testing</h4>
+                    <p style="color: var(--gray);">Test on DIPG patient-derived cell lines and 3D tumor organoids. Measure:
+                    <br>• IC₅₀ for DIPG tumor cells (target: &lt;1 μM)
+                    <br>• Selectivity vs. normal pediatric astrocytes (therapeutic index &gt;10×)
+                    <br>• Target engagement assays (Western blot, functional assays)</p>
+                    <p style="color: var(--primary); font-weight: 600; margin-top: 0.5rem;">Success: ≥1 compound with potent, selective anti-DIPG activity</p>
+                </div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">07</div>
+                <div class="step-content">
+                    <h4>Pharmacokinetics & BBB Penetration</h4>
+                    <p style="color: var(--gray);">Mouse PK studies with LC-MS quantification of brain tissue levels. Measure brain:plasma ratio at multiple time points. Assess metabolic stability in liver microsomes.</p>
+                    <p style="color: var(--primary); font-weight: 600; margin-top: 0.5rem;">Target: Brain concentrations &gt;10× IC₅₀ with acceptable half-life</p>
+                </div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">08</div>
+                <div class="step-content">
+                    <h4>Preliminary <em>In Vivo</em> Efficacy</h4>
+                    <p style="color: var(--gray);">Orthotopic xenograft model: DIPG cells implanted in mouse brainstem. Treat with lead compound and measure:
+                    <br>• Tumor growth delay (MRI/bioluminescence)
+                    <br>• Survival extension vs. vehicle control
+                    <br>• On-target pharmacodynamic markers</p>
+                    <p style="color: var(--primary); font-weight: 600; margin-top: 0.5rem;">Proof-of-concept: Statistically significant tumor reduction/survival benefit</p>
+                </div>
+            </div>
+        </div>
+
+        <h3>Mathematical Framework: Multi-Objective Optimization</h3>
+
+        <div class="math-block">
+            <h4>Fitness Function for Molecular Candidate:</h4>
+            <p>Each generated molecule \( m \) is scored on multiple criteria:</p>
+            <p style="text-align: center; margin: 1rem 0;">
+                \[
+                F(m) = w_1 \cdot \text{Affinity}(m) + w_2 \cdot \text{BBB}(m) + w_3 \cdot \text{DrugLike}(m) - w_4 \cdot \text{Toxicity}(m)
+                \]
+            </p>
+            <p>Where:
+            <br>• \(\text{Affinity}(m)\): Predicted binding affinity to target (higher is better, normalized 0-1)
+            <br>• \(\text{BBB}(m)\): Blood-brain barrier permeability score (CNS MPO or custom ML model)
+            <br>• \(\text{DrugLike}(m)\): Lipinski/Veber rule compliance + synthetic accessibility
+            <br>• \(\text{Toxicity}(m)\): Predicted adverse effects (hERG, hepatotoxicity, mutagenicity)
+            <br>• \(w_i\): Learned weights via reinforcement learning feedback from experimental data</p>
+        </div>
+
+        <div class="math-block">
+            <h4>BBB Permeability Prediction:</h4>
+            <p>Using ensemble ML models (Random Forest + Neural Network) trained on 5000+ CNS drugs:</p>
+            <p style="text-align: center; margin: 1rem 0;">
+                \[
+                \text{BBB}_{\text{score}} = \sigma\left(\sum_{i=1}^{n} \beta_i \cdot \phi_i(m)\right)
+                \]
+            </p>
+            <p>Where \(\phi_i(m)\) are molecular descriptors (LogP, PSA, H-bond donors/acceptors, molecular weight) and \(\beta_i\) are fitted coefficients. Target: BBB<sub>score</sub> &gt; 0.8 (80% probability of therapeutic CNS penetration).</p>
+        </div>
+
+        <div class="math-block">
+            <h4>Therapeutic Index Calculation:</h4>
+            <p style="text-align: center; margin: 1rem 0;">
+                \[
+                \text{TI} = \frac{\text{IC}_{50, \text{normal cells}}}{\text{IC}_{50, \text{DIPG cells}}} \quad \text{(Target: TI} \geq 10\text{)}
+                \]
+            </p>
+            <p>Compounds must demonstrate at least 10-fold selectivity for tumor cells over normal pediatric astrocytes to minimize on-target toxicity in developing brain tissue.</p>
+        </div>
+    </section>
+
+    <!-- Innovation Case -->
+    <section style="background: rgba(255, 0, 110, 0.03); margin: 0 -2rem; padding: 4rem 2rem;">
+        <div style="max-width: 1400px; margin: 0 auto;">
+            <h2>Why This Is Genuinely Innovative</h2>
+            
+            <p>This project goes beyond incremental improvements—it proposes a <strong>fundamentally new technique and product</strong> for pediatric cancer therapy: an AI-designed drug built from scratch for a formerly "undruggable" childhood tumor.</p>
+
+            <div class="framework-grid">
+                <div class="framework-card">
+                    <h4>Novel Target & Modality</h4>
+                    <p style="color: var(--gray);">We pursue a target specific to DIPG's unique biology (e.g., metabolic or epigenetic dependency), rather than recycling late-stage agents developed for other cancers. If successful, this opens an entirely new therapeutic avenue where none exists.</p>
+                </div>
+
+                <div class="framework-card">
+                    <h4>Unprecedented AI Application</h4>
+                    <p style="color: var(--gray);">AI for de novo drug design in pediatric oncology is <strong>first-in-class</strong>. This leverages cutting-edge technology not previously applied in this context, with potential to transform research methodology itself.</p>
+                </div>
+
+                <div class="framework-card">
+                    <h4>High Risk, High Reward</h4>
+                    <p style="color: var(--gray);">Significant risk: AI compounds may not work as intended, target may not be as critical in patients, chemistry may fail in vivo. Commensurate reward: breakthrough therapy dramatically improving survival in a cancer with essentially no survivors.</p>
+                </div>
+
+                <div class="framework-card">
+                    <h4>Meta-Innovation</h4>
+                    <p style="color: var(--gray);">This concept itself was developed with AI assistance, demonstrating that AI can extrapolate relevant data and generate novel ideas when prompted—AI changing not only <em>what</em> we develop but <em>how</em> we develop it.</p>
+                </div>
+            </div>
+
+            <div class="highlight-box" style="margin-top: 3rem;">
+                <h4 style="color: var(--light);">What Makes This Different From Failed Trials:</h4>
+                <ul style="color: var(--gray); line-height: 2;">
+                    <li><strong>Not repurposing adult drugs</strong>: 200+ failed trials largely tested existing chemotherapies or obvious combinations</li>
+                    <li><strong>Built-in BBB optimization</strong>: Most failed drugs couldn't reach the tumor; AI designs for penetration from day one</li>
+                    <li><strong>DIPG-specific biology</strong>: Targeting vulnerabilities unique to H3K27M mutation rather than generic cancer pathways</li>
+                    <li><strong>First-in-class mechanism</strong>: No existing FDA-approved drug adequately addresses our chosen target</li>
+                    <li><strong>Pediatric-specific design</strong>: Optimized for developing brain tissue toxicity profiles, not adult safety data</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Funding Strategy -->
+    <section>
+        <h2>Funding Strategy & Development Timeline</h2>
+        
+        <h3>Phase I SBIR: Proof-of-Concept (12 months) — $300K</h3>
+        <div class="framework-card">
+            <h4>NCI Innovative Concept Award Target</h4>
+            <p style="color: var(--gray);"><strong>Objectives:</strong></p>
+            <ul>
+                <li>Validate chosen biological target in DIPG models</li>
+                <li>Generate and filter 10,000+ AI-designed candidates → Top 50</li>
+                <li>Synthesize 5-10 lead compounds</li>
+                <li>Demonstrate IC₅₀ &lt;1 μM in DIPG cells with selectivity &gt;10× vs. normal cells</li>
+                <li>Preliminary mouse PK showing brain penetration</li>
+            </ul>
+            <p style="color: var(--primary); font-weight: 700; margin-top: 1rem;">Deliverable: Novel compound with proven anti-DIPG activity <em>in vitro</em> + BBB penetration data</p>
+        </div>
+
+        <h3>Phase II SBIR: Lead Optimization & Preclinical (24 months) — $2M</h3>
+        <div class="framework-card">
+            <h4>IND-Enabling Studies</h4>
+            <p style="color: var(--gray);"><strong>Objectives:</strong></p>
+            <ul>
+                <li>Medicinal chemistry optimization → improved potency, PK, safety</li>
+                <li>GLP toxicology studies (rodent + non-rodent species)</li>
+                <li><em>In vivo</em> efficacy in orthotopic DIPG models (survival benefit, tumor regression)</li>
+                <li>CMC (chemistry, manufacturing, controls) for GMP synthesis</li>
+                <li>IND application preparation for FDA</li>
+            </ul>
+            <p style="color: var(--primary); font-weight: 700; margin-top: 1rem;">Deliverable: IND-ready drug candidate with comprehensive preclinical package</p>
+        </div>
+
+        <h3>Phase IIB/Commercialization (18-24 months) — $4M</h3>
+        <div class="framework-card">
+            <h4>Clinical Trial Initiation</h4>
+            <p style="color: var(--gray);"><strong>Objectives:</strong></p>
+            <ul>
+                <li>Phase I clinical trial in pediatric patients (safety, MTD, PK)</li>
+                <li>Partnerships with pediatric oncology centers (CHLA, St. Jude, UCSF)</li>
+                <li>Orphan Drug Designation (ODD) application to FDA</li>
+                <li>Rare Pediatric Disease Priority Review Voucher pathway</li>
+                <li>Strategic partnerships/licensing with pharma for Phase II/III</li>
+            </ul>
+            <p style="color: var(--primary); font-weight: 700; margin-top: 1rem;">Milestone: First-in-human dosing + clinical response data</p>
+        </div>
+
+        <div class="stats-grid" style="margin-top: 3rem;">
+            <div class="stat-card">
+                <span class="stat-number">36-48mo</span>
+                <span class="stat-label">Discovery → Clinical</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">$6.3M</span>
+                <span class="stat-label">Phase I+II+IIB Total</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">10-20×</span>
+                <span class="stat-label">Faster than Traditional</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">$500M+</span>
+                <span class="stat-label">Orphan Drug Market Value</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market & Impact -->
+    <section style="background: rgba(0, 212, 255, 0.03); margin: 0 -2rem; padding: 4rem 2rem;">
+        <div style="max-width: 1400px; margin: 0 auto;">
+            <h2>Commercial Potential & Broader Impact</h2>
+            
+            <h3>Market Opportunity: Beyond DIPG</h3>
+            
+            <p>While DIPG affects only ~300 U.S. children annually, the platform nature of our AI drug discovery pipeline extends to other rare and pediatric cancers, creating significant commercial value.</p>
+
+            <div class="framework-grid">
+                <div class="framework-card">
+                    <h4>Orphan Drug Economics</h4>
+                    <p style="color: var(--gray);">Successful DIPG drug (even small patient population) benefits from:</p>
+                    <ul>
+                        <li>Orphan Drug Designation (ODD): 7-year market exclusivity</li>
+                        <li>Rare Pediatric Disease Priority Review Voucher (transferable, ~$100M value)</li>
+                        <li>Accelerated regulatory pathways</li>
+                        <li>Premium pricing justified by unmet need</li>
+                    </ul>
+                    <p style="color: var(--primary); font-weight: 700; margin-top: 1rem;">Estimated peak sales: $250M-$500M annually</p>
+                </div>
+
+                <div class="framework-card">
+                    <h4>Platform Extension</h4>
+                    <p style="color: var(--gray);">AI drug design platform applies to:</p>
+                    <ul>
+                        <li>Other pediatric brain tumors (medulloblastoma, ependymoma)</li>
+                        <li>Rare pediatric cancers (neuroblastoma, rhabdomyosarcoma)</li>
+                        <li>Adult glioblastoma with BBB penetration needs</li>
+                        <li>CNS metastases from other primary cancers</li>
+                    </ul>
+                    <p style="color: var(--primary); font-weight: 700; margin-top: 1rem;">Addressable market: $8B+ (rare CNS cancers)</p>
+                </div>
+
+                <div class="framework-card">
+                    <h4>Pharma Partnership Potential</h4>
+                    <p style="color: var(--gray);">Technology licensing to major pharma:</p>
+                    <ul>
+                        <li>AI drug discovery platform-as-a-service</li>
+                        <li>Co-development agreements (milestone + royalty)</li>
+                        <li>Acquisition target post-Phase I/II success</li>
+                        <li>Comparable AI drug companies acquired for $500M-$1B+</li>
+                    </ul>
+                    <p style="color: var(--primary); font-weight: 700; margin-top: 1rem;">Exit potential: $750M-$1.5B (successful Phase II data)</p>
+                </div>
+
+                <div class="framework-card">
+                    <h4>Grant & Non-Dilutive Funding</h4>
+                    <p style="color: var(--gray);">Beyond SBIR:</p>
+                    <ul>
+                        <li>NIH R01 grants for pediatric cancer research</li>
+                        <li>Department of Defense PRCRP (Pediatric Cancer)</li>
+                        <li>Alex's Lemonade Stand, St. Baldrick's Foundation</li>
+                        <li>DIPG-specific advocacy organization funding</li>
+                    </ul>
+                    <p style="color: var(--primary); font-weight: 700; margin-top: 1rem;">Additional non-dilutive: $3M-$5M potential</p>
+                </div>
+            </div>
+
+            <h3>Societal Impact: Changing the Narrative</h3>
+
+            <div class="success-box">
+                <h4 style="color: var(--light);">Beyond One Disease:</h4>
+                <p>A successful DIPG therapy would be paradigm-changing not just for the disease itself, but for demonstrating that <strong>AI can solve previously unsolvable problems in drug discovery</strong>. This proof-of-concept would:</p>
+                <ul style="color: var(--gray); line-height: 2;">
+                    <li>Validate AI-first approaches for rare disease drug discovery</li>
+                    <li>Attract billions in venture capital to AI biotech sector</li>
+                    <li>Establish new standard of care for tackling "undruggable" targets</li>
+                    <li>Inspire researchers to tackle other pediatric rare cancers with similar methods</li>
+                    <li>Demonstrate synergy of human expertise + AI imagination in life-saving innovation</li>
+                </ul>
+            </div>
+
+            <div class="stats-grid" style="margin-top: 3rem;">
+                <div class="stat-card">
+                    <span class="stat-number">15K+</span>
+                    <span class="stat-label">Annual U.S. Pediatric Cancer Cases</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">$10B+</span>
+                    <span class="stat-label">Pediatric Oncology Market</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">Rare Cancers Needing New Therapies</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">1st</span>
+                    <span class="stat-label">AI-Designed Pediatric Cancer Drug</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision -->
+    <section>
+        <h2>Vision: Making History, Saving Lives</h2>
+        
+        <p>This project embodies the bold, imaginative spirit required to rewrite the story of a deadly pediatric cancer. By integrating AI at every stage—from concept generation to molecular design to experimental validation—we demonstrate how modern AI acts as a <strong>force multiplier for creative breakthroughs</strong>.</p>
+
+        <div class="highlight-box">
+            <p style="color: var(--light); font-weight: 600; margin-bottom: 1rem;">The Bigger Picture:</p>
+            <p>No child should die from a disease we could have cured but didn't because the drug discovery process was too slow, too expensive, or too constrained by conventional thinking. AI drug design isn't about replacing human creativity—it's about <strong>amplifying it</strong>, enabling researchers to ask "what if?" and get actionable answers in days instead of decades.</p>
+            <p style="margin-top: 1rem;">If we succeed, we don't just extend survival for DIPG patients by months or years—we <strong>transform how humanity approaches impossible problems</strong>. We prove that the combination of human insight and artificial intelligence can accomplish what neither could alone.</p>
+        </div>
+
+        <h3>Our Commitment</h3>
+
+        <p>This is high-risk research. The AI's predictions may not hold in vivo. The target may not be as critical as we hope. The chemistry may fail. <strong>But the potential reward is immeasurable</strong>—lives saved, families preserved, and a new paradigm for drug discovery proven.</p>
+
+        <p>We approach this challenge with:</p>
+        <ul style="color: var(--gray); line-height: 2; margin-left: 2rem;">
+            <li><strong>Scientific rigor</strong>: Every prediction validated experimentally, every assumption tested</li>
+            <li><strong>Ethical responsibility</strong>: Pediatric patient safety as the paramount concern at every decision point</li>
+            <li><strong>Transparent collaboration</strong>: Open sharing of methods (within IP constraints) to accelerate field progress</li>
+            <li><strong>Relentless optimism</strong>: Belief that innovation and perseverance can overcome even the most devastating diseases</li>
+        </ul>
+
+        <div class="success-box" style="margin-top: 3rem;">
+            <p style="text-align: center; color: var(--light); font-size: 1.3rem; font-weight: 700;">
+                "The best way to predict the future is to invent it."
+            </p>
+            <p style="text-align: center; color: var(--gray); margin-top: 1rem;">
+                Let's invent a future where DIPG is curable. Together.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Jason Jarmacz | NeuroProgressive AI Evolution Strategist</p>
+        <p><a href="mailto:jason@jarmacz.com">jason@jarmacz.com</a> | New York, NY</p>
+        <p style="margin-top: 1rem;"><a href="index.html">← Return to Portfolio</a></p>
+    </footer>
+
+    <!-- Neural Network Canvas Animation -->
+    <script>
+        const canvas = document.getElementById('neural-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        const particles = [];
+        const particleCount = 50;
+        const connectionDistance = 150;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = 2;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255, 0, 110, 0.6)';
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+
+            particles.forEach((particle, i) => {
+                particle.update();
+                particle.draw();
+
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[j].x - particle.x;
+                    const dy = particles[j].y - particle.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < connectionDistance) {
+                        ctx.beginPath();
+                        ctx.moveTo(particle.x, particle.y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        const opacity = 1 - distance / connectionDistance;
+                        ctx.strokeStyle = `rgba(123, 47, 247, ${opacity * 0.3})`;
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                    }
+                }
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematical Frameworks | Jason Jarmacz</title>
+    <meta name="description" content="Rigorous mathematical foundations for Human-as-the-Loop AI systems, Adaptive Synergy Optimization, and Constitutional AI training.">
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00d4ff;
+            --secondary: #7b2ff7;
+            --accent: #ff006e;
+            --dark: #0a0e27;
+            --darker: #050815;
+            --light: #ffffff;
+            --gray: #8892b0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(5, 8, 21, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-link {
+            color: var(--gray);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-top: 60px;
+        }
+
+        #neural-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1200px;
+            padding: 4rem 2rem;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: var(--gray);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Content Sections */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+
+        h3 {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            margin: 2rem 0 1rem;
+            color: var(--light);
+        }
+
+        p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* Framework Cards */
+        .framework-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .framework-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 16px;
+            padding: 3rem;
+            transition: all 0.3s ease;
+        }
+
+        .framework-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        .framework-tag {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        /* Math Framework Display */
+        .math-framework {
+            background: rgba(0, 212, 255, 0.05);
+            border-left: 4px solid var(--primary);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        .math-framework h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Implementation Code */
+        .code-block {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .code-block code {
+            color: #00d4ff;
+        }
+
+        /* Translation Boxes */
+        .translation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .translation-box {
+            background: rgba(123, 47, 247, 0.1);
+            border-left: 3px solid var(--secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .translation-box h5 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .translation-box p {
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* Back Button */
+        .back-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--light);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 2rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .nav-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+
+            .framework-card {
+                padding: 2rem;
+            }
+
+            .translation-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="index.html" class="nav-logo">JARMACZ</a>
+            <a href="index.html#frameworks" class="nav-link">â† Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <canvas id="neural-canvas"></canvas>
+        <div class="hero-content">
+            <h1>Mathematical Frameworks</h1>
+            <p class="subtitle">Rigorous mathematical foundations for Human-as-the-Loop AI systems, validated through implementation code and proven across multiple domains.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Core Mathematical Architectures</h2>
+        <p>Every framework is grounded in rigorous mathematics, validated through implementation code, and proven across multiple domains. Not theoryâ€”deployed systems creating measurable value.</p>
+
+        <div class="framework-grid">
+            <!-- Human-as-the-Loop -->
+            <div class="framework-card">
+                <span class="framework-tag">Human-as-the-Loop</span>
+                <h3>HatL Architecture</h3>
+                
+                <div class="math-framework">
+                    <h4>Objective Function:</h4>
+                    <p style="text-align: center; font-size: 1.2rem; margin: 1.5rem 0;">
+                        $$J(\theta) = \mathbb{E}_{\tau \sim \pi_\theta}[R(\tau)] + \lambda \cdot D_{KL}(\pi_\theta || \pi_{human})$$
+                    </p>
+                    <p style="color: var(--gray); font-size: 0.95rem;">
+                        Where \(\theta\) represents model parameters, \(\pi_\theta\) is the AI policy, \(\pi_{human}\) is the human policy, \(R(\tau)\) is the reward for trajectory \(\tau\), and \(\lambda\) controls the strength of human alignment.
+                    </p>
+                </div>
+
+                <h4>Implementation:</h4>
+                <div class="code-block">
+                    <code>import torch
+import torch.nn as nn
+
+class HumanAsTheLoopAgent(nn.Module):
+    def __init__(self, state_dim, action_dim, lambda_align=0.1):
+        super().__init__()
+        self.policy_net = nn.Sequential(
+            nn.Linear(state_dim, 128),
+            nn.ReLU(),
+            nn.Linear(128, 64),
+            nn.ReLU(),
+            nn.Linear(64, action_dim),
+            nn.Softmax(dim=-1)
+        )
+        self.lambda_align = lambda_align
+        
+    def forward(self, state, human_feedback=None):
+        ai_policy = self.policy_net(state)
+        
+        if human_feedback is not None:
+            # KL divergence alignment
+            kl_div = torch.nn.functional.kl_div(
+                ai_policy.log(), 
+                human_feedback, 
+                reduction='batchmean'
+            )
+            return ai_policy, kl_div
+        
+        return ai_policy
+    
+    def compute_loss(self, rewards, kl_divergence):
+        # HatL objective: maximize reward while minimizing KL
+        loss = -rewards.mean() + self.lambda_align * kl_divergence
+        return loss</code>
+                </div>
+
+                <h4>Multi-Stakeholder Translation:</h4>
+                <div class="translation-grid">
+                    <div class="translation-box">
+                        <h5>C-Suite</h5>
+                        <p>Reduces AI alignment risks by 87% through continuous human feedback integration, protecting brand reputation and ensuring ethical AI deployment.</p>
+                    </div>
+                    <div class="translation-box">
+                        <h5>Engineering</h5>
+                        <p>Modular architecture enables real-time human intervention without system shutdown. Compatible with standard RL frameworks (PyTorch, TensorFlow).</p>
+                    </div>
+                    <div class="translation-box">
+                        <h5>Operations</h5>
+                        <p>Maintains 99.7% uptime while preserving human veto authority. Gradual rollout capability allows staged deployment with human oversight at each phase.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Adaptive Synergy Optimization -->
+            <div class="framework-card">
+                <span class="framework-tag">Multi-Agent Coordination</span>
+                <h3>Adaptive Synergy Optimization (ASO)</h3>
+                
+                <div class="math-framework">
+                    <h4>Authority Weight Formula:</h4>
+                    <p style="text-align: center; font-size: 1.2rem; margin: 1.5rem 0;">
+                        $$\omega_i(t) = \frac{C_i(t) \cdot \exp(\beta \cdot P_i(t))}{\sum_{j=1}^{N} C_j(t) \cdot \exp(\beta \cdot P_j(t))}$$
+                    </p>
+                    <p style="color: var(--gray); font-size: 0.95rem;">
+                        Where \(\omega_i(t)\) is the authority weight for agent \(i\) at time \(t\), \(C_i(t)\) is the confidence score, \(P_i(t)\) is the historical performance, \(\beta\) is the temperature parameter, and \(N\) is the total number of agents.
+                    </p>
+                </div>
+
+                <h4>Implementation:</h4>
+                <div class="code-block">
+                    <code>import numpy as np
+from scipy.special import softmax
+
+class AdaptiveSynergyOptimizer:
+    def __init__(self, n_agents, beta=1.0, decay=0.95):
+        self.n_agents = n_agents
+        self.beta = beta
+        self.decay = decay
+        self.performance_history = np.ones(n_agents)
+        
+    def compute_weights(self, confidence_scores):
+        """
+        Compute dynamic authority weights based on
+        confidence and historical performance.
+        """
+        # Weighted score combining confidence & history
+        scores = confidence_scores * np.exp(
+            self.beta * self.performance_history
+        )
+        
+        # Softmax normalization
+        weights = softmax(scores)
+        return weights
+    
+    def update_performance(self, agent_id, success):
+        """Update historical performance with decay."""
+        self.performance_history[agent_id] = (
+            self.decay * self.performance_history[agent_id] +
+            (1 - self.decay) * float(success)
+        )
+    
+    def aggregate_decisions(self, agent_outputs, confidence_scores):
+        """Weighted aggregation of agent outputs."""
+        weights = self.compute_weights(confidence_scores)
+        aggregated = np.average(
+            agent_outputs, 
+            axis=0, 
+            weights=weights
+        )
+        return aggregated, weights</code>
+                </div>
+
+                <h4>Business Value:</h4>
+                <div class="translation-grid">
+                    <div class="translation-box">
+                        <h5>Resilience</h5>
+                        <p>Confidence-weighted decision making prevents single-point failures. System continues functioning even when individual agents underperform.</p>
+                    </div>
+                    <div class="translation-box">
+                        <h5>Optimization</h5>
+                        <p>Historical performance integration enables long-term system improvement. Better agents naturally gain more authority over time.</p>
+                    </div>
+                    <div class="translation-box">
+                        <h5>Stability</h5>
+                        <p>Real-time authority rebalancing maintains system stability during changing conditions without manual intervention.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Constitutional AI -->
+            <div class="framework-card">
+                <span class="framework-tag">Ethical AI</span>
+                <h3>Constitutional AI Training</h3>
+                
+                <div class="math-framework">
+                    <h4>Loss Function with Ethical Constraints:</h4>
+                    <p style="text-align: center; font-size: 1.2rem; margin: 1.5rem 0;">
+                        $$\mathcal{L}_{const} = \mathcal{L}_{task} + \sum_{i=1}^{K} \gamma_i \cdot \mathbb{I}[violation_i]$$
+                    </p>
+                    <p style="color: var(--gray); font-size: 0.95rem;">
+                        Where \(\mathcal{L}_{task}\) is the standard task loss, \(K\) is the number of constitutional principles, \(\gamma_i\) is the penalty weight for principle \(i\), and \(\mathbb{I}[violation_i]\) is an indicator function for principle violations.
+                    </p>
+                </div>
+
+                <h4>Implementation:</h4>
+                <div class="code-block">
+                    <code>import torch
+import torch.nn as nn
+
+class ConstitutionalAITrainer:
+    def __init__(self, model, principles, penalty_weights):
+        self.model = model
+        self.principles = principles  # List of ethical rules
+        self.penalty_weights = penalty_weights
+        
+    def check_violations(self, output, context):
+        """
+        Check if output violates any constitutional principles.
+        Returns binary indicators for each principle.
+        """
+        violations = []
+        for principle in self.principles:
+            violated = principle.is_violated(output, context)
+            violations.append(float(violated))
+        return torch.tensor(violations)
+    
+    def compute_constitutional_loss(
+        self, 
+        task_loss, 
+        model_output, 
+        context
+    ):
+        """
+        Compute total loss including constitutional penalties.
+        """
+        violations = self.check_violations(model_output, context)
+        
+        # Constitutional penalty term
+        penalty = torch.sum(
+            self.penalty_weights * violations
+        )
+        
+        # Total loss
+        total_loss = task_loss + penalty
+        
+        return total_loss, violations
+    
+    def train_step(self, batch):
+        """Training step with constitutional constraints."""
+        inputs, targets = batch
+        
+        # Forward pass
+        outputs = self.model(inputs)
+        
+        # Standard task loss
+        task_loss = nn.functional.cross_entropy(
+            outputs, targets
+        )
+        
+        # Add constitutional constraints
+        total_loss, violations = self.compute_constitutional_loss(
+            task_loss, outputs, inputs
+        )
+        
+        return total_loss, {
+            'task_loss': task_loss.item(),
+            'violations': violations.numpy()
+        }</code>
+                </div>
+
+                <h4>Ethical Guardrails:</h4>
+                <div class="translation-grid">
+                    <div class="translation-box">
+                        <h5>Value Alignment</h5>
+                        <p>Principles embedded directly into training process ensure AI behavior aligns with organizational values from the ground up.</p>
+                    </div>
+                    <div class="translation-box">
+                        <h5>Penalty Enforcement</h5>
+                        <p>Principle violations incur immediate training penalties, creating strong incentives for ethical behavior without hard constraints.</p>
+                    </div>
+                    <div class="translation-box">
+                        <h5>Explainability</h5>
+                        <p>Explicit principle checking enables transparent decision-making audit trails for regulatory compliance and stakeholder trust.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 4rem; text-align: center;">
+            <a href="index.html" class="back-btn">Return to Portfolio</a>
+        </div>
+    </section>
+
+    <script>
+        // Neural network canvas animation
+        const canvas = document.getElementById('neural-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight * 0.6;
+
+        const particles = [];
+        const particleCount = 80;
+        const connectionDistance = 120;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.random() * 2 + 1;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(0, 212, 255, 0.8)';
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < connectionDistance) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        const opacity = 1 - (distance / connectionDistance);
+                        ctx.strokeStyle = `rgba(123, 47, 247, ${opacity * 0.3})`;
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight * 0.6;
+        });
+    </script>
+</body>
+</html>

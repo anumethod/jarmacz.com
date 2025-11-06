@@ -1,0 +1,140 @@
+# jarmacz.com .htaccess Configuration
+# Apache Server Configuration for NeuroProgressive AI Website
+
+# ========================================
+# FORCE HTTPS
+# ========================================
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ========================================
+# SECURITY HEADERS
+# ========================================
+
+# Prevent clickjacking
+Header always set X-Frame-Options "SAMEORIGIN"
+
+# XSS Protection
+Header always set X-XSS-Protection "1; mode=block"
+
+# Prevent MIME sniffing
+Header always set X-Content-Type-Options "nosniff"
+
+# Referrer Policy
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+# Content Security Policy
+Header always set Content-Security-Policy "default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://api.jarmacz.com;"
+
+# Permissions Policy (formerly Feature-Policy)
+Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+
+# HSTS (HTTP Strict Transport Security)
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+# ========================================
+# COMPRESSION
+# ========================================
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json application/xml
+</IfModule>
+
+# ========================================
+# CACHING
+# ========================================
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # HTML (no cache for dynamic content)
+    ExpiresByType text/html "access plus 0 seconds"
+    
+    # CSS and JavaScript
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    
+    # Images
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    
+    # Fonts
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    
+    # PDF
+    ExpiresByType application/pdf "access plus 1 month"
+</IfModule>
+
+# Cache-Control Headers
+<FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+</FilesMatch>
+
+<FilesMatch "\.(css|js|jpg|jpeg|png|gif|svg|webp|woff|woff2|ttf)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+</FilesMatch>
+
+# ========================================
+# URL REWRITING
+# ========================================
+
+# Remove .html extension
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# Redirect /frameworks/* to framework pages
+RewriteRule ^frameworks/neuroprogressive$ /frameworks/neuroprogressive.html [L]
+RewriteRule ^frameworks/synthetic$ /frameworks/synthetic.html [L]
+RewriteRule ^frameworks/shared-autonomy$ /frameworks/shared-autonomy.html [L]
+RewriteRule ^frameworks/strategy$ /frameworks/strategy.html [L]
+
+# Redirect /research to research page
+RewriteRule ^research$ /research.html [L]
+
+# API Proxy to Flask Backend (if running on same server)
+# RewriteRule ^api/(.*)$ http://localhost:5000/api/$1 [P,L]
+
+# ========================================
+# ERROR PAGES
+# ========================================
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
+
+# ========================================
+# DIRECTORY LISTINGS
+# ========================================
+Options -Indexes
+
+# ========================================
+# FILE PROTECTION
+# ========================================
+
+# Protect .htaccess and .htpasswd
+<FilesMatch "^\.ht">
+    Require all denied
+</FilesMatch>
+
+# Protect sensitive files
+<FilesMatch "\.(env|log|ini|sh|bak)$">
+    Require all denied
+</FilesMatch>
+
+# ========================================
+# MIME TYPES
+# ========================================
+AddType application/javascript .js
+AddType text/css .css
+AddType image/svg+xml .svg
+AddType font/woff .woff
+AddType font/woff2 .woff2
+
+# ========================================
+# CHARACTER ENCODING
+# ========================================
+AddDefaultCharset UTF-8

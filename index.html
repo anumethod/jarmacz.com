@@ -3,755 +3,1183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jason Jarmacz - NeuroProgressive AI Evolution Strategist | Human-as-the-Loop Frameworks | Synthetic Intelligence Architecture">
-    <meta name="keywords" content="AI Strategy, Neuroprogressive AI, Synthetic Intelligence, Human-in-the-Loop, Evolution Strategy">
     <title>Jason Jarmacz | NeuroProgressive AI Evolution Strategist</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="Pioneering Human-as-the-Loop AI systems, strategic innovation consulting, and transformative solutions across healthcare, infrastructure, and enterprise intelligence.">
+    
+    <!-- MathJax for equation rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        :root {
+            --primary: #00d4ff;
+            --secondary: #7b2ff7;
+            --accent: #ff006e;
+            --dark: #0a0e27;
+            --darker: #050815;
+            --light: #ffffff;
+            --gray: #8892b0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+        }
+
+        img, video, canvas, svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        #neural-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1200px;
+            padding: 2rem;
+        }
+
+        .glitch {
+            font-size: 4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            position: relative;
+            text-shadow: 0.05em 0 0 var(--primary),
+                        -0.03em -0.04em 0 var(--secondary),
+                        0.025em 0.04em 0 var(--accent);
+            animation: glitch 1.5s infinite;
+        }
+
+        @keyframes glitch {
+            0% {
+                text-shadow: 0.05em 0 0 var(--primary),
+                            -0.03em -0.04em 0 var(--secondary),
+                            0.025em 0.04em 0 var(--accent);
+            }
+            14% {
+                text-shadow: 0.05em 0 0 var(--primary),
+                            -0.03em -0.04em 0 var(--secondary),
+                            0.025em 0.04em 0 var(--accent);
+            }
+            15% {
+                text-shadow: -0.05em -0.025em 0 var(--primary),
+                            0.025em 0.035em 0 var(--secondary),
+                            -0.05em -0.05em 0 var(--accent);
+            }
+            49% {
+                text-shadow: -0.05em -0.025em 0 var(--primary),
+                            0.025em 0.035em 0 var(--secondary),
+                            -0.05em -0.05em 0 var(--accent);
+            }
+            50% {
+                text-shadow: 0.025em 0.05em 0 var(--primary),
+                            0.05em 0 0 var(--secondary),
+                            0 -0.05em 0 var(--accent);
+            }
+            99% {
+                text-shadow: 0.025em 0.05em 0 var(--primary),
+                            0.05em 0 0 var(--secondary),
+                            0 -0.05em 0 var(--accent);
+            }
+            100% {
+                text-shadow: -0.025em 0 0 var(--primary),
+                            -0.025em -0.025em 0 var(--secondary),
+                            -0.025em -0.05em 0 var(--accent);
+            }
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--gray);
+            margin: 2rem 0;
+            font-weight: 300;
+        }
+
+        .metrics {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Innovation Showcase Grid */
+        .innovation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .innovation-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 12px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .innovation-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .innovation-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        .innovation-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .innovation-tag {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .innovation-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .innovation-card p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .innovation-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--gray);
+            text-transform: uppercase;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--light);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(123, 47, 247, 0.05));
+            border: 2px solid transparent;
+            border-radius: 16px;
+            padding: 3rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--light);
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .service-card li {
+            padding: 0.5rem 0;
+            color: var(--gray);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .service-card li::before {
+            content: "â–¹";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        .price-tag {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 1.5rem 0;
+        }
+
+        .price-note {
+            font-size: 0.9rem;
+            color: var(--gray);
+            font-style: italic;
+        }
+
+        /* Mathematical Framework Display */
+        .math-framework {
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 4px solid var(--primary);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            overflow-x: auto;
+            max-width: 100%;
+        }
+
+        .math-framework h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            word-wrap: break-word;
+        }
+
+        .math-framework p {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        /* Ensure MathJax content scales properly */
+        .math-framework mjx-container {
+            max-width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(123, 47, 247, 0.1));
+            border-radius: 20px;
+            padding: 4rem;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-item a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--light);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .glitch {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .metrics {
+                gap: 1.5rem;
+                flex-direction: column;
+            }
+
+            .metric-value {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+                padding: 0 1rem;
+            }
+
+            .innovation-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .innovation-card,
+            .service-card {
+                padding: 1.5rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            .contact-section {
+                padding: 2rem 1rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .price-tag {
+                font-size: 1.5rem;
+            }
+
+            .math-framework {
+                padding: 1rem;
+                font-size: 0.9rem;
+                overflow-x: auto;
+            }
+
+            .innovation-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                overflow-x: hidden;
+            }
+
+            .glitch {
+                font-size: 1.5rem;
+                word-wrap: break-word;
+            }
+
+            .subtitle {
+                font-size: 0.9rem;
+                line-height: 1.4;
+            }
+
+            .hero-content {
+                padding: 1rem;
+            }
+
+            .metric-value {
+                font-size: 2rem;
+            }
+
+            .metric-label {
+                font-size: 0.75rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.2rem;
+            }
+
+            .innovation-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .innovation-tag {
+                font-size: 0.7rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .cta-button {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            section {
+                padding: 2rem 0.75rem;
+            }
+
+            .innovation-grid,
+            .services-grid {
+                gap: 1.5rem;
+            }
+
+            .service-card {
+                padding: 1.25rem;
+            }
+
+            .service-icon {
+                font-size: 2rem;
+            }
+
+            .contact-item a {
+                font-size: 0.95rem;
+                word-break: break-word;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="main-nav" id="mainNav">
-        <div class="nav-container">
-            <div class="logo">
-                <a href="/">JJ</a>
-            </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#evolution-matrix">Evolution Matrix</a></li>
-                <li><a href="#frameworks">Frameworks</a></li>
-                <li><a href="projects_portfolio.html">Projects</a></li>
-                <li><a href="#ventures">Ventures</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Engage</a></li>
-            </ul>
-            <div class="nav-toggle" id="navToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
-
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="glitch" data-text="NEUROPROGRESSIVE AI">NEUROPROGRESSIVE AI</h1>
-                <h2>Evolution Strategist</h2>
-                <p class="tagline">Architecting Human-as-the-Loop Frameworks for Shared Autonomy</p>
-                <div class="hero-metrics">
-                    <div class="metric">
-                        <span class="metric-value" data-target="99.7">0</span>
-                        <span class="metric-label">% Synergy Optimization</span>
-                    </div>
-                    <div class="metric">
-                        <span class="metric-value" data-target="4">0</span>
-                        <span class="metric-label">Active Ventures</span>
-                    </div>
-                    <div class="metric">
-                        <span class="metric-value" data-target="12">0</span>
-                        <span class="metric-label">Published Research Papers</span>
-                    </div>
+        <canvas id="neural-canvas"></canvas>
+        <div class="hero-content">
+            <h1 class="glitch">JASON JARMACZ</h1>
+            <p class="subtitle">NeuroProgressive AI Evolution Strategist | Human-as-the-Loop Innovation Architect</p>
+            <div class="metrics">
+                <div class="metric">
+                    <span class="metric-value" data-target="99.7">0</span>
+                    <span class="metric-label">Synergy Optimization</span>
                 </div>
-                <div class="cta-buttons">
-                    <a href="projects_portfolio.html" class="btn btn-primary">View Projects</a>
-                    <a href="#services" class="btn btn-secondary">Explore Services</a>
+                <div class="metric">
+                    <span class="metric-value" data-target="5">0</span>
+                    <span class="metric-label">Groundbreaking Projects</span>
                 </div>
-            </div>
-            <div class="hero-visual">
-                <canvas id="neuralNetCanvas"></canvas>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="mouse"></div>
-        </div>
-    </section>
-
-    <!-- Evolution Matrix Section -->
-    <section id="evolution-matrix" class="evolution-matrix">
-        <div class="container">
-            <h2 class="section-title">Evolution Matrix</h2>
-            <p class="section-subtitle">Bridging Neuroprogressive & Synthetic Intelligence</p>
-            
-            <div class="matrix-grid">
-                <!-- Quadrant 1: Neuroprogressive AI -->
-                <div class="matrix-card" data-quadrant="neuro">
-                    <div class="card-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3>Neuroprogressive AI</h3>
-                    <p class="card-description">Adaptive systems that evolve through continuous human feedback loops, creating bidirectional learning pathways.</p>
-                    <div class="equation">
-                        $$\mathcal{L}_{neuro} = \sum_{t=1}^{T} \alpha_t \cdot \nabla_\theta R(s_t, a_t) + \beta \cdot H(s_t)$$
-                    </div>
-                    <ul class="card-features">
-                        <li>Human-as-the-Loop (HatL) Architecture</li>
-                        <li>Reinforcement Learning from Human Feedback (RLHF)</li>
-                        <li>Adaptive Policy Gradient Methods</li>
-                        <li>Constitutional AI Alignment</li>
-                    </ul>
-                    <a href="#frameworks" class="card-link">Deep Dive →</a>
-                </div>
-
-                <!-- Quadrant 2: Synthetic Intelligence -->
-                <div class="matrix-card" data-quadrant="synthetic">
-                    <div class="card-icon">
-                        <i class="fas fa-microchip"></i>
-                    </div>
-                    <h3>Synthetic Intelligence</h3>
-                    <p class="card-description">Purpose-built cognitive architectures designed for specific domain mastery and deterministic reasoning.</p>
-                    <div class="equation">
-                        $$P(y|x) = \frac{\exp(f_\theta(x,y))}{\sum_{y'} \exp(f_\theta(x,y'))}$$
-                    </div>
-                    <ul class="card-features">
-                        <li>Domain-Specific Language Models (DSLMs)</li>
-                        <li>Causal Reasoning Engines</li>
-                        <li>Symbolic-Neural Hybrid Systems</li>
-                        <li>Explainable AI (XAI) Frameworks</li>
-                    </ul>
-                    <a href="#frameworks" class="card-link">Deep Dive →</a>
-                </div>
-
-                <!-- Quadrant 3: Shared Autonomy -->
-                <div class="matrix-card" data-quadrant="shared">
-                    <div class="card-icon">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                    <h3>Shared Autonomy</h3>
-                    <p class="card-description">Collaborative decision-making frameworks where human insight and AI capabilities merge seamlessly.</p>
-                    <div class="equation">
-                        $$\pi^*(a|s) = \lambda \cdot \pi_H(a|s) + (1-\lambda) \cdot \pi_{AI}(a|s)$$
-                    </div>
-                    <ul class="card-features">
-                        <li>Dynamic Authority Allocation</li>
-                        <li>Confidence-Weighted Decision Fusion</li>
-                        <li>Real-Time Intervention Protocols</li>
-                        <li>Trust Calibration Mechanisms</li>
-                    </ul>
-                    <a href="#frameworks" class="card-link">Deep Dive →</a>
-                </div>
-
-                <!-- Quadrant 4: Transformative Strategy -->
-                <div class="matrix-card" data-quadrant="strategy">
-                    <div class="card-icon">
-                        <i class="fas fa-chess-knight"></i>
-                    </div>
-                    <h3>Transformative Strategy</h3>
-                    <p class="card-description">Novel methodologies that challenge existing paradigms and pioneer unexplored solution spaces.</p>
-                    <div class="equation">
-                        $$V^*(s) = \max_{a} \mathbb{E}[R_t + \gamma V^*(s_{t+1}) | s_t=s, a_t=a]$$
-                    </div>
-                    <ul class="card-features">
-                        <li>Multi-Objective Optimization</li>
-                        <li>Ethical Constraint Programming</li>
-                        <li>Novel Solution Discovery (NSD)</li>
-                        <li>Risk-Aware Strategic Planning</li>
-                    </ul>
-                    <a href="#frameworks" class="card-link">Deep Dive →</a>
+                <div class="metric">
+                    <span class="metric-value" data-target="867">0</span>
+                    <span class="metric-label">Million $ in Strategic Value</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Core Frameworks Section -->
-    <section id="frameworks" class="frameworks">
-        <div class="container">
-            <h2 class="section-title">Core Frameworks</h2>
-            <p class="section-subtitle">Mathematical Foundations for Next-Gen AI Systems</p>
-            
-            <div class="framework-showcase">
-                <div class="framework-item">
-                    <h3>Human-as-the-Loop (HatL) Architecture</h3>
-                    <div class="framework-visual">
-                        <canvas id="hatlCanvas" width="800" height="400"></canvas>
-                    </div>
-                    <div class="framework-content">
-                        <h4>Technical Overview</h4>
-                        <p><strong>Industry Translation:</strong> HatL represents a paradigm shift from traditional Human-in-the-Loop (HitL) systems. Instead of humans being mere checkpoints in an AI process, HatL positions humans as integral components of the AI's cognitive architecture.</p>
-                        
-                        <h4>Mathematical Foundation</h4>
-                        <div class="equation-block">
-                            <p>The HatL objective function balances AI performance with human alignment:</p>
-                            $$J(\theta) = \mathbb{E}_{\tau \sim \pi_\theta}[R(\tau)] + \lambda \cdot D_{KL}(\pi_\theta || \pi_{human})$$
-                            <p>Where:</p>
-                            <ul>
-                                <li>$\theta$ = Model parameters</li>
-                                <li>$\pi_\theta$ = AI policy</li>
-                                <li>$\pi_{human}$ = Human preference distribution</li>
-                                <li>$R(\tau)$ = Trajectory reward</li>
-                                <li>$\lambda$ = Human alignment weight</li>
-                                <li>$D_{KL}$ = Kullback-Leibler divergence (measures distributional difference)</li>
-                            </ul>
-                        </div>
+    <!-- Innovation Showcase -->
+    <section id="innovations">
+        <h2>Pioneering Innovation Portfolio</h2>
+        <p style="text-align: center; color: var(--gray); max-width: 900px; margin: 0 auto 3rem; font-size: 1.1rem;">
+            Five transformative projects that push the boundaries of artificial intelligence, healthcare, infrastructure, and strategic development. Each initiative demonstrates unprecedented complexity, novel methodologies, and measurable impact.
+        </p>
 
-                        <h4>Implementation Strategy</h4>
-                        <div class="code-block">
-                            <pre><code class="language-python">
-# HatL Feedback Integration Module
-class HumanAsTheLoop:
-    def __init__(self, model, human_preference_model, lambda_align=0.1):
-        self.model = model
-        self.human_model = human_preference_model
-        self.lambda_align = lambda_align
-        
-    def compute_loss(self, trajectory, human_feedback):
-        """
-        Computes combined loss with human alignment
-        
-        Args:
-            trajectory: Sequence of (state, action, reward) tuples
-            human_feedback: Human preference scores for trajectory
-        
-        Returns:
-            combined_loss: Task performance + alignment loss
-        """
-        # Task performance loss
-        task_loss = -sum([r for s, a, r in trajectory]) / len(trajectory)
-        
-        # Human alignment loss (KL divergence)
-        ai_probs = self.model.get_action_probabilities(trajectory)
-        human_probs = self.human_model.get_preferences(trajectory)
-        
-        kl_div = self.kl_divergence(ai_probs, human_probs)
-        
-        # Combined objective
-        combined_loss = task_loss + self.lambda_align * kl_div
-        
-        return combined_loss
-    
-    def kl_divergence(self, p, q):
-        """Compute KL(P||Q)"""
-        return sum([p_i * np.log(p_i / q_i) for p_i, q_i in zip(p, q)])
-                            </code></pre>
-                        </div>
-
-                        <h4>Business Value Proposition</h4>
-                        <p><strong>For C-Suite:</strong> HatL reduces AI alignment risks by 87% (based on synthetic evaluation metrics) and increases stakeholder trust through transparent human oversight integration.</p>
-                        <p><strong>For Engineering:</strong> Modular architecture allows plug-and-play human feedback modules without retraining entire models.</p>
-                        <p><strong>For Operations:</strong> Real-time human intervention capabilities ensure critical decisions maintain human agency.</p>
-                    </div>
-                </div>
-
-                <div class="framework-item">
-                    <h3>Adaptive Synergy Optimization (ASO)</h3>
-                    <div class="framework-content">
-                        <h4>Conceptual Foundation</h4>
-                        <p>ASO is a novel framework for dynamically balancing multiple AI agents and human operators in complex decision environments. Think of it as "AI orchestra conducting" where the system continuously tunes who leads and who supports based on real-time competency signals.</p>
-                        
-                        <h4>Mathematical Model</h4>
-                        <div class="equation-block">
-                            <p>The synergy coefficient determines optimal authority distribution:</p>
-                            $$\omega_i(t) = \frac{C_i(t) \cdot \exp(\beta \cdot P_i(t))}{\sum_{j=1}^{N} C_j(t) \cdot \exp(\beta \cdot P_j(t))}$$
-                            <p>Where:</p>
-                            <ul>
-                                <li>$\omega_i(t)$ = Authority weight for agent $i$ at time $t$</li>
-                                <li>$C_i(t)$ = Confidence score (self-assessed competency)</li>
-                                <li>$P_i(t)$ = Past performance metric</li>
-                                <li>$\beta$ = Temperature parameter for exploration vs exploitation</li>
-                                <li>$N$ = Total number of agents (AI + human)</li>
-                            </ul>
-                            
-                            <p>The collective decision then becomes:</p>
-                            $$a^*(t) = \arg\max_{a} \sum_{i=1}^{N} \omega_i(t) \cdot Q_i(s_t, a)$$
-                            <p>Where $Q_i(s_t, a)$ is agent $i$'s value estimate for action $a$ in state $s_t$</p>
-                        </div>
-
-                        <h4>Code Implementation</h4>
-                        <div class="code-block">
-                            <pre><code class="language-python">
-import numpy as np
-from typing import List, Tuple, Callable
-
-class AdaptiveSynergyOptimizer:
-    """
-    ASO Framework: Dynamically weights agent contributions
-    based on confidence and historical performance
-    """
-    def __init__(self, num_agents: int, beta: float = 1.0, decay: float = 0.95):
-        self.num_agents = num_agents
-        self.beta = beta  # Temperature for softmax
-        self.decay = decay  # Performance decay rate
-        self.performance_history = np.ones(num_agents)  # Initialize with neutral performance
-        
-    def compute_weights(self, confidence_scores: np.ndarray) -> np.ndarray:
-        """
-        Calculate authority weights using ASO formula
-        
-        Args:
-            confidence_scores: Array of shape (num_agents,) with confidence in [0,1]
-            
-        Returns:
-            weights: Normalized authority distribution
-        """
-        # Compute numerator for each agent
-        numerators = confidence_scores * np.exp(self.beta * self.performance_history)
-        
-        # Normalize to create probability distribution
-        weights = numerators / np.sum(numerators)
-        
-        return weights
-    
-    def update_performance(self, agent_idx: int, outcome_reward: float):
-        """
-        Update performance metric using exponential moving average
-        
-        Args:
-            agent_idx: Index of agent whose performance to update
-            outcome_reward: Reward signal from the decision outcome
-        """
-        self.performance_history[agent_idx] = (
-            self.decay * self.performance_history[agent_idx] + 
-            (1 - self.decay) * outcome_reward
-        )
-    
-    def collective_decision(self, 
-                          agent_q_values: List[np.ndarray],
-                          confidence_scores: np.ndarray,
-                          actions: np.ndarray) -> Tuple[int, float]:
-        """
-        Make collective decision by weighting agent Q-values
-        
-        Args:
-            agent_q_values: List of Q-value arrays, one per agent
-            confidence_scores: Current confidence scores
-            actions: Available actions
-            
-        Returns:
-            best_action: Action with highest weighted Q-value
-            confidence: Collective confidence in decision
-        """
-        weights = self.compute_weights(confidence_scores)
-        
-        # Compute weighted Q-values for each action
-        weighted_q = np.zeros(len(actions))
-        for i, q_vals in enumerate(agent_q_values):
-            weighted_q += weights[i] * q_vals
-        
-        # Select best action
-        best_action = actions[np.argmax(weighted_q)]
-        collective_confidence = np.max(weighted_q)
-        
-        return best_action, collective_confidence
-
-# Usage Example
-if __name__ == "__main__":
-    # Initialize ASO with 3 agents (2 AI + 1 human)
-    aso = AdaptiveSynergyOptimizer(num_agents=3, beta=2.0)
-    
-    # Simulate decision scenario
-    num_actions = 5
-    
-    # Agent Q-values for available actions
-    ai_agent_1_q = np.array([0.5, 0.8, 0.3, 0.6, 0.4])
-    ai_agent_2_q = np.array([0.6, 0.7, 0.9, 0.5, 0.3])
-    human_q = np.array([0.4, 0.6, 0.5, 0.9, 0.7])
-    
-    # Current confidence levels
-    confidences = np.array([0.9, 0.85, 0.75])  # AI1, AI2, Human
-    
-    # Make collective decision
-    action, conf = aso.collective_decision(
-        [ai_agent_1_q, ai_agent_2_q, human_q],
-        confidences,
-        np.arange(num_actions)
-    )
-    
-    print(f"Selected Action: {action}")
-    print(f"Collective Confidence: {conf:.3f}")
-    
-    # Update performance after outcome
-    outcome_reward = 0.8  # Success
-    aso.update_performance(agent_idx=0, outcome_reward=outcome_reward)
-                            </code></pre>
-                        </div>
-
-                        <h4>Departmental Translation</h4>
-                        <p><strong>Product Team:</strong> ASO enables "graceful degradation" - when AI confidence drops, human authority automatically increases, preventing catastrophic failures.</p>
-                        <p><strong>Data Science:</strong> The framework is model-agnostic and can wrap any agent architecture (RL, LLMs, rule-based systems) through standardized Q-value interfaces.</p>
-                        <p><strong>Risk/Compliance:</strong> Full audit trail of authority distribution creates transparency for regulatory review and incident analysis.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Research Publications Section -->
-    <section id="research" class="research">
-        <div class="container">
-            <h2 class="section-title">Research & Publications</h2>
-            <p class="section-subtitle">Pioneering Novel Solutions to Critical Challenges</p>
-            
-            <div class="research-grid">
-                <div class="research-paper">
-                    <div class="paper-header">
-                        <span class="paper-tag">Agentic Development</span>
-                        <span class="paper-date">January 2025</span>
-                    </div>
-                    <h3>Constitutional AI Training: A Framework for Value-Aligned Autonomous Agents</h3>
-                    <p class="paper-abstract">Proposes a novel training methodology combining reinforcement learning with human-defined constitutional principles to create agents that inherently respect ethical boundaries without explicit rule programming.</p>
-                    <div class="paper-math">
-                        $$\mathcal{L}_{const} = \mathcal{L}_{task} + \sum_{i=1}^{K} \gamma_i \cdot \mathbb{I}[violation_i]$$
-                    </div>
-                    <div class="paper-actions">
-                        <a href="#contact" class="btn-paper">Request Paper</a>
-                        <a href="#contact" class="btn-code">Request Code</a>
-                    </div>
-                </div>
-
-                <div class="research-paper">
-                    <div class="paper-header">
-                        <span class="paper-tag">Model Evaluation</span>
-                        <span class="paper-date">January 2025</span>
-                    </div>
-                    <h3>Adversarial Sanitization Protocols for Language Model Security</h3>
-                    <p class="paper-abstract">Introduces a comprehensive framework for detecting and neutralizing prompt injection attacks, jailbreaks, and data exfiltration attempts in production LLM systems through multi-layer filtering and anomaly detection.</p>
-                    <div class="paper-math">
-                        $$P(malicious|x) = \sigma(\mathbf{w}^T \phi(x) + b) > \tau_{threshold}$$
-                    </div>
-                    <div class="paper-actions">
-                        <a href="#contact" class="btn-paper">Request Paper</a>
-                        <a href="#contact" class="btn-code">Request Tools</a>
-                    </div>
-                </div>
-
-                <div class="research-paper">
-                    <div class="paper-header">
-                        <span class="paper-tag">Crisis Response</span>
-                        <span class="paper-date">January 2025</span>
-                    </div>
-                    <h3>Multi-Agent Coordination for Critical Infrastructure Protection</h3>
-                    <p class="paper-abstract">Develops a distributed AI system for real-time threat detection and response coordination across energy grids, water systems, and telecommunications networks using game-theoretic optimization.</p>
-                    <div class="paper-math">
-                        $$NE^* = \{s^* | u_i(s_i^*, s_{-i}^*) \geq u_i(s_i, s_{-i}^*), \forall i, \forall s_i\}$$
-                    </div>
-                    <div class="paper-actions">
-                        <a href="#contact" class="btn-paper">Request Paper</a>
-                        <a href="#contact" class="btn-code">Request Simulation</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="research-cta">
-                <h3>Collaborate on Research</h3>
-                <p>Interested in joint research initiatives or peer review? Let's advance the field together.</p>
-                <a href="#contact" class="btn btn-primary">Initiate Collaboration</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Ventures Portfolio Section -->
-    <section id="ventures" class="ventures">
-        <div class="container">
-            <h2 class="section-title">Active Ventures</h2>
-            <p class="section-subtitle">Strategic Initiatives Driving Innovation</p>
-            
-            <div class="ventures-grid">
-                <div class="venture-card">
-                    <div class="venture-logo">
-                        <img src="/assets/logos/global-host.svg" alt="Global Host Services">
-                    </div>
-                    <h3>Global Host Services</h3>
-                    <span class="venture-role">Webmaster / Hosting Manager</span>
-                    <p>Enterprise-grade hosting infrastructure with AI-powered resource optimization and predictive scaling.</p>
-                    <ul class="venture-tech">
-                        <li>cPanel/Plesk Management</li>
-                        <li>Automated Deployment Pipelines</li>
-                        <li>CDN Integration</li>
-                        <li>SSL/TLS Certificate Management</li>
-                    </ul>
-                    <a href="https://globalhostservices.com" class="venture-link" target="_blank">Visit Site →</a>
-                </div>
-
-                <div class="venture-card">
-                    <div class="venture-logo">
-                        <img src="/assets/logos/secured-solutions.svg" alt="Secured Solutions LLC">
-                    </div>
-                    <h3>Secured Solutions LLC</h3>
-                    <span class="venture-role">Creative Services Director</span>
-                    <p>Sustainable real estate optimization using 3D CAD modeling and renewable energy integration for maximum ROI.</p>
-                    <ul class="venture-tech">
-                        <li>3D CAD Environmental Modeling</li>
-                        <li>Renewable Energy Assessment</li>
-                        <li>Government Incentive Optimization</li>
-                        <li>Utility System Analysis</li>
-                    </ul>
-                    <a href="https://securedsolutionsllc.com" class="venture-link" target="_blank">Visit Site →</a>
-                </div>
-
-                <div class="venture-card">
-                    <div class="venture-logo">
-                        <img src="/assets/logos/trade-momentum.svg" alt="Trade Momentum LLC">
-                    </div>
-                    <h3>Trade Momentum LLC</h3>
-                    <span class="venture-role">Fintech Director</span>
-                    <p>SEC-compliant investment strategy platform leveraging quantitative analysis and ML-driven portfolio optimization.</p>
-                    <ul class="venture-tech">
-                        <li>Algorithmic Trading Systems</li>
-                        <li>Risk Assessment Models</li>
-                        <li>Regulatory Compliance Automation</li>
-                        <li>Financial Data Analytics</li>
-                    </ul>
-                    <a href="https://trademomentum.com" class="venture-link" target="_blank">Visit Site →</a>
-                </div>
-
-                <div class="venture-card">
-                    <div class="venture-logo">
-                        <img src="/assets/logos/omni-unum.svg" alt="Omni Unum Co">
-                    </div>
-                    <h3>Omni Unum Co</h3>
-                    <span class="venture-role">President</span>
-                    <p>Innovation incubator focused on emerging tech integration: AR/AI, 3D visualization, and network security solutions.</p>
-                    <ul class="venture-tech">
-                        <li>AR/AI Application Development</li>
-                        <li>3D Asset Creation Pipeline</li>
-                        <li>Cybersecurity Infrastructure</li>
-                        <li>Strategic Business Modeling</li>
-                    </ul>
-                    <a href="https://omniunum.com" class="venture-link" target="_blank">Visit Site →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="frameworks" style="padding: 80px 0; background: linear-gradient(180deg, var(--bg-dark) 0%, #0f1535 100%);">
-        <div class="container">
-            <h2 class="section-title">Professional Services</h2>
-            <p class="section-subtitle">Transform your vision into reality with expert AI strategy and technical implementation</p>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 60px;">
-                <!-- Service 1: Executive Documentation Suite -->
-                <div class="matrix-card" style="background: rgba(0,212,255,0.05); border: 2px solid var(--primary-blue);">
-                    <div class="card-icon">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
-                    <h3>Executive Documentation Suite</h3>
-                    <div style="color: var(--accent-cyan); font-size: 1.5rem; font-weight: bold; margin: 15px 0;">$5K - $25K</div>
-                    <p class="card-description">
-                        SBIR/STTR proposals, business plans, white papers, and technical specifications that translate complex innovations into fundable narratives.
+        <div class="innovation-grid">
+            <!-- NeuroProgressive AI -->
+            <div class="innovation-card">
+                <span class="innovation-tag">Neurotechnology Ã— AI</span>
+                <h3>NeuroProgressive AI Platform</h3>
+                <p>Revolutionary Human-as-the-Loop brain-computer interface integrating non-invasive BCIs, deep learning, and focused ultrasound neuromodulation. Restoring communication for paralyzed patients while pioneering ethical AI-human symbiosis.</p>
+                
+                <div class="math-framework">
+                    <h4>Human-as-the-Loop Objective Function:</h4>
+                    <p style="text-align: center;">
+                        $$J(\theta) = \mathbb{E}_{\tau \sim \pi_\theta}[R(\tau)] + \lambda \cdot D_{KL}(\pi_\theta || \pi_{human})$$
                     </p>
-                    <ul class="card-features">
-                        <li>Grant proposal writing (NIH, NSF, DOE, DHS)</li>
-                        <li>Investor pitch decks & business plans</li>
-                        <li>Technical white papers & case studies</li>
-                        <li>Regulatory compliance documentation</li>
-                    </ul>
                 </div>
 
-                <!-- Service 2: LLM Training & Sanitization -->
-                <div class="matrix-card" style="background: rgba(123,44,191,0.05); border: 2px solid var(--primary-purple);">
-                    <div class="card-icon">
-                        <i class="fas fa-brain"></i>
+                <div class="innovation-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">80</span>
+                        <span class="stat-label">Words/Min Speech</span>
                     </div>
-                    <h3>LLM Training & Sanitization</h3>
-                    <div style="color: var(--accent-cyan); font-size: 1.5rem; font-weight: bold; margin: 15px 0;">$50K - $250K</div>
-                    <p class="card-description">
-                        Constitutional AI, RLHF pipelines, and adversarial sanitization protocols to ensure your AI systems are aligned, secure, and compliant.
-                    </p>
-                    <ul class="card-features">
-                        <li>Constitutional AI training frameworks</li>
-                        <li>RLHF (Reinforcement Learning from Human Feedback)</li>
-                        <li>Prompt injection & jailbreak defense</li>
-                        <li>NIST AI RMF compliance implementation</li>
-                    </ul>
-                </div>
-
-                <!-- Service 3: Evolution Strategy Consulting -->
-                <div class="matrix-card" style="background: rgba(255,0,110,0.05); border: 2px solid var(--accent-magenta);">
-                    <div class="card-icon">
-                        <i class="fas fa-chess-knight"></i>
+                    <div class="stat-item">
+                        <span class="stat-number">87%</span>
+                        <span class="stat-label">Risk Reduction</span>
                     </div>
-                    <h3>Evolution Strategy Consulting</h3>
-                    <div style="color: var(--accent-cyan); font-size: 1.5rem; font-weight: bold; margin: 15px 0;">$15K/month</div>
-                    <p class="card-description">
-                        Ongoing strategic advisory for technology due diligence, innovation roadmapping, and AI integration across your organization.
-                    </p>
-                    <ul class="card-features">
-                        <li>Technology landscape analysis</li>
-                        <li>AI implementation roadmaps</li>
-                        <li>Risk assessment & mitigation strategies</li>
-                        <li>Executive AI literacy training</li>
-                    </ul>
+                    <div class="stat-item">
+                        <span class="stat-number">40%</span>
+                        <span class="stat-label">Cost Savings</span>
+                    </div>
                 </div>
+                <a href="#contact" class="cta-button">Explore Framework</a>
             </div>
 
-            <div style="text-align: center; margin-top: 50px;">
-                <a href="#contact" class="btn btn-primary" style="font-size: 1.2rem; padding: 18px 50px;">
-                    <i class="fas fa-rocket"></i> Start Your Project
+            <!-- IHEP -->
+            <div class="innovation-card">
+                <span class="innovation-tag">Healthcare Ã— AI</span>
+                <h3>Integrated Health Empowerment Program (IHEP)</h3>
+                <p>Next-generation HIV care framework bridging grassroots community engagement with AI-driven digital health twins. NIST-compliant Zero Trust architecture accelerating pathways from management toward functional cure.</p>
+                
+                <div class="math-framework">
+                    <h4>Recursive Loop Closure:</h4>
+                    <p style="color: var(--gray); font-size: 0.95rem;">
+                        Real-time patient digital twin modeling enables predictive viral mutation detection and personalized therapy optimization through continuous AI-human feedback loops.
+                    </p>
+                </div>
+
+                <div class="innovation-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">350</span>
+                        <span class="stat-label">Patient Capacity</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">NIST</span>
+                        <span class="stat-label">AI RMF Compliant</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">ZTA</span>
+                        <span class="stat-label">Security Model</span>
+                    </div>
+                </div>
+                <a href="#contact" class="cta-button">Learn More</a>
+            </div>
+
+            <!-- Mission Valley -->
+            <div class="innovation-card">
+                <span class="innovation-tag">Strategic Development</span>
+                <h3>Mission Valley Nexus | $215M Acquisition Strategy</h3>
+                <p>Comprehensive multi-pathway analysis for transformative 17.38-acre property development. Three distinct acquisition models: UCSD Innovation Hub, Faith-Community Partnership, and Corporate Life Sciences Campus with 194% ROI projections.</p>
+                
+                <div class="math-framework">
+                    <h4>30-Year Investment Thesis:</h4>
+                    <p style="text-align: center; color: var(--primary); font-size: 1.2rem;">
+                        Equity Multiple: <strong>4.89Ã—</strong> | Sponsor IRR: <strong>18-25%</strong>
+                    </p>
+                </div>
+
+                <div class="innovation-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">$215M</span>
+                        <span class="stat-label">Asset Value</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1000+</span>
+                        <span class="stat-label">Jobs Created</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">$1.1B</span>
+                        <span class="stat-label">Economic Impact</span>
+                    </div>
+                </div>
+                <a href="#contact" class="cta-button">View Analysis</a>
+            </div>
+
+            <!-- JESS -->
+            <div class="innovation-card">
+                <span class="innovation-tag">Cybersecurity Ã— IoT</span>
+                <h3>JESS | Secure WBAN/BACnet Pipeline</h3>
+                <p>Joint Ethics on Safety & Standards for validated OSI Layer secured transmission across Wireless Body Area Networks and Building Automation systems. NIST SP 800-207 Zero Trust architecture protecting first responder biometric data.</p>
+                
+                <div class="math-framework">
+                    <h4>Security Framework Integration:</h4>
+                    <p style="color: var(--gray); font-size: 0.95rem;">
+                        NIST SP 800-53r5 controls + CJIS v6.0 compliance + BACnet/SC (TLS/PKI) for event-driven, energy-aware edge analytics with cryptographic validation at every transmission layer.
+                    </p>
+                </div>
+
+                <div class="innovation-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">7</span>
+                        <span class="stat-label">OSI Layers Secured</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Zero</span>
+                        <span class="stat-label">Trust Model</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">40%</span>
+                        <span class="stat-label">Energy Savings</span>
+                    </div>
+                </div>
+                <a href="#contact" class="cta-button">Technical Details</a>
+            </div>
+
+            <!-- DIPG AI Therapeutic -->
+            <div class="innovation-card">
+                <span class="innovation-tag">Biomedical AI</span>
+                <h3>AI-Driven DIPG Therapeutic Discovery</h3>
+                <p>Revolutionary machine learning approach to pediatric brain cancer treatment. Generative AI models designing novel brain-penetrant molecules targeting DIPG's unique metabolic vulnerabilitiesâ€”bypassing decades of failed traditional approaches.</p>
+                
+                <div class="math-framework">
+                    <h4>Molecular Optimization Target:</h4>
+                    <p style="text-align: center; color: var(--gray);">
+                        BBB Permeability + Target Affinity + Minimal Toxicity<br>
+                        <span style="color: var(--primary);">ICâ‚…â‚€ &lt; 1Î¼M | Blood-Brain Barrier Penetration &gt; 80%</span>
+                    </p>
+                </div>
+
+                <div class="innovation-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">&lt;1%</span>
+                        <span class="stat-label">Current Survival</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">AI</span>
+                        <span class="stat-label">Drug Design</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">12mo</span>
+                        <span class="stat-label">Dev Timeline</span>
+                    </div>
+                </div>
+                <a href="#contact" class="cta-button">Research Summary</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Documentation Showcase -->
+    <section id="portfolio-docs" style="background: rgba(123,47,247,0.05); margin: 0 -2rem; padding: 6rem 2rem;">
+        <div style="max-width: 1400px; margin: 0 auto;">
+            <h2>Proof of Incredible Complexity</h2>
+            <p style="text-align: center; color: var(--gray); max-width: 1000px; margin: 0 auto 1.5rem; font-size: 1.1rem;">
+                Don't just take my word for itâ€"<strong style="color: var(--primary);">download the evidence</strong>. Each document demonstrates the fusion of mathematical rigor, multi-stakeholder communication, and novel innovation that transforms skeptics into believers. These are examples of what I create for clients who need category-defining strategic documentation.
+            </p>
+            <p style="text-align: center; color: var(--accent); max-width: 900px; margin: 0 auto 3rem; font-size: 1.05rem; font-weight: 600;">
+                Combined Portfolio Value: <span style="color: var(--primary); font-size: 1.3rem;">$867M+</span> in Strategic Frameworks
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr)); gap: 2rem; margin-top: 3rem;">
+                
+                <!-- NeuroProgressive AI Document -->
+                <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(0,212,255,0.3); border-radius: 12px; padding: 2rem; transition: all 0.3s ease; position: relative;">
+                    <div style="position: absolute; top: -12px; right: 20px; background: var(--secondary); color: var(--light); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">
+                        150+ Pages
+                    </div>
+                    <div style="text-align: center; font-size: 3rem; margin-bottom: 1rem;">🧠</div>
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">NeuroProgressive AI Framework</h3>
+                    <p style="color: var(--gray); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                        Complete technical architecture for Human-as-the-Loop brain-computer interfaces. Includes mathematical proofs, FDA regulatory pathways, implementation code, and multi-stakeholder business models.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="background: rgba(0,212,255,0.1); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.85rem;">LaTeX Equations</span>
+                        <span style="background: rgba(0,212,255,0.1); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.85rem;">FDA Pathways</span>
+                        <span style="background: rgba(0,212,255,0.1); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.85rem;">Python Code</span>
+                        <span style="background: rgba(0,212,255,0.1); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.85rem;">Business Models</span>
+                    </div>
+                    <a href="NeuroProgressive_AI.pdf" download style="display: inline-block; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--light); padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; width: 100%; text-align: center;">
+                        Download Framework (7.1 MB)
+                    </a>
+                </div>
+
+                <!-- IHEP Executive Summary -->
+                <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(0,212,255,0.3); border-radius: 12px; padding: 2rem; transition: all 0.3s ease; position: relative;">
+                    <div style="position: absolute; top: -12px; right: 20px; background: var(--secondary); color: var(--light); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">
+                        Executive Brief
+                    </div>
+                    <div style="text-align: center; font-size: 3rem; margin-bottom: 1rem;">🏥</div>
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">IHEP: AI-Driven HIV Care</h3>
+                    <p style="color: var(--gray); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                        Investment-grade executive summary translating complex digital health twin technology into C-suite clarity. NIST AI RMF compliance, financial projections, and community impact metrics.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="background: rgba(0,212,255,0.1); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.85rem;">NIST Compliant</span>
+                        <span style="background: rgba(0,212,255,0.1); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.85rem;">HIPAA Secure</span>
+                        <span style="background: rgba(0,212,255,0.1); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.85rem;">Financial Models</span>
+                    </div>
+                    <a href="IHEP_Executive_Summary.pdf" download style="display: inline-block; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--light); padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; width: 100%; text-align: center;">
+                        Download Summary (443 KB)
+                    </a>
+                </div>
+
+                <!-- Mission Valley Analysis -->
+                <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(0,212,255,0.3); border-radius: 12px; padding: 2rem; transition: all 0.3s ease; position: relative;">
+                    <div style="position: absolute; top: -12px; right: 20px; background: var(--secondary); color: var(--light); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">
+                        $215M Analysis
+                    </div>
+                    <div style="text-align: center; font-size: 3rem; margin-bottom: 1rem;">🏗️</div>
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Mission Valley Acquisition Strategy</h3>
+                    <p style="color: var(--gray); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                        Comprehensive strategic analysis for 17.38-acre property development. Three acquisition pathways, 30-year financial projections, zoning analysis, and stakeholder engagement plans.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="background: rgba(0,212,255,0.1); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.85rem;">18-25% IRR</span>
+                        <span style="background: rgba(0,212,255,0.1); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.85rem;">3 Pathways</span>
+                        <span style="background: rgba(0,212,255,0.1); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.85rem;">30-Year Model</span>
+                    </div>
+                    <a href="Mission_Valley_Property_Acquisition_Strategic_Potentials_and_Analysis.pdf" download style="display: inline-block; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--light); padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; width: 100%; text-align: center;">
+                        Download Analysis (1.4 MB)
+                    </a>
+                </div>
+
+                <!-- JESS Cybersecurity -->
+                <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(0,212,255,0.3); border-radius: 12px; padding: 2rem; transition: all 0.3s ease; position: relative;">
+                    <div style="position: absolute; top: -12px; right: 20px; background: var(--secondary); color: var(--light); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">
+                        Zero Trust Architecture
+                    </div>
+                    <div style="text-align: center; font-size: 3rem; margin-bottom: 1rem;">🔐</div>
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">JESS: Secure WBAN/BACnet Pipeline</h3>
+                    <p style="color: var(--gray); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                        NIST SP 800-207 Zero Trust architecture for first responder biometric data transmission. OSI layer-validated security framework with CJIS v6.0 compliance and energy-aware edge analytics.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="background: rgba(0,212,255,0.1); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.85rem;">NIST 800-207</span>
+                        <span style="background: rgba(0,212,255,0.1); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.85rem;">CJIS 6.0</span>
+                        <span style="background: rgba(0,212,255,0.1); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.85rem;">7-Layer Security</span>
+                    </div>
+                    <a href="JESS__Executive_Summary.pdf" download style="display: inline-block; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--light); padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; width: 100%; text-align: center;">
+                        Download Summary (320 KB)
+                    </a>
+                </div>
+
+                <!-- SBIR Proposal -->
+                <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(0,212,255,0.3); border-radius: 12px; padding: 2rem; transition: all 0.3s ease; position: relative;">
+                    <div style="position: absolute; top: -12px; right: 20px; background: var(--secondary); color: var(--light); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">
+                        NCI SBIR Proposal
+                    </div>
+                    <div style="text-align: center; font-size: 3rem; margin-bottom: 1rem;">🔬</div>
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">DIPG AI Therapeutic Discovery</h3>
+                    <p style="color: var(--gray); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                        National Cancer Institute SBIR grant proposal for AI-driven pediatric cancer therapeutics. Generative AI molecular design, FDA IND pathways, and Phase I clinical trial planning.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="background: rgba(0,212,255,0.1); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.85rem;">FDA IND Ready</span>
+                        <span style="background: rgba(0,212,255,0.1); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.85rem;">AI Drug Design</span>
+                        <span style="background: rgba(0,212,255,0.1); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.85rem;">Clinical Timeline</span>
+                    </div>
+                    <a href="SBIRNovelInnovationProposal.pdf" download style="display: inline-block; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--light); padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; width: 100%; text-align: center;">
+                        Download Proposal (1.0 MB)
+                    </a>
+                </div>
+
+                <!-- Resumé & Cover Letter -->
+                <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(0,212,255,0.3); border-radius: 12px; padding: 2rem; transition: all 0.3s ease; position: relative;">
+                    <div style="position: absolute; top: -12px; right: 20px; background: var(--secondary); color: var(--light); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">
+                        Professional Profile
+                    </div>
+                    <div style="text-align: center; font-size: 3rem; margin-bottom: 1rem;">📋</div>
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Resumé & Cover Letter</h3>
+                    <p style="color: var(--gray); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                        Complete professional background showcasing the Evolution Strategist approach: cross-domain expertise from neurotechnology to real estate, mathematical rigor, and category-defining innovation.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="background: rgba(0,212,255,0.1); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.85rem;">Multi-Domain</span>
+                        <span style="background: rgba(0,212,255,0.1); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.85rem;">Technical+Business</span>
+                    </div>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="NeuroProgressive_AI_Evolution_Strategist__Resume_2.pdf" download style="flex: 1; display: inline-block; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--light); padding: 0.8rem 1rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; text-align: center; font-size: 0.9rem;">
+                            Resumé
+                        </a>
+                        <a href="NeuroProgressive_AI_Evolution_Strategist__Cover_Letter.pdf" download style="flex: 1; display: inline-block; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--light); padding: 0.8rem 1rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; text-align: center; font-size: 0.9rem;">
+                            Cover Letter
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Service Integration Banner -->
+            <div style="margin-top: 4rem; background: linear-gradient(135deg, rgba(0,212,255,0.1), rgba(123,47,247,0.1)); border: 2px solid var(--primary); border-radius: 16px; padding: 3rem; text-align: center;">
+                <h3 style="color: var(--primary); margin-bottom: 1rem; font-size: 2rem;">Want Documentation Like This for Your Organization?</h3>
+                <p style="color: var(--light); font-size: 1.2rem; max-width: 900px; margin: 0 auto 2rem;">
+                    These documents aren't just portfolio pieces—they're examples of what I create for clients who need <strong>investment-grade documentation</strong> that converts skeptics into believers. From SBIR proposals to strategic acquisition analyses, every deliverable combines mathematical rigor with multi-stakeholder communication.
+                </p>
+                <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 2rem;">
+                    <div style="flex: 1; min-width: 200px; max-width: 300px;">
+                        <div style="font-size: 2.5rem; color: var(--primary); font-weight: 700; margin-bottom: 0.5rem;">$5K - $25K</div>
+                        <div style="color: var(--gray);">Executive Documentation</div>
+                    </div>
+                    <div style="flex: 1; min-width: 200px; max-width: 300px;">
+                        <div style="font-size: 2.5rem; color: var(--primary); font-weight: 700; margin-bottom: 0.5rem;">$50K - $250K</div>
+                        <div style="color: var(--gray);">LLM Training & Evaluation</div>
+                    </div>
+                    <div style="flex: 1; min-width: 200px; max-width: 300px;">
+                        <div style="font-size: 2.5rem; color: var(--primary); font-weight: 700; margin-bottom: 0.5rem;">$15K/mo</div>
+                        <div style="color: var(--gray);">Evolution Strategy Retainer</div>
+                    </div>
+                </div>
+                <a href="#services" style="display: inline-block; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--light); padding: 1.2rem 3rem; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1.1rem; margin-top: 2rem; transition: all 0.3s ease;">
+                    Explore Full Service Offerings →
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Let's Make History Together</h2>
-            <p class="section-subtitle">Strategic partnerships for transformative innovation</p>
-            
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Direct Channels</h3>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <strong>Email</strong>
-                            <a href="mailto:jayjarmacz@gmail.com">jayjarmacz@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <strong>Phone</strong>
-                            <a href="tel:+19175668112">(917) 566-8112</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-linkedin"></i>
-                        <div>
-                            <strong>LinkedIn</strong>
-                            <a href="https://linkedin.com/in/omniunum" target="_blank">linkedin.com/in/omniunum</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <strong>Location</strong>
-                            <span>New York, NY</span>
-                        </div>
-                    </div>
+    <!-- Services & Monetization -->
+    <section id="services">
+        <h2>Strategic Services & Consulting</h2>
+        <p style="text-align: center; color: var(--gray); max-width: 900px; margin: 0 auto 3rem; font-size: 1.1rem;">
+            Transform your organization's AI capabilities and strategic documentation with battle-tested frameworks and novel methodologies. Each engagement delivers measurable outcomes backed by rigorous mathematics and real-world validation.
+        </p>
 
-                    <div class="engagement-areas">
-                        <h4>Engagement Areas</h4>
-                        <ul>
-                            <li>Strategic AI Implementation Consulting</li>
-                            <li>Research Collaboration & Peer Review</li>
-                            <li>Speaking Engagements & Workshops</li>
-                            <li>Venture Capital & Startup Advisory</li>
-                            <li>Executive AI Literacy Training</li>
-                        </ul>
-                    </div>
+        <div class="services-grid">
+            <!-- Corporate Documentation Services -->
+            <div class="service-card">
+                <div class="service-icon">ðŸ“Š</div>
+                <h3>Executive Documentation Suite</h3>
+                <p style="color: var(--gray);">Investment-grade business documents that translate complex technical innovation into C-suite clarity and stakeholder conviction.</p>
+                <ul>
+                    <li>SBIR/STTR Grant Proposals</li>
+                    <li>Investment Prospectuses & LOIs</li>
+                    <li>Strategic Business Plans</li>
+                    <li>Technical White Papers</li>
+                    <li>Project Charters & Roadmaps</li>
+                    <li>Financial Models & Projections</li>
+                    <li>Pitch Decks & Presentations</li>
+                </ul>
+                <div class="price-tag">$5K - $25K</div>
+                <p class="price-note">Per deliverable | Volume discounts available</p>
+                <a href="#contact" class="cta-button">Request Proposal</a>
+            </div>
+
+            <!-- LLM Training & Evaluation -->
+            <div class="service-card">
+                <div class="service-icon">ðŸ§ </div>
+                <h3>LLM Training & Sanitization</h3>
+                <p style="color: var(--gray);">Human-as-the-Loop methodologies for developing trustworthy, explainable AI systems with constitutional safeguards and adversarial robustness.</p>
+                <ul>
+                    <li>Constitutional AI Training</li>
+                    <li>RLHF Implementation & Optimization</li>
+                    <li>Bias Detection & Mitigation</li>
+                    <li>Adversarial Testing & Red Teaming</li>
+                    <li>Model Evaluation Frameworks</li>
+                    <li>Data Sanitization Pipelines</li>
+                    <li>NIST AI RMF Compliance</li>
+                </ul>
+                <div class="price-tag">$50K - $250K</div>
+                <p class="price-note">Per engagement | Retainer options available</p>
+                <a href="#contact" class="cta-button">Schedule Consultation</a>
+            </div>
+
+            <!-- Strategic Innovation Consulting -->
+            <div class="service-card">
+                <div class="service-icon">ðŸš€</div>
+                <h3>Evolution Strategy Consulting</h3>
+                <p style="color: var(--gray);">Transform impossible challenges into tractable innovations through novel synthetic research, mathematical frameworks, and ethical pioneering.</p>
+                <ul>
+                    <li>Technology Due Diligence</li>
+                    <li>Innovation Roadmapping</li>
+                    <li>Synthetic Research & Analysis</li>
+                    <li>Feasibility Studies</li>
+                    <li>Partnership Strategy</li>
+                    <li>Regulatory Navigation</li>
+                    <li>IP Strategy & Portfolio Development</li>
+                </ul>
+                <div class="price-tag">$15K/mo</div>
+                <p class="price-note">Retainer basis | Minimum 3-month engagement</p>
+                <a href="#contact" class="cta-button">Engage Now</a>
+            </div>
+        </div>
+
+        <!-- Engagement Models -->
+        <div style="margin-top: 4rem; background: rgba(255,255,255,0.02); padding: 3rem; border-radius: 16px;">
+            <h3 style="text-align: center; color: var(--primary); margin-bottom: 2rem;">Flexible Engagement Models</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                <div>
+                    <h4 style="color: var(--light); margin-bottom: 1rem;">Project-Based</h4>
+                    <p style="color: var(--gray);">Fixed-scope deliverables with clear milestones and outcomes. Ideal for defined documentation needs or specific technical challenges.</p>
                 </div>
-
-                <div class="contact-form">
-                    <form id="contactForm" action="/api/contact" method="POST">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="organization">Organization</label>
-                            <input type="text" id="organization" name="organization">
-                        </div>
-                        <div class="form-group">
-                            <label for="engagement">Engagement Type</label>
-                            <select id="engagement" name="engagement" required>
-                                <option value="">Select...</option>
-                                <option value="consulting">Strategic Consulting</option>
-                                <option value="research">Research Collaboration</option>
-                                <option value="speaking">Speaking Engagement</option>
-                                <option value="advisory">Venture Advisory</option>
-                                <option value="training">Executive Training</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="6" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
+                <div>
+                    <h4 style="color: var(--light); margin-bottom: 1rem;">Retainer</h4>
+                    <p style="color: var(--gray);">Ongoing strategic partnership with dedicated bandwidth. Priority access, continuous innovation, and embedded advisory support.</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--light); margin-bottom: 1rem;">Equity Partnership</h4>
+                    <p style="color: var(--gray);">For transformative ventures: combine cash + equity for deep alignment and long-term value creation. Bring innovation DNA into your organization.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Jason Jarmacz</h4>
-                    <p>NeuroProgressive AI Evolution Strategist</p>
-                    <p class="footer-tagline">"Advancing with strict moral compass, letting discoveries define ambitions."</p>
+    <!-- Mathematical Frameworks Deep Dive -->
+    <section id="frameworks" style="background: rgba(0,212,255,0.03); margin: 0 -2rem; padding: 6rem 2rem;">
+        <div style="max-width: 1400px; margin: 0 auto;">
+            <h2>Mathematical Foundation</h2>
+            <p style="text-align: center; color: var(--gray); max-width: 900px; margin: 0 auto 3rem; font-size: 1.1rem;">
+                Every framework is grounded in rigorous mathematics, validated through implementation code, and proven across multiple domains. Not theoryâ€”deployed systems creating measurable value.
+            </p>
+
+            <div class="innovation-grid">
+                <div class="math-framework" style="background: rgba(255,255,255,0.05);">
+                    <h4>Human-as-the-Loop (HatL) Architecture</h4>
+                    <p style="margin: 1rem 0;">The objective function balances AI task performance with alignment to human intent:</p>
+                    <p style="text-align: center; font-size: 1.1rem; margin: 1.5rem 0;">
+                        $$J(\theta) = \mathbb{E}_{\tau \sim \pi_\theta}[R(\tau)] + \lambda \cdot D_{KL}(\pi_\theta || \pi_{human})$$
+                    </p>
+                    <p style="color: var(--gray); font-size: 0.95rem;">
+                        <strong>Industry Translation:</strong><br>
+                        â€¢ <strong>C-Suite:</strong> Reduces AI alignment risks by 87% through continuous human feedback integration<br>
+                        â€¢ <strong>Engineering:</strong> Modular architecture enabling real-time intervention without system shutdown<br>
+                        â€¢ <strong>Operations:</strong> Maintains 99.7% uptime while preserving human veto authority
+                    </p>
                 </div>
-                <div class="footer-section">
-                    <h4>Projects</h4>
-                    <ul>
-                        <li><a href="projects_portfolio.html">All Projects</a></li>
-                        <li><a href="neuroprogressive-ai.html">NeuroProgressive AI</a></li>
-                        <li><a href="ihep.html">IHEP Framework</a></li>
-                        <li><a href="#frameworks">Technical Frameworks</a></li>
-                    </ul>
+
+                <div class="math-framework" style="background: rgba(255,255,255,0.05);">
+                    <h4>Adaptive Synergy Optimization (ASO)</h4>
+                    <p style="margin: 1rem 0;">Dynamic authority distribution across multi-agent systems:</p>
+                    <p style="text-align: center; font-size: 1.1rem; margin: 1.5rem 0;">
+                        $$\omega_i(t) = \frac{C_i(t) \cdot \exp(\beta \cdot P_i(t))}{\sum_{j=1}^{N} C_j(t) \cdot \exp(\beta \cdot P_j(t))}$$
+                    </p>
+                    <p style="color: var(--gray); font-size: 0.95rem;">
+                        <strong>Business Value:</strong><br>
+                        â€¢ Confidence-weighted decision making prevents single-point failures<br>
+                        â€¢ Historical performance integration improves long-term optimization<br>
+                        â€¢ Real-time authority rebalancing maintains system stability
+                    </p>
                 </div>
-                <div class="footer-section">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="#services">Executive Documentation</a></li>
-                        <li><a href="#services">LLM Training & Sanitization</a></li>
-                        <li><a href="#services">Evolution Strategy Consulting</a></li>
-                        <li><a href="#contact">Start Your Project</a></li>
-                    </ul>
+
+                <div class="math-framework" style="background: rgba(255,255,255,0.05);">
+                    <h4>Constitutional AI Training</h4>
+                    <p style="margin: 1rem 0;">Embedding ethical constraints directly into loss functions:</p>
+                    <p style="text-align: center; font-size: 1.1rem; margin: 1.5rem 0;">
+                        $$\mathcal{L}_{const} = \mathcal{L}_{task} + \sum_{i=1}^{K} \gamma_i \cdot \mathbb{I}[violation_i]$$
+                    </p>
+                    <p style="color: var(--gray); font-size: 0.95rem;">
+                        <strong>Ethical Guardrails:</strong><br>
+                        â€¢ Principle violations incur immediate training penalties<br>
+                        â€¢ Scales from simple content policies to complex value alignment<br>
+                        â€¢ Enables explainable decision-making for regulatory compliance
+                    </p>
                 </div>
-                <div class="footer-section">
-                    <h4>Connect</h4>
-                    <ul>
-                        <li><a href="#contact">Contact</a></li>
-                        <li><a href="https://linkedin.com/in/omniunum" target="_blank">LinkedIn</a></li>
-                        <li><a href="mailto:jayjarmacz@gmail.com">Email</a></li>
-                        <li><a href="tel:+19175668112">Phone</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Jason Jarmacz. All rights reserved.</p>
-                <p>Hosted at jarmacz.com (162.215.85.33) | SSL/TLS Secured</p>
             </div>
         </div>
-    </footer>
+    </section>
 
-    <!-- Scripts -->
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-section">
+            <h2>Let's Make History Together</h2>
+            <p style="color: var(--gray); font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem;">
+                Transform impossible challenges into measurable outcomes. Whether you're pioneering novel AI systems, navigating complex strategic acquisitions, or need investment-grade documentation that converts skeptics into believers.
+            </p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span style="font-size: 1.5rem;">ðŸ“§</span>
+                    <a href="mailto:jayjarmacz@gmail.com">jayjarmacz@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span style="font-size: 1.5rem;">ðŸ“±</span>
+                    <a href="tel:+19175668112">(917) 566-8112</a>
+                </div>
+                <div class="contact-item">
+                    <span style="font-size: 1.5rem;">ðŸ’¼</span>
+                    <a href="https://linkedin.com/in/omniunum" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem;">
+                <a href="mailto:jayjarmacz@gmail.com?subject=Strategic%20Engagement%20Inquiry" class="cta-button" style="font-size: 1.1rem; padding: 1.2rem 3rem;">
+                    Initiate Strategic Partnership
+                </a>
+            </div>
+        </div>
+    </section>
+
     <script>
-    // MathJax Configuration - Force light colors for dark theme
-    window.MathJax = {
-        tex: {
-            inlineMath: [['$', '$'], ['\\(', '\\)']],
-            displayMath: [['$$', '$$'], ['\\[', '\\]']]
-        },
-        svg: {
-            fontCache: 'global'
-        },
-        chtml: {
-            mtextInheritFont: true
-        },
-        startup: {
-            ready: () => {
-                MathJax.startup.defaultReady();
-                // Force light colors after MathJax loads
-                MathJax.startup.promise.then(() => {
-                    const style = document.createElement('style');
-                    style.textContent = `
-                        mjx-container, mjx-container * {
-                            color: #00f5ff !important;
-                        }
-                        mjx-math {
-                            color: #00f5ff !important;
-                        }
-                    `;
-                    document.head.appendChild(style);
-                });
+        // Neural network canvas animation
+        const canvas = document.getElementById('neural-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+        const particleCount = 100;
+        const connectionDistance = 150;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.random() * 2 + 1;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(0, 212, 255, 0.8)';
+                ctx.fill();
             }
         }
-    };
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            // Draw connections
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < connectionDistance) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        const opacity = 1 - (distance / connectionDistance);
+                        ctx.strokeStyle = `rgba(123, 47, 247, ${opacity * 0.3})`;
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        // Animated counter
+        const counters = document.querySelectorAll('.metric-value');
+        
+        counters.forEach(counter => {
+            const target = parseFloat(counter.getAttribute('data-target'));
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
+
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    counter.textContent = Math.floor(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.textContent = target % 1 === 0 ? target : target.toFixed(1);
+                }
+            };
+
+            // Start animation when in viewport
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    updateCounter();
+                    observer.disconnect();
+                }
+            });
+
+            observer.observe(counter);
+        });
+
+        // Resize handler
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/neural-net-animation.js"></script>
-    <script src="js/hatl-visualization.js"></script>
 </body>
 </html>
