@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects Portfolio | Jason Jarmacz - NeuroProgressive AI Evolution Strategist</title>
+    <meta name="description" content="Comprehensive portfolio of transformative AI, healthcare, infrastructure, and strategic development projects demonstrating unprecedented complexity and measurable impact.">
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary: #00d4ff;
+            --secondary: #7b2ff7;
+            --accent: #ff006e;
+            --dark: #0a0e27;
+            --darker: #050815;
+            --light: #ffffff;
+            --gray: #8892b0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            line-height: 1.8;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(5, 8, 21, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero */
+        .page-hero {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(123, 47, 247, 0.1));
+        }
+
+        .page-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-hero .subtitle {
+            font-size: 1.3rem;
+            color: var(--gray);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Content */
+        .content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 6rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            border-left: 4px solid var(--primary);
+            padding-left: 1rem;
+        }
+
+        /* Project Cards */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        .project-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .project-tag {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--light);
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .project-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .project-card p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .project-stats {
+            display: flex;
+            gap: 2rem;
+            margin: 1.5rem 0;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--gray);
+            text-transform: uppercase;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--light);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Math Display */
+        .math-preview {
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 3px solid var(--secondary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        .math-preview code {
+            color: var(--primary);
+            background: rgba(0, 212, 255, 0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+        }
+
+        /* Summary Box */
+        .summary-box {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(123, 47, 247, 0.05));
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .summary-box h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .summary-box p {
+            color: var(--gray);
+            margin-bottom: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+
+            .page-hero .subtitle {
+                font-size: 1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 2rem 1rem;
+            }
+
+            .project-card {
+                padding: 1.5rem;
+            }
+
+            .project-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index_enhanced.html" class="nav-logo">JASON JARMACZ</a>
+            <ul class="nav-links">
+                <li><a href="index_enhanced.html#home">Home</a></li>
+                <li><a href="projects_portfolio.html">Projects</a></li>
+                <li><a href="index_enhanced.html#services">Services</a></li>
+                <li><a href="index_enhanced.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="page-hero">
+        <h1>Innovation Portfolio</h1>
+        <p class="subtitle">Five transformative projects demonstrating unprecedented complexity, novel methodologies, and measurable impact across AI, healthcare, infrastructure, and strategic development</p>
+    </section>
+
+    <!-- Content -->
+    <div class="content">
+
+        <!-- Introduction -->
+        <section class="section">
+            <div class="summary-box">
+                <h4>Portfolio Philosophy: Complexity as Competitive Advantage</h4>
+                <p>
+                    Each project in this portfolio represents not just technical innovation, but a complete paradigm shift in how we approach seemingly intractable problems. From restoring communication for paralyzed patients to reframing HIV from lifelong burden to solvable challenge, these initiatives demonstrate:
+                </p>
+                <ul style="margin-left: 2rem; color: var(--gray);">
+                    <li><strong>Mathematical Rigor:</strong> Every framework validated through implementation code with LaTeX-rendered equations</li>
+                    <li><strong>Multi-Level Communication:</strong> Technical specifications translated into C-suite, engineering, and operations language</li>
+                    <li><strong>Regulatory Sophistication:</strong> NIST, FDA, HIPAA, and CJIS compliance architected from day one</li>
+                    <li><strong>Measurable Outcomes:</strong> Quantified impact metrics demonstrating 35-87% improvements over baseline</li>
+                    <li><strong>Ethical Guardrails:</strong> Human-as-the-Loop principles embedded at system architecture level</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Projects Grid -->
+        <section class="section">
+            <h2>Active Projects & Strategic Initiatives</h2>
+
+            <div class="projects-grid">
+                
+                <!-- NeuroProgressive AI -->
+                <div class="project-card">
+                    <span class="project-tag">Neurotechnology × AI</span>
+                    <span class="project-tag">Brain-Computer Interfaces</span>
+                    <h3>NeuroProgressive AI Platform</h3>
+                    <p>
+                        Revolutionary Human-as-the-Loop brain-computer interface integrating non-invasive BCIs, deep learning, and focused ultrasound neuromodulation. Restoring communication for paralyzed patients while pioneering ethical AI-human symbiosis.
+                    </p>
+
+                    <div class="math-preview">
+                        <strong>Core Mathematical Framework:</strong><br>
+                        Human-as-the-Loop Objective: $$J(\theta) = \mathbb{E}[R(\tau)] + \lambda \cdot D_{KL}(\pi_\theta || \pi_{human})$$
+                    </div>
+
+                    <div class="summary-box">
+                        <p><strong>C-Suite:</strong> Reduces AI alignment risks by 87% through continuous human feedback; mitigates liability and ensures regulatory compliance.</p>
+                        <p><strong>Engineering:</strong> Modular architecture with EEG signal acquisition (1kHz sampling), CNN-LSTM hybrid decoders, and <150ms end-to-end latency.</p>
+                        <p><strong>Operations:</strong> 99.7% uptime with automated monitoring, safety cut-offs, and fail-safe defaults preserving human veto authority.</p>
+                    </div>
+
+                    <div class="project-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">80</span>
+                            <span class="stat-label">Words/Min Speech</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">87%</span>
+                            <span class="stat-label">Risk Reduction</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">40%</span>
+                            <span class="stat-label">Cost Savings</span>
+                        </div>
+                    </div>
+
+                    <a href="neuroprogressive-ai.html" class="cta-button">Full Technical Deep Dive →</a>
+                </div>
+
+                <!-- IHEP -->
+                <div class="project-card">
+                    <span class="project-tag">Healthcare × AI</span>
+                    <span class="project-tag">Zero Trust Architecture</span>
+                    <h3>Integrated Health Empowerment Program (IHEP)</h3>
+                    <p>
+                        Next-generation HIV care framework bridging grassroots community engagement with AI-driven digital health twins. NIST-compliant Zero Trust architecture accelerating pathways from management toward functional cure.
+                    </p>
+
+                    <div class="math-preview">
+                        <strong>Recursive Bayesian Update:</strong><br>
+                        $$P(\theta_{t+1} | \mathcal{D}_{1:t+1}) \propto P(\mathcal{D}_{t+1} | \theta_{t+1}) \cdot P(\theta_{t+1} | \mathcal{D}_{1:t})$$
+                        <p style="margin-top: 0.5rem; font-size: 0.85rem;">Continuous learning from patient digital twin responses</p>
+                    </div>
+
+                    <div class="summary-box">
+                        <p><strong>C-Suite:</strong> De-risks AI deployment; positions as ethical AI leader; attracts federal SBIR funding priority.</p>
+                        <p><strong>Engineering:</strong> Federated learning across encrypted silos; real-time digital twin modeling with recursive loop closure.</p>
+                        <p><strong>Operations:</strong> Community health workers use tablet interfaces; AI flags adherence risks; automatic intervention scheduling via HL7 FHIR.</p>
+                    </div>
+
+                    <div class="project-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">350</span>
+                            <span class="stat-label">Patient Capacity</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">NIST</span>
+                            <span class="stat-label">AI RMF Compliant</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">35%</span>
+                            <span class="stat-label">Cost Reduction</span>
+                        </div>
+                    </div>
+
+                    <a href="ihep.html" class="cta-button">Full Technical Deep Dive →</a>
+                </div>
+
+                <!-- Mission Valley -->
+                <div class="project-card">
+                    <span class="project-tag">Strategic Development</span>
+                    <span class="project-tag">Real Estate</span>
+                    <h3>Mission Valley Nexus | $215M Acquisition Strategy</h3>
+                    <p>
+                        Comprehensive multi-pathway analysis for transformative 17.38-acre property development. Three distinct acquisition models: UCSD Innovation Hub, Faith-Community Partnership, and Corporate Life Sciences Campus with 194% ROI projections.
+                    </p>
+
+                    <div class="math-preview">
+                        <strong>30-Year Investment Thesis:</strong><br>
+                        <code>Equity Multiple: 4.89×</code> | <code>Sponsor IRR: 18-25%</code><br>
+                        Exit Valuation (Year 30): <strong>$399.6M</strong> at 5.5% cap rate
+                    </div>
+
+                    <div class="summary-box">
+                        <p><strong>UCSD Pathway:</strong> Research campus for School of Computing at ~$12.4M/acre vs. $40M+ in La Jolla; beneficial occupancy in <12 months.</p>
+                        <p><strong>Corporate Pathway:</strong> Illumina ($567M) or Novartis ($647M) life sciences R&D hubs with 40%+ capital savings vs. traditional build-to-suit.</p>
+                        <p><strong>Faith-Community Hybrid:</strong> Rock Church + San Diego Housing Commission creating 350-400 affordable units while preserving ministry legacy.</p>
+                    </div>
+
+                    <div class="project-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">$215M</span>
+                            <span class="stat-label">Asset Value</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">1000+</span>
+                            <span class="stat-label">Jobs Created</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">$1.1B</span>
+                            <span class="stat-label">Economic Impact</span>
+                        </div>
+                    </div>
+
+                    <a href="index_enhanced.html#contact" class="cta-button">Request Full Analysis →</a>
+                </div>
+
+                <!-- JESS -->
+                <div class="project-card">
+                    <span class="project-tag">Cybersecurity × IoT</span>
+                    <span class="project-tag">Critical Infrastructure</span>
+                    <h3>JESS | Secure WBAN/BACnet Pipeline</h3>
+                    <p>
+                        Joint Ethics on Safety & Standards for validated OSI Layer secured transmission across Wireless Body Area Networks and Building Automation systems. NIST SP 800-207 Zero Trust architecture protecting first responder biometric data.
+                    </p>
+
+                    <div class="summary-box">
+                        <p><strong>Security Architecture:</strong> BACnet Secure Connect (TLS/PKI) + event-driven, energy-aware edge analytics with cryptographic validation at every OSI layer.</p>
+                        <p><strong>Dual-Use Impact:</strong> Same ingredients that harden responder wearables enable distributed energy/sustainability wins through battery-light sensors and resilient edge processing.</p>
+                        <p><strong>Standards Alignment:</strong> NIST SP 800-207 (Zero Trust), SP 800-53r5, NISTIR 8259A (IoT), CJIS Security Policy v6.0.</p>
+                    </div>
+
+                    <div class="project-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">7</span>
+                            <span class="stat-label">OSI Layers Secured</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">Zero</span>
+                            <span class="stat-label">Trust Model</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">40%</span>
+                            <span class="stat-label">Energy Savings</span>
+                        </div>
+                    </div>
+
+                    <a href="index_enhanced.html#contact" class="cta-button">Request Technical Whitepaper →</a>
+                </div>
+
+                <!-- DIPG AI Therapeutic -->
+                <div class="project-card">
+                    <span class="project-tag">Biomedical AI</span>
+                    <span class="project-tag">Drug Discovery</span>
+                    <h3>AI-Driven DIPG Therapeutic Discovery</h3>
+                    <p>
+                        Revolutionary machine learning approach to pediatric brain cancer treatment. Generative AI models designing novel brain-penetrant molecules targeting DIPG's unique metabolic vulnerabilities—bypassing decades of failed traditional approaches.
+                    </p>
+
+                    <div class="math-preview">
+                        <strong>Molecular Optimization Target:</strong><br>
+                        BBB Permeability + Target Affinity + Minimal Toxicity<br>
+                        <code>IC₅₀ < 1μM</code> | <code>Blood-Brain Barrier Penetration > 80%</code>
+                    </div>
+
+                    <div class="summary-box">
+                        <p><strong>The Challenge:</strong> Diffuse Intrinsic Pontine Glioma (DIPG) has <1% 5-year survival despite 200+ clinical trials. Inoperable brainstem tumor with no effective chemotherapy.</p>
+                        <p><strong>AI-Driven Solution:</strong> Generative models design novel small-molecule inhibitors targeting DHODH (pyrimidine synthesis addiction) with optimized BBB penetration.</p>
+                        <p><strong>Timeline Compression:</strong> 12-month development vs. 5-year traditional discovery; AI explores chemical spaces humans wouldn't consider.</p>
+                    </div>
+
+                    <div class="project-stats">
+                        <div class="stat-item">
+                            <span class="stat-number"><1%</span>
+                            <span class="stat-label">Current Survival</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">AI</span>
+                            <span class="stat-label">Drug Design</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">12mo</span>
+                            <span class="stat-label">Dev Timeline</span>
+                        </div>
+                    </div>
+
+                    <a href="index_enhanced.html#contact" class="cta-button">SBIR Proposal Collaboration →</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Services CTA -->
+        <section class="section">
+            <h2>Transform Your Organization's Strategic Documentation</h2>
+            <div class="summary-box">
+                <h4>Corporate Documentation & Strategic Consulting Services</h4>
+                <p>
+                    The frameworks, mathematical rigor, and multi-stakeholder communication demonstrated across these projects are available as consulting services. Whether you need investment-grade business plans, SBIR/STTR grant proposals, AI training protocols, or technology due diligence, we bring battle-tested methodologies to the table.
+                </p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                    <div>
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Executive Documentation Suite</h4>
+                        <p style="margin-bottom: 0.5rem;">Investment-grade business documents translating complex innovation into C-suite clarity:</p>
+                        <ul style="margin-left: 2rem; color: var(--gray); font-size: 0.95rem;">
+                            <li>SBIR/STTR Grant Proposals</li>
+                            <li>Investment Prospectuses & LOIs</li>
+                            <li>Strategic Business Plans</li>
+                            <li>Technical White Papers</li>
+                        </ul>
+                        <p style="margin-top: 1rem; color: var(--primary); font-weight: 600;">$5K - $25K per deliverable</p>
+                    </div>
+
+                    <div>
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">LLM Training & Sanitization</h4>
+                        <p style="margin-bottom: 0.5rem;">Human-as-the-Loop methodologies for trustworthy AI:</p>
+                        <ul style="margin-left: 2rem; color: var(--gray); font-size: 0.95rem;">
+                            <li>Constitutional AI Training</li>
+                            <li>RLHF Implementation</li>
+                            <li>Bias Detection & Mitigation</li>
+                            <li>NIST AI RMF Compliance</li>
+                        </ul>
+                        <p style="margin-top: 1rem; color: var(--primary); font-weight: 600;">$50K - $250K per engagement</p>
+                    </div>
+
+                    <div>
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Evolution Strategy Consulting</h4>
+                        <p style="margin-bottom: 0.5rem;">Transform impossible challenges into tractable innovations:</p>
+                        <ul style="margin-left: 2rem; color: var(--gray); font-size: 0.95rem;">
+                            <li>Technology Due Diligence</li>
+                            <li>Innovation Roadmapping</li>
+                            <li>Synthetic Research & Analysis</li>
+                            <li>Regulatory Navigation</li>
+                        </ul>
+                        <p style="margin-top: 1rem; color: var(--primary); font-weight: 600;">$15K/month retainer</p>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="index_enhanced.html#services" class="cta-button" style="font-size: 1.1rem; padding: 1rem 2.5rem;">Explore Service Offerings</a>
+                    <a href="index_enhanced.html#contact" class="cta-button" style="font-size: 1.1rem; padding: 1rem 2.5rem; margin-left: 1rem;">Initiate Strategic Partnership</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.querySelector('.nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(5, 8, 21, 0.98)';
+                navbar.style.boxShadow = '0 4px 20px rgba(0, 212, 255, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(5, 8, 21, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -121,6 +121,7 @@
         .metrics {
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 4rem;
             margin-top: 3rem;
             flex-wrap: wrap;
@@ -146,6 +147,9 @@
 
         /* Section Styling */
         section {
+            justify-content: center;
+            display: grid;
+            align-items: center;
             padding: 6rem 2rem;
             max-width: 1400px;
             margin: 0 auto;
@@ -165,12 +169,19 @@
         /* Innovation Showcase Grid */
         .innovation-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            justify-content: center;
+            align-items: center;
+            align-items: start;
             gap: 2rem;
             margin-top: 3rem;
-        }
+}
 
         .innovation-card {
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 400px;
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(0, 212, 255, 0.2);
             border-radius: 12px;
@@ -181,10 +192,9 @@
         }
 
         .innovation-card::before {
-            content: '';
+            justify-content: 'center';
             position: absolute;
             top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -276,13 +286,18 @@
 
         /* Services Section */
         .services-grid {
+            grid-template-columns: repeat(auto-fit, minmax(768px, 1fr));
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+            justify-content: center;
+            align-items: start;
+            width: 100%;
             gap: 2rem;
             margin-top: 3rem;
-        }
+}
 
         .service-card {
+            justify-content: center;
+            align-items: center;
             background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(123, 47, 247, 0.05));
             border: 2px solid transparent;
             border-radius: 16px;
@@ -319,12 +334,11 @@
         }
 
         .service-card li::before {
-            content: "â–¹";
+            content: "\25B8";
             position: absolute;
             left: 0;
             color: var(--primary);
-        }
-
+}
         .price-tag {
             font-size: 2rem;
             font-weight: 700;
@@ -340,6 +354,8 @@
 
         /* Mathematical Framework Display */
         .math-framework {
+            justify-content: center;
+            align-items: center;
             background: rgba(255, 255, 255, 0.02);
             border-left: 4px solid var(--primary);
             padding: 2rem;
@@ -426,10 +442,16 @@
                 padding: 0 1rem;
             }
 
-            .innovation-grid,
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
+            /* Base grid layout */
+        .innovation-grid,
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            justify-content: center;
+            align-items: start;
+            gap: 2rem;
+            margin-top: 3rem;
+}
 
             .innovation-card,
             .service-card {

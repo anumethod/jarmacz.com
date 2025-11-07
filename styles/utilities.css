@@ -2,7 +2,7 @@
 .section-summary {
     text-align: center;
     color: var(--gray);
-    max-width: 900px;
+    max-width: 100%;
     margin: 0 auto 3rem;
     font-size: 1.1rem;
 }
@@ -27,12 +27,17 @@
 }
 
 .section-portfolio-docs {
+    display: grid;
+    justify-content: center;
+    align-items: center;
     background: rgba(123, 47, 247, 0.05);
-    margin: 0 -2rem;
+    margin: 0 2rem;
     padding: 6rem 2rem;
 }
 
 .wide-container {
+    display: flex;
+    justify-content: center;
     max-width: 1400px;
     margin: 0 auto;
 }
@@ -40,7 +45,7 @@
 .section-intro {
     text-align: center;
     color: var(--gray);
-    max-width: 1000px;
+    max-width: 900px;
     margin: 0 auto 1.5rem;
     font-size: 1.1rem;
 }
@@ -60,6 +65,7 @@
 }
 
 .docs-grid {
+    justify-content: center;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
     gap: 2rem;
@@ -425,7 +431,7 @@
             font-size: 3rem;
             font-weight: 700;
             color: var(--primary);
-            display: block;
+            display: flex;
         }
 
         .metric-label {
@@ -437,6 +443,7 @@
 
         /* Section Styling */
         section {
+            display: flex;
             padding: 6rem 2rem;
             max-width: 1400px;
             margin: 0 auto;
@@ -728,6 +735,7 @@
             }
 
             section {
+                display: flex;
                 padding: 3rem 1rem;
             }
 
@@ -806,6 +814,7 @@
             }
 
             section {
+                display: flex;
                 padding: 2rem 0.75rem;
             }
 

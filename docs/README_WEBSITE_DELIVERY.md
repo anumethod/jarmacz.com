@@ -450,9 +450,9 @@ Enable SSL/TLS:
 - WCAG Guidelines: https://www.w3.org/WAI/WCAG21/quickref/
 
 ### Contact for Technical Questions
-- **Developer:** Jason Jarmacz using Claude AI & Claude Code (via Anthropic)
+- **Developer:** Claude AI (via Anthropic)
 - **Client:** Jason Jarmacz
-  - Email: jason@jarmacz.com
+  - Email: jayjarmacz@gmail.com
   - Phone: (917) 566-8112
   - LinkedIn: linkedin.com/in/omniunum
 
