@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)
 ![License](https://img.shields.io/badge/license-Proprietary-red.svg)
 ![Python](https://img.shields.io/badge/python-3.9+-green.svg)
 ![Flask](https://img.shields.io/badge/flask-3.0.0-lightgrey.svg)
@@ -585,6 +585,15 @@ This is proprietary software. Unauthorized copying, distribution, or modificatio
 ---
 
 ## Changelog
+
+### Version 1.1.0 (2025-01-XX)
+- **Fixed:** Added navigation menu to all pages (index.html, jess.html, dipg.html)
+- **Fixed:** Standardized all link paths (removed leading slashes)
+- **Fixed:** Added missing main.js script to all pages for navigation functionality
+- **Fixed:** Corrected broken navigation links (removed references to non-existent sections)
+- **Fixed:** CSS syntax error in home.html (removed invalid style attribute)
+- **Improved:** Consistent navigation structure across all pages
+- **Improved:** All project pages now properly linked from main navigation
 
 ### Version 1.0.0 (2025-10-20)
 - Initial website launch
