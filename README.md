@@ -2,7 +2,10 @@
 
 <div align="center">
 
-![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)
+![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)
+![Next.js](https://img.shields.io/badge/next.js-16-black?logo=next.js)
+![React](https://img.shields.io/badge/react-19-blue?logo=react)
+![TypeScript](https://img.shields.io/badge/typescript-5.7-blue?logo=typescript)
 ![License](https://img.shields.io/badge/license-Proprietary-red.svg)
 ![Python](https://img.shields.io/badge/python-3.9+-green.svg)
 ![Flask](https://img.shields.io/badge/flask-3.0.0-lightgrey.svg)

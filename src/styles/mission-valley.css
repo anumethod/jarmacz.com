@@ -1,0 +1,458 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00d4ff;
+            --secondary: #7b2ff7;
+            --accent: #ff006e;
+            --dark: #0a0e27;
+            --darker: #050815;
+            --light: #ffffff;
+            --gray: #8892b0;
+            --success: #00ff88;
+            --warning: #ffd700;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(5, 8, 21, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(123, 47, 247, 0.1));
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: var(--gray);
+            max-width: 900px;
+            margin: 0 auto 2rem;
+        }
+
+        .property-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto;
+        }
+
+        .spec-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .spec-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .spec-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Content Sections */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Pathway Cards */
+        .pathways-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pathway-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid rgba(0, 212, 255, 0.2);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pathway-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .pathway-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        .pathway-tag {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .pathway-card p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .pathway-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .metric-item {
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            color: var(--gray);
+            text-transform: uppercase;
+        }
+
+        /* Financial Model Section */
+        .financial-model {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(123, 47, 247, 0.05));
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+
+        .capital-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stack-layer {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .stack-layer h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stack-amount {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--light);
+            margin: 0.5rem 0;
+        }
+
+        .stack-percentage {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        th {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(123, 47, 247, 0.2));
+            color: var(--light);
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray);
+        }
+
+        tr:hover {
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+        .highlight-value {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Math Framework */
+        .math-framework {
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 4px solid var(--primary);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        .math-framework h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+            margin: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 0 2rem;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border: 4px solid var(--darker);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        /* Key Benefits */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .benefit-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(123, 47, 247, 0.1));
+            border-radius: 20px;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--light);
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .timeline-content {
+                margin: 0 0 0 2rem;
+            }
+
+            .timeline-marker {
+                left: 0;
+                transform: translateX(-50%);
+            }
+
+            .property-specs {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+
+            .pathways-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .capital-stack {
+                grid-template-columns: 1fr;
+            }
+        }
