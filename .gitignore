@@ -1,149 +1,34 @@
-# Environment variables and secrets
-.env
-.env.local
-.env.*.local
-.env.production
-.env.development
-*.env
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
 
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+# testing
+/coverage
 
-# Virtual environments
-venv/
-.venv/
-ENV/
-env/
-virtualenv/
+# next.js
+/.next/
+/out/
 
-# Flask
-instance/
-.webassets-cache
+# production
+/build
 
-# PyInstaller
-*.manifest
-*.spec
+# misc
+.DS_Store
+*.pem
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-.hypothesis/
-.pytest_cache/
-
-# Translations
-*.mo
-*.pot
-
-# Django stuff (in case of future migration)
-*.log
-local_settings.py
-db.sqlite3
-
-# Logs
-logs/
-*.log
+# debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# IDEs and Editors
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-.project
-.pydevproject
-.settings/
-*.sublime-project
-*.sublime-workspace
-.vs/
+# local env files
+.env*.local
+.env
 
-# OS
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-desktop.ini
+# vercel
+.vercel
 
-# Backup files
-*.bak
-*.backup
-*.tmp
-*.temp
-*~
-
-# Deployment
-*.deploy
-.cpanel.yml.bak
-
-# Sensitive configuration files
-config.json
-credentials.json
-service-account.json
-*.pem
-*.key
-*.cert
-*.crt
-
-# Database
-*.db
-*.sqlite
-*.sqlite3
-
-# Redis dump
-dump.rdb
-
-# Node modules (if using any frontend build tools)
-node_modules/
-npm-debug.log
-
-# Static file builds
-.sass-cache/
-*.css.map
-
-# Documentation builds
-docs/_build/
-site/
-
-# Temporary files
-tmp/
-temp/
-
-# Application specific
-uploads/
-downloads/
+# typescript
+*.tsbuildinfo
+next-env.d.ts

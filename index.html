@@ -14,6 +14,30 @@
     <link rel="stylesheet" href="styles/index.css">
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="main-nav" id="mainNav">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html" aria-label="Jason Jarmacz home">
+                    <img src="images/1000002043.jpg" alt="Jason Jarmacz logo" class="site-logo">
+                    <span class="logo-text">JARMACZ</span>
+                </a>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#innovations">Portfolio</a></li>
+                <li><a href="frameworks.html">Frameworks</a></li>
+                <li><a href="projects_portfolio.html">Projects</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
     <!-- Hero Section -->
     <section class="hero">
         <canvas id="neural-canvas"></canvas>
@@ -72,7 +96,7 @@
                         <span class="stat-label">Cost Savings</span>
                     </div>
                 </div>
-                <a href="#contact" class="cta-button">Explore Framework</a>
+                <a href="neuroprogressive-ai.html" class="cta-button">Explore Framework</a>
             </div>
 
             <!-- IHEP -->
@@ -102,7 +126,7 @@
                         <span class="stat-label">Security Model</span>
                     </div>
                 </div>
-                <a href="#contact" class="cta-button">Learn More</a>
+                <a href="ihep.html" class="cta-button">Learn More</a>
             </div>
 
             <!-- Mission Valley -->
@@ -132,7 +156,7 @@
                         <span class="stat-label">Economic Impact</span>
                     </div>
                 </div>
-                <a href="#contact" class="cta-button">View Analysis</a>
+                <a href="mission-valley.html" class="cta-button">View Analysis</a>
             </div>
 
             <!-- JESS -->
@@ -162,7 +186,7 @@
                         <span class="stat-label">Energy Savings</span>
                     </div>
                 </div>
-                <a href="#contact" class="cta-button">Technical Details</a>
+                <a href="jess.html" class="cta-button">Technical Details</a>
             </div>
 
             <!-- DIPG AI Therapeutic -->
@@ -193,7 +217,7 @@
                         <span class="stat-label">Dev Timeline</span>
                     </div>
                 </div>
-                <a href="#contact" class="cta-button">Research Summary</a>
+                <a href="dipg.html" class="cta-button">Research Summary</a>
             </div>
         </div>
     </section>
@@ -645,5 +669,6 @@
             canvas.height = window.innerHeight;
         });
     </script>
+    <script src="js/main.js"></script>
 </body>
 </html>

@@ -14,6 +14,30 @@
     <link rel="stylesheet" href="styles/jess.css">
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="main-nav" id="mainNav">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html" aria-label="Jason Jarmacz home">
+                    <img src="images/1000002043.jpg" alt="Jason Jarmacz logo" class="site-logo">
+                    <span class="logo-text">JARMACZ</span>
+                </a>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#innovations">Portfolio</a></li>
+                <li><a href="frameworks.html">Frameworks</a></li>
+                <li><a href="projects_portfolio.html">Projects</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
     <!-- Hero Section -->
     <section class="hero">
         <canvas id="neural-canvas"></canvas>
@@ -371,5 +395,6 @@
             canvas.height = window.innerHeight;
         });
     </script>
+    <script src="js/main.js"></script>
 </body>
 </html>
